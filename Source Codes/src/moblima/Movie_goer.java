@@ -1,6 +1,12 @@
 package moblima;
 
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;  
+import java.text.SimpleDateFormat;  
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Calendar; 
+import java.text.ParseException; 
 import java.util.Scanner;
 
 public class Movie_goer extends Person {
@@ -98,13 +104,26 @@ public class Movie_goer extends Person {
 		cineplexChoice = sc.nextInt();
 		
 		System.out.println("Select a date: ");
-		// List out all the available dates that the user's desired (chosen) movie will be screened on.
-		// 
+		// List out the next 5 dates (in advance), from the day the user logs into the app.
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");  
+		LocalDate currDate = LocalDate.now();
+		String date = currDate.format(dateFormatter);
+		LocalDate parsedCurrDate = LocalDate.parse(date, dateFormatter);
+
+		Calendar cal = Calendar.getInstance();    
+		
 		dateChoice = sc.nextInt();
 		
 		System.out.println("Select a timeslot: ");
 		// List out all the available time slots of when the user's desired (chosen) movie will be screened on a chosen date.
-		// 
+		// Cinema.getShowtime();
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");  
+
+		try{  
+	           cal.setTime(timeFormatter.parse(parsedCurrDate));  
+	        }catch(ParseException e){  
+	            e.printStackTrace();  
+	         }
 		timeChoice = sc.nextInt();
 		
 		System.out.println("Select a time: ");
