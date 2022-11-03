@@ -9,9 +9,10 @@ public class Cinema {
 	private int numEmptySeat;
 	private String[] showtime;
 	private Movie[] movie;
-	private String[] rowL = {"A","B","C","D","E","F","G","H","J"};
-	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "};
+	private String[] rowL = {"A","B","C","D","E","F","G","H","J"};//rows
+	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "};//columns
 	
+	//constructor
 	public Cinema() {
 		seat = new CinemaSeat[row][col];
 		movie = new Movie[3];
@@ -28,6 +29,8 @@ public class Cinema {
 		System.out.println("Total number of seats left: "+ numEmptySeat);
 	}
 
+
+	//print out all the seats but i haven do according to the appendix yet
 	public void showEmptySeat() {
 		for(int k = 0; k<colL.length; k++){
 			System.out.print(colL[k]);
@@ -46,6 +49,7 @@ public class Cinema {
 		}
 	}
 
+	//assign seat
 	public void assignSeat(int r,int c, int customerId){
 		if(this.seat[r][c].isAssigned()){
 			System.out.println("Seat is already assigned");
@@ -69,7 +73,7 @@ public class Cinema {
 		
 	}
 
-	//copy movie object to the cinema should work with movie class
+	//array of movie
 	public void setMovie(Movie movie) {
 		for(int i = 0; i<3;i++){
 			if(this.movie[i]==null){

@@ -9,6 +9,8 @@ public class CinemaSeat {
 	private String rowS;
 	private String x;
 
+	
+	//constructor for Cinema seat
 	public CinemaSeat(int row, int col) {
 		this.row = row;
 		this.col = col;
