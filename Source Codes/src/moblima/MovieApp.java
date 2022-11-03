@@ -10,7 +10,6 @@ public class MovieApp {
         }
     }
     
-    private int test;
     private Cineplex[] cineplexes;
     private int numCineplex;
 
