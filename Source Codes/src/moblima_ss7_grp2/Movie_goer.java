@@ -11,7 +11,7 @@ public class Movie_goer extends Person {
 	private String mobile;
 	private String email;
 	private int review;
-	private ArrayList<Booking> bookings = new ArrayList<>();
+	private ArrayList<Bookings> bookings = new ArrayList<>();
 	//private String password;
 	
 	Scanner sc = new Scanner(System.in);
@@ -33,7 +33,7 @@ public class Movie_goer extends Person {
 	
 	public Movie_goer() {};
 	
-	public Movie_goer(String name, int age, String mobile, String email, ArrayList<Booking> bookings) {
+	public Movie_goer(String name, int age, String mobile, String email, ArrayList<Bookings> bookings) {
 		this.name = name;
 		this.age = age;
 		this.mobile = mobile;
@@ -136,7 +136,7 @@ public class Movie_goer extends Person {
 		this.email = email;
 	}
 	
-	public ArrayList<Booking> getBookingHistory(){
+	public ArrayList<Bookings> getBookingHistory(){
 		// Movie_goer can browse through his / her past movie bookings with ease.
 		return this.bookings;
 	}
