@@ -1,4 +1,4 @@
-package moblima_ss7_grp2;
+package moblima;
 
 import java.util.ArrayList;
 import java.util.Scanner;
