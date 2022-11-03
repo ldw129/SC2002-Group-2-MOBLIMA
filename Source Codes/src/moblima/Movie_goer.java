@@ -64,7 +64,7 @@ public class Movie_goer extends Person {
 			}
 		}
 		
-		System.out.println("Movie not found. Please search for another movie.");
+		System.out.println("Movie not found. Please search for another movie instead.");
 	}
 
 	public void CheckSeat(int row, int col) {
@@ -78,10 +78,40 @@ public class Movie_goer extends Person {
 			System.out.println("Seat is available! Would you like to pick this seat?");
 	}
 
-	public void Book() {
-		// Movie_goer can book a movie ticket for a particular chosen movie.
+	public void BookTickets() {
+		// Movie_goer can book and purchase movie ticket(s) for a particular chosen movie.
 		Bookings b = new Bookings();
+		int movieChoice;
+		int cineplexChoice;
+		int dateChoice;
+		int timeChoice;
+		
+		System.out.println("Select a movie:");
+		// List out all available movies that are Now Showing or on Preview.
+		// ListMovie();
+		// User chooses the movie he / she wants to watch at the cinema.
+		movieChoice = sc.nextInt();
+		
+		System.out.println("Select a cineplex: ");
+		// List out all cineplex outlets under this organization that screen the user's desired (chosen) movie.
+		// Cineplex.showLocation();
+		cineplexChoice = sc.nextInt();
+		
+		System.out.println("Select a date: ");
+		// List out all the available dates that the user's desired (chosen) movie will be screened on.
+		// 
+		dateChoice = sc.nextInt();
+		
+		System.out.println("Select a timeslot: ");
+		// List out all the available time slots of when the user's desired (chosen) movie will be screened on a chosen date.
+		// 
+		timeChoice = sc.nextInt();
+		
+		System.out.println("Select a time: ");
+		
 		b.getBookingID();
+		b.getSeatNum();
+		b.getDateTime();
 	}
 
 	public void PopularMovies() {
