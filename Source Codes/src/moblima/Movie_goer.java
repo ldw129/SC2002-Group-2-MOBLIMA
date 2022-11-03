@@ -67,10 +67,12 @@ public class Movie_goer extends Person {
 		System.out.println("Movie not found. Please search for another movie.");
 	}
 
-	public void CheckSeat() {
+	public void CheckSeat(int row, int col) {
 		// Movie_goer can check for empty seats in a cineplex before booking.
 		
-		if (CinemaSeat.isAssigned() == true)
+		CinemaSeat seat = new CinemaSeat(row, col);
+		
+		if (seat.isAssigned() == true)
 			System.out.println("Seat is not available. Please choose another seat instead.");
 		else
 			System.out.println("Seat is available! Would you like to pick this seat?");
@@ -78,7 +80,8 @@ public class Movie_goer extends Person {
 
 	public void Book() {
 		// Movie_goer can book a movie ticket for a particular chosen movie.
-		
+		Bookings b = new Bookings();
+		b.getBookingID();
 	}
 
 	public void PopularMovies() {
