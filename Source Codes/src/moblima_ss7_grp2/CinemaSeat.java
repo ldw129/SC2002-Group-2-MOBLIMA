@@ -6,8 +6,6 @@ public class CinemaSeat {
 	private int customerId;
 	private String rowS;
 	private String x;
-	
-	// private int can_yall_see_this;
 
 	public CinemaSeat(int row, int col) {
 		this.row = row;
