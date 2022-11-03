@@ -2,10 +2,8 @@ package moblima;
 
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;  
-import java.text.SimpleDateFormat;  
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar; 
 import java.text.ParseException; 
 import java.util.Scanner;
 
@@ -54,6 +52,12 @@ public class Movie_goer extends Person {
 
 	public void ListMovie(Movie[] movieListing, int numOfMovies) {
 		// Movie_goer can have a glance at a full list of all movies currently showing.
+		// For example:
+		// 1. Black Adam
+		// 2. Come Back Home
+		// 3. Black Panther - Wakanda Forever
+		// Movie = ['Black Adam', 'Come Back Home', 'Black Panther - Wakanda Forever']
+		// numOfMovies = 3
 		
 		for (int i=0; i<numOfMovies; i++)
 			System.out.println(i+1 + ". " + movieListing[i]);
@@ -84,6 +88,90 @@ public class Movie_goer extends Person {
 			System.out.println("Seat is available! Would you like to pick this seat?");
 	}
 
+	public int selectMovie() {
+		// List out all available movies that are Now Showing or for Preview.
+		// ListMovie();
+		// User chooses the movie he / she wants to watch at the cinema.
+		int movieChoice = sc.nextInt();
+		return movieChoice;
+	}
+	
+	public int selectCineplex(int movieChoice) {
+		int i;
+		int cineplexChoice = 0;
+		
+		switch (movieChoice) {
+			case 1:
+				// List out all cineplexes that screens the user's desired (chosen) movie.
+				for (i=0; i<numOfCineplexes < i++) {
+					System.out.println(i+1 + ". " + Cineplex.showLocation());
+				}
+				cineplexChoice = sc.nextInt();
+				break;
+			case 2:
+				// List out all cineplexes that screens the user's desired (chosen) movie.
+				for (i=0; i<numOfCineplexes < i++) {
+					System.out.println(i+1 + ". " + Cineplex.showLocation());
+				}
+				cineplexChoice = sc.nextInt();
+				break;
+			case 3:
+				// List out all cineplexes that screens the user's desired (chosen) movie.
+				for (i=0; i<numOfCineplexes < i++) {
+					System.out.println(i+1 + ". " + Cineplex.showLocation());
+				}
+				cineplexChoice = sc.nextInt();
+				break;
+			case 4:
+				// List out all cineplexes that screens the user's desired (chosen) movie.
+				for (i=0; i<numOfCineplexes < i++) {
+					System.out.println(i+1 + ". " + Cineplex.showLocation());
+				}
+				cineplexChoice = sc.nextInt();
+				break;
+			case 5:
+				// List out all cineplexes that screens the user's desired (chosen) movie.
+				for (i=0; i<numOfCineplexes < i++) {
+					System.out.println(i+1 + ". " + Cineplex.showLocation());
+				}
+				cineplexChoice = sc.nextInt();
+				break;
+		}
+		
+		return cineplexChoice;
+	}
+	
+	public int selectDate() {
+		// List out the next 5 dates (in advance), from the day the user logs into the app.
+		int dateChoice;
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+		LocalDate currDate = LocalDate.now();
+		String date = currDate.format(dateFormatter);
+		LocalDate parsedCurrDate = LocalDate.parse(date, dateFormatter);
+		 
+		for (int i=0; i<=5; i++) {
+			String dateAfterCurrDate = LocalDate.parse(date).plusDays(i).toString();  
+			System.out.printf(i+1 + ". " + dateAfterCurrDate + "\n");
+		}
+		
+		dateChoice = sc.nextInt();
+		return dateChoice;
+	}
+	
+	public int selectTime(int movieChoice, int cineplexChoice, int dateChoice) {
+		// List out all the available time slots of when the user's desired (chosen) movie will be screened on a chosen date.
+		// Cinema.getShowtime();
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");  
+		LocalTime currTime = LocalTime.now();
+		String time = currTime.format(timeFormatter);
+		LocalTime parsedCurrTime = LocalTime.parse(time,timeFormatter);
+		
+		// get movie showtimes on the chosen day (use switch case statement, based on dateChoice)
+		// list out movie showtimes that are available for booking, if they are beyond parsedCurrTime, otherwise do not show
+		
+	
+	}
+		
 	public void BookTickets() {
 		// Movie_goer can book and purchase movie ticket(s) for a particular chosen movie.
 		Bookings b = new Bookings();
@@ -93,40 +181,16 @@ public class Movie_goer extends Person {
 		int timeChoice;
 		
 		System.out.println("Select a movie:");
-		// List out all available movies that are Now Showing or on Preview.
-		// ListMovie();
-		// User chooses the movie he / she wants to watch at the cinema.
-		movieChoice = sc.nextInt();
+		movieChoice = selectMovie();
 		
 		System.out.println("Select a cineplex: ");
-		// List out all cineplex outlets under this organization that screen the user's desired (chosen) movie.
-		// Cineplex.showLocation();
-		cineplexChoice = sc.nextInt();
+		cineplexChoice = selectCineplex(movieChoice);
 		
 		System.out.println("Select a date: ");
-		// List out the next 5 dates (in advance), from the day the user logs into the app.
-		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");  
-		LocalDate currDate = LocalDate.now();
-		String date = currDate.format(dateFormatter);
-		LocalDate parsedCurrDate = LocalDate.parse(date, dateFormatter);
-
-		Calendar cal = Calendar.getInstance();    
-		
-		dateChoice = sc.nextInt();
+		dateChoice = selectDate();
 		
 		System.out.println("Select a timeslot: ");
-		// List out all the available time slots of when the user's desired (chosen) movie will be screened on a chosen date.
-		// Cinema.getShowtime();
-		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");  
-
-		try{  
-	           cal.setTime(timeFormatter.parse(parsedCurrDate));  
-	        }catch(ParseException e){  
-	            e.printStackTrace();  
-	         }
-		timeChoice = sc.nextInt();
-		
-		System.out.println("Select a time: ");
+		timeChoice = selectTime(movieChoice, cineplexChoice, dateChoice);
 		
 		b.getBookingID();
 		b.getSeatNum();
