@@ -10,7 +10,7 @@ public class Cinema {
 	private String[] rowL = {"A","B","C","D","E","F","G","H","J"};
 	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "};
 
-	private int can_yall_see_this;
+	// private int can_yall_see_this;
 	
 	public Cinema() {
 		seat = new CinemaSeat[row][col];
