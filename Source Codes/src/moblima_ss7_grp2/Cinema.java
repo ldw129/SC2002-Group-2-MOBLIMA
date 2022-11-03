@@ -1,3 +1,5 @@
+package moblima_ss7_grp2;
+
 public class Cinema {
 
 	private CinemaSeat[][] seat;
