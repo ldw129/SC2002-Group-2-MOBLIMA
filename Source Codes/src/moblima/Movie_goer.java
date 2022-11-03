@@ -98,7 +98,7 @@ public class Movie_goer extends Person {
 	
 	public int selectCineplex(int movieChoice) {
 		int i;
-		int cineplexChoice = 0;
+		int cineplexChoice;
 		
 		switch (movieChoice) {
 			case 1:
@@ -161,6 +161,7 @@ public class Movie_goer extends Person {
 	public int selectTime(int movieChoice, int cineplexChoice, int dateChoice) {
 		// List out all the available time slots of when the user's desired (chosen) movie will be screened on a chosen date.
 		// Cinema.getShowtime();
+		int timeChoice;
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");  
 		LocalTime currTime = LocalTime.now();
 		String time = currTime.format(timeFormatter);
@@ -168,8 +169,8 @@ public class Movie_goer extends Person {
 		
 		// get movie showtimes on the chosen day (use switch case statement, based on dateChoice)
 		// list out movie showtimes that are available for booking, if they are beyond parsedCurrTime, otherwise do not show
-		
-	
+		timeChoice = sc.nextInt();
+		return timeChoice;
 	}
 		
 	public void BookTickets() {
