@@ -1,6 +1,6 @@
 package moblima;
 
-public class Bookings {
+public class Bookings extends Movie_goer {
 
 	private int bookingID;
 	private int seatNum;
