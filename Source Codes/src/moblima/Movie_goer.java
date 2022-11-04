@@ -99,39 +99,40 @@ public class Movie_goer extends Person {
 	public int selectCineplex(int movieChoice) {
 		int i;
 		int cineplexChoice;
+		int numOfCineplexes;
 		
 		switch (movieChoice) {
 			case 1:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
-				for (i=0; i<numOfCineplexes < i++) {
+				for (i=0; i<numOfCineplexes; i++) {
 					System.out.println(i+1 + ". " + Cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 2:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
-				for (i=0; i<numOfCineplexes < i++) {
+				for (i=0; i<numOfCineplexes; i++) {
 					System.out.println(i+1 + ". " + Cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 3:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
-				for (i=0; i<numOfCineplexes < i++) {
+				for (i=0; i<numOfCineplexes; i++) {
 					System.out.println(i+1 + ". " + Cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 4:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
-				for (i=0; i<numOfCineplexes < i++) {
+				for (i=0; i<numOfCineplexes; i++) {
 					System.out.println(i+1 + ". " + Cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 5:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
-				for (i=0; i<numOfCineplexes < i++) {
+				for (i=0; i<numOfCineplexes; i++) {
 					System.out.println(i+1 + ". " + Cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
