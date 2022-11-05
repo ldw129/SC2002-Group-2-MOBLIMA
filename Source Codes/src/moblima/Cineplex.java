@@ -12,7 +12,7 @@ public class Cineplex {
 		this.numCinema = numCinema;
 	}
 
-	public String getLocation() {
+	public String showLocation() {
 		return location;
 	}
 
