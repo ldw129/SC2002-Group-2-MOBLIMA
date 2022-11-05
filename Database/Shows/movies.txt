@@ -1,0 +1,6 @@
+Forest Gump|Robert Zemeckis|Great american classic!|3.0,4.0|NOW SHOWING|A story following a man with low IQ|Tom Hanks,null,null,null,null|0
+Crazy Rich Asians|Jon M. Chu|Best movie ever!,Must watch!|4.5,3.7,5.0|NOW SHOWING|Rachel, a professor, dates a man named Nick and looks forward to meeting his family. However, she is shaken up when she learns that Nick belongs to one of the richest families in the country.|Constance Wu,Henry Golding,null,null,null|0
+The Godfather|Francis Ford Coppola|Must watch - a classic!|4.7,3.5|NOW SHOWING|Don Vito Corleone, head of a mafia family, decides to handover his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.|Al Pacino,Marlon Brando,null,null,null|3
+Madagascar|Tom McGrath|Great watch for kids!|5.0,3.5|COMING SOON|A story following Alex the lion and his friends|David Schwimmer,Chris Rock,Ben Stiller,null,null|0
+Iron Man|Shane Black|Great movie for tech fans!|4.6,3.0,5.0|NOW SHOWING|Iron Man is a 2008 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Paramount Pictures.|Robert Downey Jr.,Terrence Howard,null,null,null|3
+Titanic|James Cameron|Emotional movie!|5.0|NOW SHOWING|Ship sink|Leonardo Dicaprio,Kate Winslent,null,null,null,|0
