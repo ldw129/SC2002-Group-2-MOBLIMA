@@ -40,6 +40,7 @@ public class Movie_goer extends Person {
 	
 	public Movie_goer() {};
 	
+	// to be captured by Bookings
 	public Movie_goer(String cust_name, String cust_mobile, String cust_email) {
 		this.name = cust_name;
 		this.mobile = cust_mobile;
