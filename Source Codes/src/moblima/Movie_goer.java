@@ -97,7 +97,7 @@ public class Movie_goer extends Person {
 	}
 
 	public int selectMovie() {
-		// List out all available movies that are Now Showing or for Preview.
+		// List out all available movies that are Now Showing or for Preview. -> Movie.getStatus()
 		// ListMovie();
 		// User chooses the movie he / she wants to watch at the cinema.
 		int movieChoice = sc.nextInt();
