@@ -66,7 +66,7 @@ public class Cinema {
 		for(int i = 0; i<row;i++){
 			for(int j =0; j<col; j++){
 				if(this.seat[i][j].isAssigned()){
-					System.out.println(this.seat[i][j].getSeat());
+					System.out.println(this.seat[i][j].getSeatID());
 				}
 			}
 		}
