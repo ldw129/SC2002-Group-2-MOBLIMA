@@ -1,5 +1,6 @@
 package moblima;
 
+import moblima.CinemaSeat;
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDate;
