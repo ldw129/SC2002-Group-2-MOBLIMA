@@ -1,4 +1,4 @@
-package movieApp;
+package moblima;
 
 public class Movie {
 	
