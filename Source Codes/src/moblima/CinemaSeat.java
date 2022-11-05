@@ -50,6 +50,7 @@ public class CinemaSeat {
 				break;
 
 		}
+		// get the seat ID
 		seatID = rowS + this.col;
 		return seatID;
 	}
