@@ -1,6 +1,8 @@
 package moblima;
 
 import moblima.CinemaSeat;
+import moblima.Bookings;
+
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDate;
@@ -38,11 +40,15 @@ public class Movie_goer extends Person {
 	
 	public Movie_goer() {};
 	
-	public Movie_goer(String name, int age, String mobile, String email, ArrayList<Bookings> bookings) {
-		this.name = name;
-		this.age = age;
-		this.mobile = mobile;
-		this.email = email;
+	public Movie_goer(String cust_name, String cust_mobile, String cust_email) {
+		this.name = cust_name;
+		this.mobile = cust_mobile;
+		this.email = cust_email;
+	}
+	
+	public Movie_goer(String cust_name, int cust_age, String cust_mobile, String cust_email, ArrayList<Booking> bookings) {
+		Movie_goer(cust_name, cust_mobile, cust_email);
+		this.age = cust_age;
 		this.bookings = bookings;
 	}
 	
