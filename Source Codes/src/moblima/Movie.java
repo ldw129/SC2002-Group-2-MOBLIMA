@@ -1,4 +1,4 @@
-package model;
+package moblima;
 
 import java.io.IOException;
 import java.util.*;
