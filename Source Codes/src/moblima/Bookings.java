@@ -2,16 +2,18 @@ package moblima;
 
 public class Bookings extends Movie_goer {
 
-	private int bookingID;
+	String transactionID;
 	private int seatNum;
 	private int dateTime;
+	
+	
 
-	public int getBookingID() {
-		return this.bookingID;
+	public String getTID() {
+		return this.transactionID;
 	}
 
-	public void setBookingID(int bookingID) {
-		this.bookingID = bookingID;
+	public void setTID(String transactionID) {
+		this.transactionID = transactionID;
 	}
 
 	public int getSeatNum() {
