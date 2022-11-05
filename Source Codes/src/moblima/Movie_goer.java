@@ -47,7 +47,7 @@ public class Movie_goer extends Person {
 	}
 	
 	public Movie_goer(String cust_name, int cust_age, String cust_mobile, String cust_email, ArrayList<Booking> bookings) {
-		Movie_goer(cust_name, cust_mobile, cust_email);
+		this(cust_name, cust_mobile, cust_email);
 		this.age = cust_age;
 		this.bookings = bookings;
 	}
