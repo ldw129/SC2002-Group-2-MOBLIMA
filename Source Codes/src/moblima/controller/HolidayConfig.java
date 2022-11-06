@@ -10,11 +10,11 @@ import moblima.model.*;
  * function used to read all the holiday dates and update them
  * @version 1.0
  */
-public class holidyIO {
+public class HolidayConfig {
 
 	    public String[] readHolidays() throws IOException,Exception {
 	    	
-			FileReader fr = new FileReader("data/Holidays.txt");
+			FileReader fr = new FileReader("Database/Holidays.txt");
 			BufferedReader br = new BufferedReader(fr);
 			
 			try {
@@ -28,14 +28,14 @@ public class holidyIO {
 		}	
 	    
 	    /**
-	     * to write a new bookings into the text file
+	     * to write a new holiday date into Holidays.txt
 	     * @throws IOException
 	     * @throws Exception
 	     */
 	    public void writeHoliday(String[] holidays) throws IOException,Exception {
 	    	
 	    	try {
-				FileWriter fw = new FileWriter("data/Holidays.txt", false);
+				FileWriter fw = new FileWriter("Database/Holidays.txt", false);
 				BufferedWriter bw = new BufferedWriter(fw);
 				
 				for(int i=0;i<holidays.length;i++)
