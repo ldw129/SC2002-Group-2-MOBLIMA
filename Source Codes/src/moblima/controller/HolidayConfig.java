@@ -11,8 +11,13 @@ import moblima.model.*;
  * @version 1.0
  */
 public class HolidayConfig {
+		/**
+		 * Opens Holidays.txt and reads the file contents.
+		 * @return holiday dates
+		 * @throws FileNotFoundException
+		 */
 
-	    public String[] readHolidays() throws IOException,Exception {
+	    public String[] readHolidays() throws FileNotFoundException {
 	    	
 			FileReader fr = new FileReader("Database/Holidays.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -29,10 +34,9 @@ public class HolidayConfig {
 	    
 	    /**
 	     * to write a new holiday date into Holidays.txt
-	     * @throws IOException
-	     * @throws Exception
+	     * @throws FileNotFoundException
 	     */
-	    public void writeHoliday(String[] holidays) throws IOException,Exception {
+	    public void writeHoliday(String[] holidays) throws FileNotFoundException {
 	    	
 	    	try {
 				FileWriter fw = new FileWriter("Database/Holidays.txt", false);
