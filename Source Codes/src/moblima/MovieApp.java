@@ -1,6 +1,9 @@
 package moblima;
 
 import java.util.Scanner;
+import moblima.controller.*;
+import moblima.model.*;
+import moblima.view.*;
 
 public class MovieApp {
     // placeholder to be removed
@@ -9,7 +12,7 @@ public class MovieApp {
             return "";
         }
     }
-    
+
     private Cineplex[] cineplexes;
     private int numCineplex;
 
