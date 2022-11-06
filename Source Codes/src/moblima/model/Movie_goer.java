@@ -1,6 +1,5 @@
 package moblima.model;
 
-
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDate;
