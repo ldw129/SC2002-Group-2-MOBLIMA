@@ -1,9 +1,7 @@
 package moblima.controller;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
@@ -20,16 +18,13 @@ public class UpdateTicketPrices {
 	public void writePrices(ArrayList newPrices) {
 		
 		try {
+			PrintWriter writer = new PrintWriter("Database/prices.txt");
 		
-		PrintWriter writer = new PrintWriter("data/prices.txt");
-		
-		for(int i = 0; i < 7; i++) {
-			writer.println(newPrices.get(i));
-		}
-		
-		writer.print(newPrices.get(7));
-		
-		writer.close();
+			for(int i = 0; i < 8; i++) {
+				writer.println(newPrices.get(i));
+			}
+			
+			writer.close();
 		
 		}
 		
