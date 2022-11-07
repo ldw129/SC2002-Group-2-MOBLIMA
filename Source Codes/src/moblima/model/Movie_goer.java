@@ -12,7 +12,7 @@ public class Movie_goer extends Person {
 	private String name;
 	private int age;
 	private Age ageVal;
-	private String mobile;
+	private int mobile;
 	private String email;
 	private int review;
 	private ArrayList<Bookings> bookings = new ArrayList<>();
@@ -38,13 +38,13 @@ public class Movie_goer extends Person {
 	public Movie_goer() {};
 	
 	// to be captured by Bookings
-	public Movie_goer(String cust_name, String cust_mobile, String cust_email) {
+	public Movie_goer(String cust_name, int cust_mobile, String cust_email) {
 		this.name = cust_name;
 		this.mobile = cust_mobile;
 		this.email = cust_email;
 	}
 	
-	public Movie_goer(String cust_name, int cust_age, String cust_mobile, String cust_email, ArrayList<Booking> bookings) {
+	public Movie_goer(String cust_name, int cust_age, int cust_mobile, String cust_email, ArrayList<Bookings> bookings) {
 		this(cust_name, cust_mobile, cust_email);
 		this.age = cust_age;
 		this.bookings = bookings;
@@ -55,7 +55,7 @@ public class Movie_goer extends Person {
 		this.password = password;
 	}*/
 
-	public void ListMovie(Movie[] movieListing, int numOfMovies) {
+	public void ListMovie(ArrayList<Movie> movies, int numOfMovies) {
 		// Movie_goer can have a glance at a full list of all movies currently showing.
 		// For example:
 		// 1. Black Adam
@@ -64,22 +64,22 @@ public class Movie_goer extends Person {
 		// Movie = ['Black Adam', 'Come Back Home', 'Black Panther - Wakanda Forever']
 		// numOfMovies = 3
 		
+		System.out.println("All movies:");
 		for (int i=0; i<numOfMovies; i++)
-			System.out.println(i+1 + ". " + movieListing[i]);
+			System.out.printf(i+1 + ". " + movies.get(i).getMovieName()+"\n");
 	}
 
-	public void SearchMovie(Movie[] movieListing, int numOfMovies, String movie) {
+	public void SearchMovie(ArrayList<Movie> movies, int numOfMovies, String movieDesired) {
 		// Movie_goer can search for a particular movie from the list of available movies.
 		
 		for (int i=0; i<numOfMovies; i++) {
-			if (movie == movieListing[i].getMovieName()) {
-				System.out.println("Movie found!");
-				System.out.println(movieListing[i]);
+			if (movieDesired == movies.get(i).getMovieName()) {
+				System.out.println(movies.get(i).getMovieName() + " movie found!");
 				return;
 			}
 		}
 		
-		System.out.println("Movie not found. Please search for another movie instead.");
+		System.out.println("Movie not found! Do you want to find another movie instead?");
 	}
 
 	public void CheckSeat(int row, int col) {
@@ -226,6 +226,31 @@ public class Movie_goer extends Person {
 		System.out.println();
 		
 	}
+	
+	public ArrayList<Bookings> getBookingHistory(){
+		// Movie_goer can browse through his / her past movie bookings with ease.
+		return this.bookings;
+	}
+	
+	public void setBooking (Bookings b) {
+		if (!bookings.contains(b))
+			bookings.add(b);
+	}
+
+	public int ValidateAge() {
+		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
+		// he / she will only validate his / her age upon entering the cinema.
+		if (ageVal == Age.CHILD) {
+			return 1;
+		}
+		else if (ageVal == Age.STUDENT) {
+			return 2;
+		}
+		else if (ageVal == Age.ADULT)
+			return 3;
+		
+		return 0;
+	}
 
 	public int getAge() {
 		return this.age;
@@ -243,11 +268,11 @@ public class Movie_goer extends Person {
 		this.name = name;
 	}
 
-	public String getMobile() {
+	public int getMobile() {
 		return this.mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
 
@@ -258,24 +283,5 @@ public class Movie_goer extends Person {
 	public void setEmailAddress(String email) {
 		this.email = email;
 	}
-	
-	public ArrayList<Bookings> getBookingHistory(){
-		// Movie_goer can browse through his / her past movie bookings with ease.
-		return this.bookings;
-	}
 
-	public int ValidateAge() {
-		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
-		// he / she will only validate his / her age upon entering the cinema.
-		if (ageVal == Age.CHILD) {
-			return 1;
-		}
-		else if (ageVal == Age.STUDENT) {
-			return 2;
-		}
-		else if (ageVal == Age.ADULT)
-			return 3;
-		
-		return 0;
-	}
 }
