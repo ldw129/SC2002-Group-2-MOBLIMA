@@ -25,9 +25,9 @@ public class MovieApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        master Master = new master();
-        Master.readMovies();
-        ArrayList<Movie> movie_list = Master.getMovies();
+        master m = new master();
+        m.readMovies();
+        ArrayList<Movie> movie_list = m.getMovies();
 
         int choice = 0;
         do {
@@ -54,7 +54,8 @@ public class MovieApp {
                 System.out.print("Password: ");
                 String password = sc.nextLine();
 
-                if (true) { // condition to be determined
+                // placeholder
+                if (username.equals("admin") && password.equals("password")) {
                     choice = 0;
                     do {
                         System.out.printf("---------------------\n" +
@@ -68,14 +69,13 @@ public class MovieApp {
 
                         try {
                             choice = sc.nextInt();
-                            switch (choice) {
+                            switch(choice) {
                                 case 1:
-                                    CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(Master);
+                                    CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(m);
                                     movieListing_menu.main(args);
                                     break;
                                 case 2:
-                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(
-                                            Master);
+                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(m);
                                     cinemaShowtimes_menu.main(args);
                                     break;
                                 case 3:
@@ -101,38 +101,40 @@ public class MovieApp {
             else if (choice == 2) {
                 choice = 0;
                 Movie_goer user = new Movie_goer();
+                
                 do {
                     System.out.printf("---------------------\n" +
                             "Welcome to MovieGoer Module!\n" +
-                            "1. Search/List movie\n" +
-                            "2. View movie details including reviews and ratings\n" +
-                            "3. Check seat availability and selection of seat/s\n" +
-                            "4. Book and purchase ticket\n" +
-                            "5. View booking history\n" +
-                            "6. List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings\n" +
-                            "7. Back\n");
+                            "1. Search / List movies and view movie details\n" +
+                            "2. Check seat availability and selection of seat/s\n" +
+                            "3. Book and purchase ticket\n" +
+                            "4. View booking history\n" +
+                            "5. List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings\n" +
+                            "6. Quit\n");
                     System.out.print("Enter your choice: ");
                     try {
                         choice = sc.nextInt();
-
-                        switch (choice) {
-                            case 1:
-                                user.ListMovie(movie_list);
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                break;
-                            case 5:
-                                break;
-                            case 6:
-                                break;
-                            case 7:
-                                break;
+                        
+                        switch(choice) {
+                        	case 1:
+                        		user.ViewMovies(movie_list, movie_list.size());
+                        		break;
+                        	case 2:
+                        		user.CheckSeat();
+                        		break;
+                        	case 3:
+                        		user.BookTickets(); // under construction
+                        		break;
+                        	case 4:
+                        		user.viewBookingHistory(); // under construction
+                        		break;
+                        	case 5:
+                        		user.PopularMovies(movie_list);
+                        		break;
                         }
-                    } finally {
+                    } catch (Exception e) {
+                        System.err.println("Invalid input!");
+                        sc.nextLine();
                     }
                 } while (choice != 7);
                 System.out.println("Returning to main screen...");
