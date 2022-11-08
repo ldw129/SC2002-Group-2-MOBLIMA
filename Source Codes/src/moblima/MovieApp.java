@@ -13,9 +13,8 @@ public class MovieApp {
             return "";
         }
     }
-
     private Cineplex[] cineplexes;
-    private int numCineplex;
+    
 
     public void showCineplex() {
         System.out.println("Cineplexes Available: ");
@@ -26,6 +25,7 @@ public class MovieApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        master Master = new master();
 
         int choice = 0;
         do {
@@ -60,12 +60,30 @@ public class MovieApp {
                                 "Welcome to the Admin Module!\n" +
                                 "1: Create/Update/Remove Movie Listing\n" +
                                 "2: Create/Update/Remove cinema showtimes\n" +
-                                "3: Update system settings\n" +
-                                "4: Quit\n");
+                                "3: Configure Ticket Prices\n" +
+                                "4: Configure Holidays\n" +
+                                "5: Quit\n");
                         System.out.print("Enter your choice: ");
 
                         try {
                             choice = sc.nextInt();
+                            switch(choice) {
+                                case 1:
+                                    CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(Master);
+                                    movieListing_menu.main(args);
+                                    break;
+                                case 2:
+                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(Master);
+                                    cinemaShowtimes_menu.main(args);
+                                    break;
+                                case 3:
+                                    ConfigureTicketPrices ticketPrices_menu = new ConfigureTicketPrices();
+                                    ticketPrices_menu.main(args);
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                            }
                         } catch (Exception e) {
                             System.err.println("Invalid input!");
                             sc.nextLine();

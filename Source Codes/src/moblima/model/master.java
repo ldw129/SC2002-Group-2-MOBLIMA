@@ -11,9 +11,10 @@ import java.io.IOException;
  * @version 1.0
  */
 
-public class master {
+public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 
-	static private ArrayList<Holiday> holidayList;
+	//static private ArrayList<Holiday> holidayList;
+	
 	/**
 	 * Array of all movies
 	 */
@@ -55,10 +56,10 @@ public class master {
 		return movieList;
 	}
 
-	public ArrayList<Holiday> getHolidays()
+/* 	public ArrayList<Holiday> getHolidays()
 	{
 		return holidayList;
-	}
+	} */
 	
 	/**
 	 * get all cineplexes
