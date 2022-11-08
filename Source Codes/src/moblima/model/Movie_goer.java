@@ -8,8 +8,10 @@ import java.time.LocalTime;
 import java.text.ParseException; 
 import java.util.Scanner;
 
+import moblima_test.model.Cineplex;
 import moblima_test.model.Movie;
 import moblima_test.model.master;
+import moblima_test.model.show;
 
 public class Movie_goer extends Person {
 
@@ -164,7 +166,7 @@ public class Movie_goer extends Person {
 		return;
 	}
 
-	public void CheckSeat(ArrayList<show> shows) {
+	public void CheckSeat() {
 		// Movie_goer can check for empty seats in a cineplex before booking.
 		master m = new master();
 		int cinemaChoice;
@@ -187,7 +189,7 @@ public class Movie_goer extends Person {
 		System.out.println("--- All available movies at selected theatre ---");
 		ArrayList<show> movieList = cineplexChoice.getCinema().get(cinemaChoice - 1).getCinemaShows();
 		
-		for (show show:shows)
+		for (show show:movieList)
 			show.printSeats();
 	}
 
@@ -325,6 +327,7 @@ public class Movie_goer extends Person {
 		int selection = 0;
 		
 		do {
+			System.out.println("--- HIGHLY RATED MUST-WATCH MOVIES! ---");
 			System.out.println("Here are the top 5 rated movies, based on: \n"
 					+ "1. Overall ratings by reviewers \n"
 					+ "2. Overall ticket sales \n"
