@@ -1,12 +1,15 @@
 package moblima.model;
 
+import java.util.ArrayList;
+
 public class Cineplex {
 	
 	private String location;
-	private Cinema[] cinema;
+	private ArrayList<Cinema> cinema;
 	private int numCinema;
+	private int cineplexID;
 	
-	public Cineplex(String location, Cinema[] cinema, int numCinema) {
+	public Cineplex(String location, ArrayList<Cinema> cinema, int numCinema) {
 		this.location = location;
 		this.cinema = cinema;
 		this.numCinema = numCinema;
@@ -16,7 +19,7 @@ public class Cineplex {
 		return location;
 	}
 
-	public Cinema[] getCinema() {
+	public ArrayList<Cinema> getCinema() {
 		return cinema;
 	}
 

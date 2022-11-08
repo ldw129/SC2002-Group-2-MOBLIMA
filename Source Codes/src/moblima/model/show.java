@@ -1,4 +1,4 @@
-package model;
+package moblima.model;
 
 /**
  * This class uses the objects from the movie.java class to create shows for the movie in different
@@ -16,7 +16,7 @@ public class show { // figure out how to implement extends movie
 	/**
 	 * movie object from movie.java class
 	 */
-	private movie mov;
+	private Movie mov;
 	
 	/**
 	 * screen number in the Cinemaplex
@@ -46,7 +46,7 @@ public class show { // figure out how to implement extends movie
 	 * @param screenNum 	Screen Number in the CinemaPlex
 	 * @param is3D 			boolean value - true if the movie is 3D
 	 */
-	public show(movie mov, String dt, int cineplexID, int screenNum, boolean is3D) {
+	public show(Movie mov, String dt, int cineplexID, int screenNum, boolean is3D) {
 		this.mov = mov;
 		dateTime = dt;
 		for(int i=0;i<9;i++) {
@@ -68,7 +68,7 @@ public class show { // figure out how to implement extends movie
 	 * @param is3D			boolean value - true if the movie is 3D
 	 * @param seats			array of seats
 	 */
-	public show(movie mov, String dt, int cineplexID, int screenNum, boolean is3D, int[][] seats) {
+	public show(Movie mov, String dt, int cineplexID, int screenNum, boolean is3D, int[][] seats) {
 		this.mov = mov;
 		dateTime = dt;
 		

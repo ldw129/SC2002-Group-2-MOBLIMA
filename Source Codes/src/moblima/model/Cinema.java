@@ -2,15 +2,19 @@ package moblima.model;
 
 public class Cinema {
 
+	private String cinema_name;
+	private String cinema_class;
+	private int cinemaID;
+	private String[] showtime;
+	private Movie[] movie;
+	// seating information
+	private int numEmptySeat;
 	private CinemaSeat[][] seat;
 	private final int numofSeat = 162;
 	private int row = 9;
 	private int col = 16;
-	private int numEmptySeat;
-	private String[] showtime;
-	private Movie[] movie;
-	private String[] rowL = {"A","B","C","D","E","F","G","H","J"};//rows
-	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "};//columns
+	private String[] rowL = {"A","B","C","D","E","F","G","H","J"}; //rows
+	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "}; //columns
 	
 	//constructor
 	public Cinema() {

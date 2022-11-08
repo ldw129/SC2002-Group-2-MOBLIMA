@@ -303,7 +303,7 @@ public class Movie {
 	public void deleteShow(master m, int ind) {
 		show s = Shows.get(ind);
 		ArrayList<Cineplex> temp = m.getCineplexes();
-		ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinemaList();
+		ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinema();
 		ArrayList<show> temp3 = temp2.get(s.getScreenNum()).getCinemaShows();
 		temp3.remove(s);
 		Shows.remove(ind);
@@ -316,7 +316,7 @@ public class Movie {
 	 */
 	public void deleteShow(master m, show s) {
 		ArrayList<Cineplex> temp = m.getCineplexes();
-		ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinemaList();
+		ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinema();
 		ArrayList<show> temp3 = temp2.get(s.getScreenNum()).getCinemaShows();
 		temp3.remove(s);
 		Shows.remove(s);
