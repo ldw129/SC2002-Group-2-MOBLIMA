@@ -354,7 +354,7 @@ public class Movie_goer extends Person {
 			}
 			
 		} while(selection != 3);
-
+		return;
 	}
 	
 	public ArrayList<Bookings> getBookingHistory(){
