@@ -1,6 +1,7 @@
 package moblima;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import moblima.controller.*;
 import moblima.model.*;
 import moblima.view.*;
@@ -79,6 +80,7 @@ public class MovieApp {
             // MovieGoer
             else if (choice == 2) {
                 choice = 0;
+                Movie_goer user = new Movie_goer();
                 do {
                     System.out.printf("---------------------\n" +
                             "Welcome to MovieGoer Module!\n" +
@@ -92,6 +94,16 @@ public class MovieApp {
                     System.out.print("Enter your choice: ");
                     try {
                         choice = sc.nextInt();
+                        
+                        switch(choice) {
+                        	case 1:
+                        		ArrayList<Movie> movies = new ArrayList<Movie>();
+                        		master m = new master();
+                        		movies = m.getMovies();
+                        		
+                        		user.ListMovie(movies, movies.size());
+                        		
+                        }
                     } catch (Exception e) {
                         System.err.println("Invalid input!");
                         sc.nextLine();
@@ -102,5 +114,6 @@ public class MovieApp {
 
         } while (choice != 3);
         System.out.println("Thank you for using MOBLIMA!");
+        System.exit(0);
     }
 }

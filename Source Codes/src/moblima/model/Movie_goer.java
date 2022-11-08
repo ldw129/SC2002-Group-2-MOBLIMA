@@ -68,10 +68,9 @@ public class Movie_goer extends Person {
 		System.out.println("--- Movie Listing ---");
 		for (int i=0; i<numOfMovies; i++)
 			System.out.printf(i+1 + ". " + movies.get(i).getMovieName()+"\n");
-	}
-
-	public void SearchMovie(ArrayList<Movie> movies, int numOfMovies, String movieDesired) {
-		// Movie_goer can search for a particular movie from the list of available movies.
+		
+		System.out.println("Search a movie: ");
+		String movieDesired = sc.next();
 		
 		for (int i=0; i<numOfMovies; i++) {
 			if (movieDesired == movies.get(i).getMovieName()) {
@@ -81,7 +80,7 @@ public class Movie_goer extends Person {
 		}
 		
 		System.out.println("Movie not found! Do you want to find another movie instead?");
-	}
+	}		
 
 	public void CheckSeat(ArrayList<show> shows) {
 		// Movie_goer can check for empty seats in a cineplex before booking.
