@@ -2,8 +2,7 @@ package moblima.view;
 
 import java.util.*;
 import moblima.controller.GetPrice;
-import moblima.controller.TicketPrice;
-import moblima.controller.UpdateTicketPrices;
+import moblima.controller.TicketPriceIO;
 import moblima.model.AdminChangeStatus;
 
 /**
@@ -27,7 +26,7 @@ public class ConfigureTicketPrices {
 		boolean back = false;
 		double newPrice;
 		ArrayList<Double> prices = new ArrayList<>();
-		prices = TicketPrice.readPrices();
+		prices = TicketPriceIO.readPrices();
 
 		System.out.println("-- Configure Ticket Prices --");
 
@@ -108,8 +107,7 @@ public class ConfigureTicketPrices {
 					break;
 
 				case 9:
-					UpdateTicketPrices updatePrice = new UpdateTicketPrices();
-					updatePrice.writePrices(prices);
+					TicketPriceIO.writePrices(prices);
 					System.out.println(AdminChangeStatus.SUCCESSFUL.returningStatus());
 					System.out.println("");
 					break;

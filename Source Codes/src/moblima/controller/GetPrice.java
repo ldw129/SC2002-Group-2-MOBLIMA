@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class GetPrice {
 
-	private ArrayList<Double> prices = TicketPrice.readPrices();
+	private ArrayList<Double> prices = TicketPriceIO.readPrices();
 
 	/**
 	 * @return 3D Movie surcharge
