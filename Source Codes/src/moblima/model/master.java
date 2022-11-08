@@ -28,7 +28,7 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	/**
 	 * file for all movies
 	 */
-	private static String filename = "data/movies.txt";
+	private static String filename = "Database/movies.txt";
 
 	/**
 	 * add a movie to the database

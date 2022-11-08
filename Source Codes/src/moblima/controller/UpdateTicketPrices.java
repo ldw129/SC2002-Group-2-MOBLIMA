@@ -15,7 +15,7 @@ public class UpdateTicketPrices {
 	/**
 	 * write the new movie ticket prices into the text file
 	 * 
-	 * @param newPrices the new array of prices
+	 * @param newPrices is the new array of prices
 	 */
 	public void writePrices(ArrayList<Double> newPrices) {
 

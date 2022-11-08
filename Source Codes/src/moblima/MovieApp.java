@@ -13,8 +13,8 @@ public class MovieApp {
             return "";
         }
     }
+
     private Cineplex[] cineplexes;
-    
 
     public void showCineplex() {
         System.out.println("Cineplexes Available: ");
@@ -26,6 +26,8 @@ public class MovieApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         master Master = new master();
+        Master.readMovies();
+        ArrayList<Movie> movie_list = Master.getMovies();
 
         int choice = 0;
         do {
@@ -52,8 +54,7 @@ public class MovieApp {
                 System.out.print("Password: ");
                 String password = sc.nextLine();
 
-                // placeholder
-                if (username.equals("admin") && password.equals("password")) {
+                if (true) { // condition to be determined
                     choice = 0;
                     do {
                         System.out.printf("---------------------\n" +
@@ -67,13 +68,14 @@ public class MovieApp {
 
                         try {
                             choice = sc.nextInt();
-                            switch(choice) {
+                            switch (choice) {
                                 case 1:
                                     CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(Master);
                                     movieListing_menu.main(args);
                                     break;
                                 case 2:
-                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(Master);
+                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(
+                                            Master);
                                     cinemaShowtimes_menu.main(args);
                                     break;
                                 case 3:
@@ -108,23 +110,29 @@ public class MovieApp {
                             "4. Book and purchase ticket\n" +
                             "5. View booking history\n" +
                             "6. List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings\n" +
-                            "7. Quit\n");
+                            "7. Back\n");
                     System.out.print("Enter your choice: ");
                     try {
                         choice = sc.nextInt();
-                        
-                        switch(choice) {
-                        	case 1:
-                        		ArrayList<Movie> movies = new ArrayList<Movie>();
-                        		master m = new master();
-                        		movies = m.getMovies();
-                        		
-                        		user.ListMovie(movies, movies.size());
-                        		
+
+                        switch (choice) {
+                            case 1:
+                                user.ListMovie(movie_list);
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                break;
                         }
-                    } catch (Exception e) {
-                        System.err.println("Invalid input!");
-                        sc.nextLine();
+                    } finally {
                     }
                 } while (choice != 7);
                 System.out.println("Returning to main screen...");

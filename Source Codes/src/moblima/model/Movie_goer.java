@@ -56,7 +56,7 @@ public class Movie_goer extends Person {
 		this.password = password;
 	}*/
 
-	public void ListMovie(ArrayList<Movie> movies, int numOfMovies) {
+	public void ListMovie(ArrayList<Movie> movies) {
 		// Movie_goer can have a glance at a full list of all movies currently showing.
 		// For example:
 		// 1. Black Adam
@@ -66,13 +66,13 @@ public class Movie_goer extends Person {
 		// numOfMovies = 3
 		
 		System.out.println("--- Movie Listing ---");
-		for (int i=0; i<numOfMovies; i++)
+		for (int i=0; i< movies.size(); i++)
 			System.out.printf(i+1 + ". " + movies.get(i).getMovieName()+"\n");
 		
 		System.out.println("Search a movie: ");
 		String movieDesired = sc.next();
 		
-		for (int i=0; i<numOfMovies; i++) {
+		for (int i=0; i< movies.size(); i++) {
 			if (movieDesired == movies.get(i).getMovieName()) {
 				System.out.println(movies.get(i).getMovieName() + " movie found!");
 				return;
@@ -102,42 +102,43 @@ public class Movie_goer extends Person {
 	
 	public int selectCineplex(int movieChoice) {
 		int i;
-		int cineplexChoice;
-		int numOfCineplexes;
+		int cineplexChoice = 0;
+		int numOfCineplexes = 0;
+		Cineplex cineplex = new Cineplex("null", 0, null);
 		
 		switch (movieChoice) {
 			case 1:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
 				for (i=0; i<numOfCineplexes; i++) {
-					System.out.println(i+1 + ". " + Cineplex.showLocation());
+					System.out.println(i+1 + ". " + cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 2:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
 				for (i=0; i<numOfCineplexes; i++) {
-					System.out.println(i+1 + ". " + Cineplex.showLocation());
+					System.out.println(i+1 + ". " + cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 3:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
 				for (i=0; i<numOfCineplexes; i++) {
-					System.out.println(i+1 + ". " + Cineplex.showLocation());
+					System.out.println(i+1 + ". " + cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 4:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
 				for (i=0; i<numOfCineplexes; i++) {
-					System.out.println(i+1 + ". " + Cineplex.showLocation());
+					System.out.println(i+1 + ". " + cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
 			case 5:
 				// List out all cineplexes that screens the user's desired (chosen) movie.
 				for (i=0; i<numOfCineplexes; i++) {
-					System.out.println(i+1 + ". " + Cineplex.showLocation());
+					System.out.println(i+1 + ". " + cineplex.showLocation());
 				}
 				cineplexChoice = sc.nextInt();
 				break;
@@ -210,7 +211,7 @@ public class Movie_goer extends Person {
 		System.out.println("Select a timeslot: ");
 		timeChoice = selectTime(movieChoice, cineplexChoice, dateChoice);
 		
-		b.getBookingID();
+		// b.getBookingID();
 		b.getSeatNum();
 		b.getDateTime();
 	}
@@ -222,7 +223,7 @@ public class Movie_goer extends Person {
 		System.out.println("Here are the top 5 rated movies: ");
 		
 		for (int i=0; i<5; i++) {
-			System.out.println(i+1 + ". " + popularMovie[i]);
+			// System.out.println(i+1 + ". " + popularMovie[i]);
 		}
 	}
 
