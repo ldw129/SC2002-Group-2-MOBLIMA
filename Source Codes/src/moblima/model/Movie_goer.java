@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.text.ParseException; 
 import java.util.Scanner;
 
+import moblima_test.model.Bookings;
 import moblima_test.model.Cineplex;
 import moblima_test.model.Movie;
 import moblima_test.model.master;
@@ -360,8 +361,9 @@ public class Movie_goer extends Person {
 		return;
 	}
 	
-	public ArrayList<Bookings> getBookingHistory(){
+	public ArrayList<Bookings> viewBookingHistory(){
 		// Movie_goer can browse through his / her past movie bookings with ease.
+		System.out.println("--- Your Past Bookings ---");
 		return this.bookings;
 	}
 	
