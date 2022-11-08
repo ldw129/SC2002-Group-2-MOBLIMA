@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TicketPrice {
 	
-private static ArrayList<Double> prices = new ArrayList<>(); 
+private ArrayList<Double> prices = new ArrayList<>(); 
 
 /**
  * read prices line by line from data/prices.txt
@@ -28,7 +28,7 @@ private static ArrayList<Double> prices = new ArrayList<>();
  *  GST Percentage
  * @return array of all surcharge prices
  */
-public static ArrayList<Double> readPrices() {
+public ArrayList<Double> readPrices() {
         
         /**
          *  File Format
@@ -42,7 +42,7 @@ public static ArrayList<Double> readPrices() {
          *  GST Percentage
         */
         
-        File file = new File("data/prices.txt");
+        File file = new File("Database/prices.txt");
         
         try {
     

@@ -19,20 +19,19 @@ public class ConfigureTicketPrices {
 	 * @param args	default argument
 	 */
 	public static void main(String[] args) {
-		
 		Scanner input = new Scanner(System.in);
+		TicketPrice TP = new TicketPrice();
 		
 		boolean back = false;
 		double newPrice;
 		ArrayList<Double> prices = new ArrayList<>();
-		prices = TicketPrice.readPrices();
+		prices = TP.readPrices();
 		
 		System.out.println("-- Configure Ticket Prices --");
 		
 		while(true) {
 			
 			GetPrice getQuotation = new GetPrice();
-			
 			System.out.println("");
 			System.out.println("1. 3D Movie Surcharge");
 			System.out.println("2. Seat Type - Standard");
@@ -125,6 +124,7 @@ public class ConfigureTicketPrices {
 			}
 			
 			if (back == true)
+				input.close();
 				return;
 		}
 	}
