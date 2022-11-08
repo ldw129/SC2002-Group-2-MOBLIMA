@@ -1,11 +1,15 @@
 package moblima.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.text.ParseException; 
 import java.util.Scanner;
+
+import moblima_test.model.Movie;
+import moblima_test.model.master;
 
 public class Movie_goer extends Person {
 
@@ -312,15 +316,45 @@ public class Movie_goer extends Person {
 		b.getDateTime();
 	}
 
-	public void PopularMovies() {
+	public void PopularMovies(ArrayList<Movie> movieList) {
 		// Movie_goer can view the top 5 movies ranked / sorted based on ticket sales or overall reviewrs' ratings.
 		// popularMovie[] ?
+		master m = new master();
+		Movie movie;
+		int i;
+		int selection = 0;
 		
-		System.out.println("Here are the top 5 rated movies: ");
-		
-		for (int i=0; i<5; i++) {
-			System.out.println(i+1 + ". " + popularMovie[i]);
-		}
+		do {
+			System.out.println("Here are the top 5 rated movies, based on: \n"
+					+ "1. Overall ratings by reviewers \n"
+					+ "2. Overall ticket sales \n"
+					+ "3. Back \n");
+			System.out.println("Select an option: ");
+			try {
+				selection = sc.nextInt();
+				
+				switch(selection) {
+				case 1:
+					Collections.sort(movieList, Movie.topratings);
+					System.out.println("Top 5 rated movies based on overall reviewers' ratings, with first movie having highest rating: ");
+					for (i=movieList.size()-1; i>=0; i--)
+						System.out.println(movieList.get(i).getMovieName() + ": " + movieList.get(i).getTotalRating());
+					break;
+				case 2:
+					Collections.sort(movieList, Movie.topticketsales);
+					System.out.println("Top 5 rated movies based on overall ticket sales, with first movie having highest ticket sales: ");
+					for (i=movieList.size()-1; i>=0; i++)
+						System.out.println(movieList.get(i).getMovieName() + ": " + movieList.get(i).getTsales());
+					break;
+				}
+			}
+			catch (Exception e) {
+				System.err.println("Invalid input!");
+                sc.nextLine();
+			}
+			
+		} while(selection != 3);
+
 	}
 	
 	public ArrayList<Bookings> getBookingHistory(){
