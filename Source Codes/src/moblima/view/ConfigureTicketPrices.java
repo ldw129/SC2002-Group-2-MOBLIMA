@@ -2,7 +2,7 @@ package moblima.view;
 
 import java.util.*;
 import moblima.controller.GetPrice;
-import moblima.model.TicketPrice;
+import moblima.controller.TicketPrice;
 import moblima.controller.UpdateTicketPrices;
 import moblima.model.AdminChangeStatus;
 

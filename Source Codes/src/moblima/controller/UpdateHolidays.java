@@ -1,7 +1,6 @@
 package moblima.controller;
 
 import java.io.*;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UpdateHolidays {
@@ -13,7 +12,7 @@ public class UpdateHolidays {
 		
 		try {
 		
-		PrintWriter writer = new PrintWriter("DataBase/holidays.txt");
+		PrintWriter writer = new PrintWriter("DataBase/Holidays.txt");
 		
 		for(int i = 0; i < 7; i++) {
 			writer.println(newHolidays.get(i));

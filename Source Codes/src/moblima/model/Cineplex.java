@@ -6,13 +6,12 @@ public class Cineplex {
 	
 	private String location;
 	private ArrayList<Cinema> cinema;
-	private int numCinema;
 	private int cineplexID;
 	
-	public Cineplex(String location, ArrayList<Cinema> cinema, int numCinema) {
+	public Cineplex(String location, int cineplexID, ArrayList<Cinema> cinema) {
 		this.location = location;
+		this.cineplexID = cineplexID;
 		this.cinema = cinema;
-		this.numCinema = numCinema;
 	}
 
 	public String showLocation() {
@@ -22,9 +21,8 @@ public class Cineplex {
 	public ArrayList<Cinema> getCinema() {
 		return cinema;
 	}
-
-	public int getNumCinema() {
-		return numCinema;
-	}
 	
+	public int getCineplexId() {
+		return cineplexID;
+	}
 }

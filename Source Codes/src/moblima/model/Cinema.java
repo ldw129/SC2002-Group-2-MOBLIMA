@@ -1,5 +1,7 @@
 package moblima.model;
 
+import java.util.ArrayList;
+
 public class Cinema {
 
 	private String cinema_name;
@@ -7,6 +9,7 @@ public class Cinema {
 	private int cinemaID;
 	private String[] showtime;
 	private Movie[] movie;
+	private ArrayList<show> showlist;
 	// seating information
 	private int numEmptySeat;
 	private CinemaSeat[][] seat;
@@ -16,7 +19,7 @@ public class Cinema {
 	private String[] rowL = {"A","B","C","D","E","F","G","H","J"}; //rows
 	private String[] colL = {" "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10 ","11 ","12 ","13 ","14 ","15 ","16 "}; //columns
 	
-	//constructor
+	// constructors
 	public Cinema() {
 		seat = new CinemaSeat[row][col];
 		movie = new Movie[3];
@@ -27,6 +30,20 @@ public class Cinema {
 				this.seat[i][j] = new CinemaSeat(i,j);
 			}
 		}
+	}
+
+	public Cinema(String name, String cinema_class, int ID) {
+		this.cinema_name = name;
+		this.cinema_class = cinema_class;
+		this.cinemaID = ID;
+	}
+
+	public void addShow(show s) {
+		showlist.add(s);
+	}
+
+	public ArrayList<show> getCinemaShows() {
+		return showlist;
 	}
 
 	public void shownumEmptySeat() {
@@ -110,6 +127,15 @@ public class Cinema {
 		}
 	}
 
-	
+	public String getCinemaName() {
+		return cinema_name;
+	}
 
+	public int getCinemaID() {
+		return cinemaID;
+	}
+
+	public String getCinemaClass() {
+		return cinema_class;
+	}
 }

@@ -3,9 +3,6 @@ package moblima.model;
 import java.io.IOException;
 import java.util.*;
 import moblima.controller.movieIO;
-import moblima.model.master;
-import moblima.model.Cineplex;
-import moblima.model.Cinema;
 
 /**
  * This class contains all the attributes of a movie and initializes the show class object

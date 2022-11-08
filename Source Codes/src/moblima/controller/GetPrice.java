@@ -2,8 +2,6 @@ package moblima.controller;
 
 import java.util.ArrayList;
 
-import moblima.model.TicketPrice;
-
 /**
  * Returns all prices for different categories and types
  * @version 1.0
