@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Movie_goer extends Person {
 
+	private int custID;
 	private String name;
 	private int age;
 	private Age ageVal;
@@ -64,7 +65,7 @@ public class Movie_goer extends Person {
 		// Movie = ['Black Adam', 'Come Back Home', 'Black Panther - Wakanda Forever']
 		// numOfMovies = 3
 		
-		System.out.println("All movies:");
+		System.out.println("--- Movie Listing ---");
 		for (int i=0; i<numOfMovies; i++)
 			System.out.printf(i+1 + ". " + movies.get(i).getMovieName()+"\n");
 	}
@@ -82,15 +83,14 @@ public class Movie_goer extends Person {
 		System.out.println("Movie not found! Do you want to find another movie instead?");
 	}
 
-	public void CheckSeat(int row, int col) {
+	public void CheckSeat(ArrayList<show> shows) {
 		// Movie_goer can check for empty seats in a cineplex before booking.
 		
-		CinemaSeat seat = new CinemaSeat(row, col);
+		System.out.println("--- Seat Availability ---");
 		
-		if (seat.isAssigned() == true)
-			System.out.println("Seat is not available. Please choose another seat instead.");
-		else
-			System.out.println("Seat is available! Would you like to pick this seat?");
+		for (show show:shows) {
+			show.printSeats();
+		}
 	}
 
 	public int selectMovie() {
@@ -187,6 +187,18 @@ public class Movie_goer extends Person {
 		int dateChoice;
 		int timeChoice;
 		
+		System.out.println("--- Ticket Booking & Purchase ---");
+		
+		ArrayList<Movie> movies = new ArrayList<Movie>();
+		int custID = 0;
+		int movieID = 0;
+		String movieBooked, temp, firstSeat;
+		int numSeats;
+		Movie m;
+		master Master = new master();
+		movies = Master.getMovies();
+		
+		
 		System.out.println("Select a movie:");
 		movieChoice = selectMovie();
 		
@@ -250,6 +262,14 @@ public class Movie_goer extends Person {
 			return 3;
 		
 		return 0;
+	}
+	
+	public int getCustomerID() {
+		return this.custID;
+	}
+	
+	public void setCustomerID(int cust_id) {
+		this.custID = cust_id;
 	}
 
 	public int getAge() {
