@@ -15,7 +15,8 @@ public class Movie_goer extends Person {
 	private Age ageVal;
 	private int mobile;
 	private String email;
-	private int review;
+	private String review;
+	private double rating;
 	private ArrayList<Bookings> bookings = new ArrayList<>();
 	//private String password;
 	

@@ -7,22 +7,6 @@ import moblima.model.*;
 import moblima.view.*;
 
 public class MovieApp {
-    // placeholder to be removed
-    public class Cineplex {
-        public String getName() {
-            return "";
-        }
-    }
-
-    private Cineplex[] cineplexes;
-
-    public void showCineplex() {
-        System.out.println("Cineplexes Available: ");
-        for (int i = 0; i < cineplexes.length; i++) {
-            System.out.printf("%d: %s\n", i + 1, cineplexes[i].getName());
-        }
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         master Master = new master();
@@ -79,8 +63,7 @@ public class MovieApp {
                                     cinemaShowtimes_menu.main(args);
                                     break;
                                 case 3:
-                                    ConfigureTicketPrices ticketPrices_menu = new ConfigureTicketPrices();
-                                    ticketPrices_menu.main(args);
+                                    ConfigureTicketPrices.main(args);
                                 case 4:
                                     break;
                                 case 5:
@@ -109,7 +92,7 @@ public class MovieApp {
                             "3. Check seat availability and selection of seat/s\n" +
                             "4. Book and purchase ticket\n" +
                             "5. View booking history\n" +
-                            "6. List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings\n" +
+                            "6. List the Top 5 ranking by ticket sales OR by overall reviewers' ratings\n" +
                             "7. Back\n");
                     System.out.print("Enter your choice: ");
                     try {
@@ -120,6 +103,10 @@ public class MovieApp {
                                 user.ListMovie(movie_list);
                                 break;
                             case 2:
+                                user.ListMovie(movie_list);
+                                // user.selectMovie();
+                                ViewMovieDetails view_menu = new ViewMovieDetails(null);
+                                view_menu.main(args);
                                 break;
                             case 3:
                                 break;

@@ -12,7 +12,7 @@ import moblima.model.*;
 public class CreateUpdateMovieListing {
 
     private static master Master;
-    private static String filepath = "data/movies.txt";
+    private static String filepath = "Database/movies.txt";
 
     public CreateUpdateMovieListing(master m)
     {

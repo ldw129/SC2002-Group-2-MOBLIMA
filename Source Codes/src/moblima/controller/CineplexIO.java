@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 
 import moblima.model.Cinema;
 import moblima.model.Cineplex;
-import moblima.model.master;
 
 /**
  * Class to handle all read cineplexes list and handle update functions
