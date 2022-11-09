@@ -134,7 +134,7 @@ public class CreateUpdateMovieListing {
                 }
 
                 String movieCastStr = sb.toString();
-                System.out.println(movieCastStr);
+                //System.out.println(movieCastStr);
                 //maybe can delete
                 String[] review = new String[0];
                 double[] rating = new double[0];
@@ -145,9 +145,9 @@ public class CreateUpdateMovieListing {
                 //master.addMovieListing(newMovie);
                 master.addMovieListing(newMovie);
                 //String filepath = "data/movies.txt";
-                File showFile = new File("data/Shows/"+movieTitle+".txt");
+                File showFile = new File("Database/Shows/"+movieTitle+".txt"); 
                 showFile.createNewFile();
-                File file = new File("data/movies.txt");
+                File file = new File("Database/movies.txt");
                 FileWriter fw = new FileWriter(file, true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 PrintWriter pw = new PrintWriter(bw);

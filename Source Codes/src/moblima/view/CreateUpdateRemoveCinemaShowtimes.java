@@ -109,7 +109,7 @@ public class CreateUpdateRemoveCinemaShowtimes {
 						Cineplexes_1.get(choice_1 - 1).getCinema().get(cinema_id - 1).addShow(s);
 
 						Master.setCineplexes(Cineplexes_1);
-						File file = new File("data/Shows/" + movies.get(mov_num - 1).getMovieName() + ".txt");
+						File file = new File("Database/Shows/" + movies.get(mov_num - 1).getMovieName() + ".txt");
 						FileWriter fw = new FileWriter(file, true);
 						BufferedWriter bw = new BufferedWriter(fw);
 						PrintWriter pw = new PrintWriter(bw);
@@ -224,7 +224,7 @@ public class CreateUpdateRemoveCinemaShowtimes {
 									+ " 4) Back\n");
 							updateSelection = sc.nextInt();
 
-							File uFile = new File("data/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
+							File uFile = new File("Database/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
 							Scanner updateFile = new Scanner(uFile);
 							StringBuffer buffer = new StringBuffer();
 							while (updateFile.hasNextLine()) {
@@ -373,8 +373,8 @@ public class CreateUpdateRemoveCinemaShowtimes {
 							String lineToRemove = keyWord;
 
 							File inputFile = new File(
-									"data/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
-							File tempFile = new File("data/Shows/myTempFile.txt");
+									"Database/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
+							File tempFile = new File("Database/Shows/myTempFile.txt");
 
 							BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 							BufferedWriter writer2 = new BufferedWriter(new FileWriter(tempFile));
@@ -390,7 +390,7 @@ public class CreateUpdateRemoveCinemaShowtimes {
 								writer2.write((currentLine + System.getProperty("line.separator")));
 							}
 
-							File file3 = new File("data/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
+							File file3 = new File("Database/Shows/" + movies.get(selection - 1).getMovieName() + ".txt");
 							file3.delete();
 
 							writer2.close();
