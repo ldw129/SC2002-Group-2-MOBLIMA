@@ -53,13 +53,14 @@ public class MovieApp {
 
                         try {
                             choice = sc.nextInt();
-                            switch(choice) {
+                            switch (choice) {
                                 case 1:
                                     CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(m);
                                     movieListing_menu.main(args);
                                     break;
                                 case 2:
-                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(m);
+                                    CreateUpdateRemoveCinemaShowtimes cinemaShowtimes_menu = new CreateUpdateRemoveCinemaShowtimes(
+                                            m);
                                     cinemaShowtimes_menu.main(args);
                                     break;
                                 case 3:
@@ -84,7 +85,8 @@ public class MovieApp {
             else if (choice == 2) {
                 choice = 0;
                 Movie_goer user = new Movie_goer();
-                
+                MainFunctions mainFunctions = new MainFunctions();
+
                 do {
                     System.out.printf("---------------------\n" +
                             "Welcome to MovieGoer Module!\n" +
@@ -97,29 +99,34 @@ public class MovieApp {
                     System.out.print("Enter your choice: ");
                     try {
                         choice = sc.nextInt();
-                        
-                        switch(choice) {
-                        	case 1:
-                        		user.ViewMovies(movie_list, movie_list.size());
-                        		break;
-                        	case 2:
-                        		user.CheckSeat();
-                        		break;
-                        	case 3:
-                        		user.BookTickets(); // under construction
-                        		break;
-                        	case 4:
-                        		user.viewBookingHistory(); // under construction
-                        		break;
-                        	case 5:
-                        		user.PopularMovies(movie_list);
-                        		break;
+
+                        switch (choice) {
+                            case 1:
+                                mainFunctions.ViewMovies(movie_list, movie_list.size());
+                                break;
+                            case 2:
+                                mainFunctions.CheckSeat();
+                                break;
+                            case 3:
+                                mainFunctions.BookTickets(); // under construction
+                                break;
+                            case 4:
+                                user.viewBookingHistory(); // under construction
+                                break;
+                            case 5:
+                                mainFunctions.PopularMovies(movie_list);
+                                break;
+                            case 6:
+                                break;
+                            default:
+                                System.err.println("Invalid input!");
                         }
                     } catch (Exception e) {
                         System.err.println("Invalid input!");
                         sc.nextLine();
+                        throw e;
                     }
-                } while (choice != 7);
+                } while (choice != 6);
                 System.out.println("Returning to main screen...");
             }
 

@@ -6,7 +6,7 @@ package moblima.model;
  * @version 1.0
  */
 
-public class show { // figure out how to implement extends movie
+public class show {
 	
 	/**
 	 * date and time of a show
