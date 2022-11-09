@@ -1,3 +1,0 @@
-Filmgarde Bugis;0;Cinema1|Standard|0;Cinema2|Premium|1;Cinema3|Platinum|2;
-Golden Village Vivocity;1;Cinema1|Standard|0;Cinema2|Premium|1;Cinema3|Platinum|2;
-Shaw Theaters;2;Cinema1|Standard|0;Cinema2|Premium|1;Cinema3|Platinum|2;
