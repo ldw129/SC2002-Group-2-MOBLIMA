@@ -156,17 +156,17 @@ public class Movie_goer_IO{
      * to add a movieGoer to the ArrayList of customers
      */
     public void addMovieGoer() {
-    		MovieGoer m1 = new MovieGoer();
+    		Movie_goer m1 = new Movie_goer();
     		
-    		m1.setCustID(custID);
-    		m1.setCustomerName(customerName);
-    		m1.setPhoneNumber(phoneNumber);
+    		m1.setCustomerID(custID);
+    		m1.setName(customerName);
+    		m1.setMobile(phoneNumber);
     		
     		int length = customers.size();
     		int flag=1;
     		int i;
     		for(i=0; i<length; i++) {
-    			int c = customers.get(i).getCustID();
+    			int c = customers.get(i).getCustomerID();
     			if(c==custID) {flag = 0; addBooking(i); break;}
     		}
     		
