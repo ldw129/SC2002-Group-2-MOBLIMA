@@ -184,7 +184,7 @@ public class Movie_goer_IO{
      * @param i index of the existing customer in the ArrayList
      */
     public void addBooking(int i) {
-    	MovieGoer m = new MovieGoer();
+    	Movie_goer m = new Movie_goer();
     	m = customers.get(i);
     	
     	m.setBooking(createBooking());
@@ -195,14 +195,14 @@ public class Movie_goer_IO{
      * to create a Booking object to be associated with the customer
      * @return booking
      */
-    public Booking createBooking() {
-    	Booking b1 = new Booking();	
+    public BookingInfo createBooking() {
+    	BookingInfo b1 = new BookingInfo();	
     	
     	b1.setCustID(custID);
-    	b1.setbookingID(bookingID);
+    	b1.setTID(bookingID);
     	b1.setfirstseat(firstseat);
     	b1.setmovieBooked(movieBooked);
-    	b1.setnumseats(numseats);
+    	b1.setSeatNum(numseats);
     	b1.setDateTime(dateTime);
     	b1.setemailID(emailID);
     	
@@ -221,7 +221,7 @@ public class Movie_goer_IO{
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-   public void assignFinalSeatsbyMovie(movie mo, int index, String custName, int custID, String emailID, int phoneNumber, String bookingID, int numseats, String firstseat) throws IOException, Exception {
+   public void assignFinalSeatsbyMovie(Movie mo, int index, String custName, int custID, String emailID, int phoneNumber, String bookingID, int numseats, String firstseat) throws IOException, Exception {
     	try{
     		readBookingsFile();
     		
@@ -229,30 +229,30 @@ public class Movie_goer_IO{
     		this.numseats = numseats;
     		this.bookingID = bookingID;
     		
-    		Booking b = new Booking();
+    		BookingInfo b = new BookingInfo();
     		
     		int length = customers.size();
     		int flag=1;
     		int i;
     		for(i=0; i<length; i++) {
-    			int c = customers.get(i).getCustID();
+    			int c = customers.get(i).getCustomerID();
     			if(c==custID) {flag = 0; break;}
     		}
     		
     		if(flag==1){
-    			MovieGoer m = new MovieGoer();
-    			m.setCustomerName(custName);
-    			m.setCustID(custID);
+    			Movie_goer m = new Movie_goer();
+    			m.setName(custName);
+    			m.setCustomerID(custID);
     			
     			
     			b = createBooking();
             	m.setBooking(b);
     			}
     		else {
-    			MovieGoer m = new MovieGoer();
+    			Movie_goer m = new Movie_goer();
     			m = customers.get(i);
     			addBooking(i);
-    			ArrayList<Booking> bookings = new ArrayList<>();
+    			ArrayList<BookingInfo> bookings = new ArrayList<>();
     			bookings = m.getBooking();
     			int numofbookings = bookings.size();
     			
@@ -293,13 +293,13 @@ public class Movie_goer_IO{
 	 * @throws IOException
 	 * @throws Exception
 	 */
-	public MovieGoer getMovieGoer(int custID) throws IOException, Exception {
+	public Movie_goer getMovieGoer(int custID) throws IOException, Exception {
 		try{
 		readBookingsFile();
 		int length = customers.size();
 		int i;
 		for(i=0; i<length; i++) {
-			int c = customers.get(i).getCustID();
+			int c = customers.get(i).getCustomerID();
 			if(c==custID) break;
 		}
 		

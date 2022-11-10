@@ -7,7 +7,7 @@ public class BookingInfo extends Movie_goer {
 	private String emailAdd;
 	private String movie;
 	private int seatNum;
-	private int dateTime;
+	private String dateTime;
 	private String firstSeat;
 	
 	public BookingInfo() {}
@@ -38,11 +38,11 @@ public class BookingInfo extends Movie_goer {
 		this.seatNum = seatNum;
 	}
 
-	public int getDateTime() {
+	public String getDateTime() {
 		return this.dateTime;
 	}
 
-	public void setDateTime(int dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 
