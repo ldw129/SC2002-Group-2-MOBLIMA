@@ -1,6 +1,6 @@
 package moblima.model;
 
-public class Bookings extends Movie_goer {
+public class BookingInfo extends Movie_goer {
 
 	private int customerName;
 	String transactionID;
@@ -10,9 +10,9 @@ public class Bookings extends Movie_goer {
 	private int dateTime;
 	private String firstSeat;
 	
-	public Bookings() {}
+	public BookingInfo() {}
 	
-	public Bookings(int cust_name, String transaction_id, String email_id, String movieBooked, int numOfSeats, String firstSeat) {
+	public BookingInfo(int cust_name, String transaction_id, String email_id, String movieBooked, int numOfSeats, String firstSeat) {
 		this.customerName = cust_name;
 		this.transactionID = transaction_id;
 		this.emailAdd = email_id;
