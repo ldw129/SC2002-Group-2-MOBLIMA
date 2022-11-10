@@ -85,7 +85,6 @@ public class MovieGoerFunctions {
     public void Review(Movie movie) {
         // Movie_goer can enter his / her review and rating for a particular movie.
         int choice;
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("Would you like to:\n"
                 + "1. Review this movie?\n"
