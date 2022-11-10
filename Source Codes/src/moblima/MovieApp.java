@@ -84,7 +84,6 @@ public class MovieApp {
             // MovieGoer
             else if (choice == 2) {
                 choice = 0;
-                Movie_goer user = new Movie_goer();
                 MovieGoerFunctions mainFunctions = new MovieGoerFunctions();
 
                 do {
@@ -111,7 +110,7 @@ public class MovieApp {
                                 mainFunctions.BookTickets(); // under construction
                                 break;
                             case 4:
-                                user.viewBookingHistory(); // under construction
+                            	mainFunctions.viewBookingHistory(); // under construction
                                 break;
                             case 5:
                                 mainFunctions.PopularMovies(movie_list);
