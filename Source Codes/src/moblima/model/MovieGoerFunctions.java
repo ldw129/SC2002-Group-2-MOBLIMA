@@ -321,7 +321,7 @@ public class MovieGoerFunctions {
         booking.getDateTime();
     }
     
-    public ArrayList<BookingInfo> viewBookingHistory(){
+    public void viewBookingHistory(){
 		// Movie_goer can browse through his / her past movie bookings with ease.
 		int cust_id, i;
 		ArrayList<BookingInfo> bookings = new ArrayList<>();
