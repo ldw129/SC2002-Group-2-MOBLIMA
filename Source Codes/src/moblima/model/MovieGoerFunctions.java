@@ -5,6 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import moblima.model.BookingInfo;
+import moblima.model.Cineplex;
+import moblima.model.Movie;
+import moblima.model.master;
+import moblima.model.show;
+import moblima.controller.Movie_goer_IO;
+
 public class MovieGoerFunctions {
 	
 	Scanner sc = new Scanner(System.in);
@@ -216,62 +223,7 @@ public class MovieGoerFunctions {
         dateChoice = sc.nextInt();
         return dateChoice;
     }
-
-    public int selectTime(int movieChoice, int cineplexChoice, int dateChoice) {
-        // List out all the available time slots of when the user's desired (chosen)
-        // movie will be screened on a chosen date.
-        // Cinema.getShowtime();
-        int timeChoice;
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime currTime = LocalTime.now();
-        String time = currTime.format(timeFormatter);
-        LocalTime parsedCurrTime = LocalTime.parse(time, timeFormatter);
-
-        // get movie showtimes on the chosen day (use switch case statement, based on
-        // dateChoice)
-        // list out movie showtimes that are available for booking, if they are beyond
-        // parsedCurrTime, otherwise do not show
-        timeChoice = sc.nextInt();
-        return timeChoice;
-    }
-
-    public void BookTickets() {
-        // Movie_goer can book and purchase movie ticket(s) for a particular chosen
-        // movie.
-        BookingInfo booking = new BookingInfo();
-        int movieChoice;
-        int cineplexChoice;
-        int dateChoice;
-        int timeChoice;
-
-        System.out.println("--- Ticket Booking & Purchase ---");
-
-        ArrayList<Movie> movies = new ArrayList<Movie>();
-        int custID = 0;
-        int movieID = 0;
-        String movieBooked, temp, firstSeat;
-        int numSeats;
-        Movie m;
-        master Master = new master();
-        movies = Master.getMovies();
-
-        System.out.println("Select a movie:");
-        movieChoice = selectMovie();
-
-        System.out.println("Select a cineplex: ");
-        cineplexChoice = selectCineplex(movieChoice);
-
-        System.out.println("Select a date: ");
-        dateChoice = selectDate();
-
-        System.out.println("Select a timeslot: ");
-        timeChoice = selectTime(movieChoice, cineplexChoice, dateChoice);
-
-        booking.getBookingID();
-        booking.getSeatNum();
-        booking.getDateTime();
-    }
-
+    
     public void PopularMovies(ArrayList<Movie> movieList) {
         // Movie_goer can view the top 5 movies ranked / sorted based on ticket sales or
         // overall reviewrs' ratings.
@@ -315,4 +267,87 @@ public class MovieGoerFunctions {
         } while (selection != 3);
         return;
     }
+
+    public int selectTime(int movieChoice, int cineplexChoice, int dateChoice) {
+        // List out all the available time slots of when the user's desired (chosen)
+        // movie will be screened on a chosen date.
+        // Cinema.getShowtime();
+        int timeChoice;
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime currTime = LocalTime.now();
+        String time = currTime.format(timeFormatter);
+        LocalTime parsedCurrTime = LocalTime.parse(time, timeFormatter);
+
+        // get movie showtimes on the chosen day (use switch case statement, based on
+        // dateChoice)
+        // list out movie showtimes that are available for booking, if they are beyond
+        // parsedCurrTime, otherwise do not show
+        timeChoice = sc.nextInt();
+        return timeChoice;
+    }
+
+    public void BookTickets() {
+        // Movie_goer can book and purchase movie ticket(s) for a particular chosen
+        // movie.
+        BookingInfo booking = new BookingInfo();
+        int movieChoice;
+        int cineplexChoice;
+        int dateChoice;
+        int timeChoice;
+
+        System.out.println("--- Ticket Booking & Purchase ---");
+
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        int custID = 0;
+        int movieID = 0;
+        String movieBooked, temp, firstSeat;
+        int numSeats;
+        Movie m;
+        master Master = new master();
+        movies = Master.getMovies();
+
+        System.out.println("Select a movie:");
+
+        System.out.println("Select a cineplex: ");
+
+        System.out.println("Select a date: ");
+        dateChoice = selectDate();
+
+        System.out.println("Select a timeslot: ");
+        timeChoice = selectTime(movieChoice, cineplexChoice, dateChoice);
+
+        booking.getTID();
+        booking.getSeatNum();
+        booking.getDateTime();
+    }
+    
+    public ArrayList<BookingInfo> viewBookingHistory(){
+		// Movie_goer can browse through his / her past movie bookings with ease.
+		int cust_id, i;
+		ArrayList<BookingInfo> bookings = new ArrayList<>();
+		Movie_goer customer = new Movie_goer();
+		Movie_goer_IO mg = new Movie_goer_IO();
+		
+    	System.out.println("--- Your Past Bookings ---");
+    	System.out.println("Enter your customer ID to proceed: ");
+    	cust_id = sc.nextInt();
+    	
+    	customer = mg.getMovieGoer(cust_id);
+    	
+    	bookings = customer.getBooking();
+    	
+    	for (i = 0; i < bookings.size(); i++) {
+    		System.out.println("BOOKING " + (i+1) + ": ");
+			System.out.println("Transaction ID: " + bookings.get(i).getTID());
+			System.out.println("Customer ID: " + cust_id);
+			System.out.println("Customer Name: " + bookings.get(i).getCustName());
+    		System.out.println("Customer Email ID: " + bookings.get(i).getEmailAddress());
+			System.out.println("Movie Booked: " + bookings.get(i).getMovieBooked());
+			System.out.println("Date & Time: " + bookings.get(i).getDateTime());
+			System.out.println("Number of Seats booked: " + bookings.get(i).getSeatNum());
+			System.out.println("FirstSeat booked: " + bookings.get(i).getFirstSeat());
+    	}
+ 
+	}
+
 }

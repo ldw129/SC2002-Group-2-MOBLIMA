@@ -64,6 +64,10 @@ public class Movie_goer extends Person {
 		this.password = password;
 	}*/
 	
+	public ArrayList<BookingInfo> getBooking() {
+		return this.bookings;
+	}
+	
 	public void setBooking (BookingInfo b) {
 		if (!bookings.contains(b))
 			bookings.add(b);
