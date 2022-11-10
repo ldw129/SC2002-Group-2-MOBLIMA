@@ -3,7 +3,7 @@ package moblima.model;
 public class BookingInfo extends Movie_goer {
 
 	private String customerName;
-	String transactionID;
+	private String transactionID;
 	private String emailAdd;
 	private String movie;
 	private int seatNum;
