@@ -8,7 +8,7 @@ import java.time.LocalTime;
 import java.text.ParseException; 
 import java.util.Scanner;
 
-import moblima.model.Bookings;
+import moblima.model.BookingInfo;
 import moblima.model.Cineplex;
 import moblima.model.Movie;
 import moblima.model.master;
@@ -24,7 +24,7 @@ public class Movie_goer extends Person {
 	private String email;
 	private String review;
 	private double rating;
-	private ArrayList<Bookings> bookings = new ArrayList<>();
+	private ArrayList<BookingInfo> bookings = new ArrayList<>();
 	//private String password;
 	
 	Scanner sc = new Scanner(System.in);
@@ -53,7 +53,7 @@ public class Movie_goer extends Person {
 		this.email = cust_email;
 	}
 	
-	public Movie_goer(String cust_name, int cust_age, int cust_mobile, String cust_email, ArrayList<Bookings> bookings) {
+	public Movie_goer(String cust_name, int cust_age, int cust_mobile, String cust_email, ArrayList<BookingInfo> bookings) {
 		this(cust_name, cust_mobile, cust_email);
 		this.age = cust_age;
 		this.bookings = bookings;
@@ -64,13 +64,7 @@ public class Movie_goer extends Person {
 		this.password = password;
 	}*/
 	
-	public ArrayList<Bookings> viewBookingHistory(){
-		// Movie_goer can browse through his / her past movie bookings with ease.
-		System.out.println("--- Your Past Bookings ---");
-		return this.bookings;
-	}
-	
-	public void setBooking (Bookings b) {
+	public void setBooking (BookingInfo b) {
 		if (!bookings.contains(b))
 			bookings.add(b);
 	}
