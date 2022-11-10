@@ -85,7 +85,7 @@ public class MovieApp {
             else if (choice == 2) {
                 choice = 0;
                 Movie_goer user = new Movie_goer();
-                MainFunctions mainFunctions = new MainFunctions();
+                MovieGoerFunctions mainFunctions = new MovieGoerFunctions();
 
                 do {
                     System.out.printf("---------------------\n" +
