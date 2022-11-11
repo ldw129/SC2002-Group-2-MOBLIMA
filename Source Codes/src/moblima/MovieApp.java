@@ -91,9 +91,9 @@ public class MovieApp {
                             "Welcome to MovieGoer Module!\n" +
                             "1. Search / List movies and view movie details\n" +
                             "2. Check seat availability and selection of seat/s\n" +
-                            "3. Book and purchase ticket\n" +
-                            "4. View booking history\n" +
-                            "5. List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings\n" +
+                            "3. Book and purchase tickets\n" +
+                            "4. View your booking history\n" +
+                            "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
                             "6. Quit\n");
                     System.out.print("Enter your choice: ");
                     try {
@@ -123,7 +123,6 @@ public class MovieApp {
                     } catch (Exception e) {
                         System.err.println("Invalid input!");
                         sc.nextLine();
-                        throw e;
                     }
                 } while (choice != 6);
                 System.out.println("Returning to main screen...");
