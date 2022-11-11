@@ -1,7 +1,6 @@
 package moblima.controller;
 
 import java.io.*;
-import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class Movie_goer_IO{
 	/**
 	 * text file for the input and output
 	 */
-    private File file = new File("data/Customers.txt");
+    private File customerFile = new File("Database/Customers.txt");
     
     /**
      * ArrayList of the MovieGoers
@@ -57,8 +56,8 @@ public class Movie_goer_IO{
      * @throws IOException
      * @throws Exception
      */
-    public void countPreviousBookings() throws IOException,Exception {
-    	FileReader fw = new FileReader("data/Customers.txt");
+    public void countPreviousBookings() throws IOException {
+    	FileReader fw = new FileReader("Database/Customers.txt");
 		BufferedReader br = new BufferedReader(fw);
 		
 		String s;
@@ -73,11 +72,11 @@ public class Movie_goer_IO{
      * @throws IOException
      * @throws Exception
      */
-    public void readBookingsFile() throws IOException,Exception {
+    public void readBookingsFile() throws IOException {
     	
     		countPreviousBookings();
     		
-    		FileReader fw = new FileReader("data/Customers.txt");
+    		FileReader fw = new FileReader("Database/Customers.txt");
     		BufferedReader br = new BufferedReader(fw);
     		
     		String s;
@@ -120,15 +119,15 @@ public class Movie_goer_IO{
      * @throws IOException
      * @throws Exception
      */
-    public void writeNewBooking(int custID, String bookingID, String customerName, int phoneNumber, String movieBooked, String emailID, String time, int numseats, String firstseat) throws IOException,Exception{
+    public void writeNewBooking(int custID, String bookingID, String customerName, int phoneNumber, String movieBooked, String emailID, String time, int numseats, String firstseat) throws IOException, Exception {
 	countPreviousBookings();    
-    	file = getCustomerFile();
+	customerFile = getCustomerFile();
     	String temp;
     	try {
 			Scanner sc = new Scanner(System.in);
 			
 			
-			FileWriter fw = new FileWriter(file, true);
+			FileWriter fw = new FileWriter(customerFile, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
 			bw.newLine();
@@ -198,13 +197,13 @@ public class Movie_goer_IO{
     public BookingInfo createBooking() {
     	BookingInfo b1 = new BookingInfo();	
     	
-    	b1.setCustID(custID);
+    	b1.setCustomerID(custID);;
     	b1.setTID(bookingID);
-    	b1.setfirstseat(firstseat);
-    	b1.setmovieBooked(movieBooked);
+    	b1.setFirstSeat(firstseat);
+    	b1.setMovieBooked(movieBooked);
     	b1.setSeatNum(numseats);
     	b1.setDateTime(dateTime);
-    	b1.setemailID(emailID);
+    	b1.setEmailAddress(emailID);
     	
     	
     	return b1;
@@ -283,7 +282,7 @@ public class Movie_goer_IO{
      * @return customer file
      */
     public File getCustomerFile() {
-		return file;
+		return customerFile;
 	}
 
 	/**
@@ -293,7 +292,7 @@ public class Movie_goer_IO{
 	 * @throws IOException
 	 * @throws Exception
 	 */
-	public Movie_goer getMovieGoer(int custID) throws IOException, Exception {
+	public Movie_goer getMovieGoer(int custID) throws IOException {
 		try{
 		readBookingsFile();
 		int length = customers.size();
