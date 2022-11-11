@@ -12,7 +12,7 @@ public class UpdateHolidays {
 		
 		try {
 		
-		PrintWriter writer = new PrintWriter("DataBase/Holidays.txt");
+		PrintWriter writer = new PrintWriter("Database/Holidays.txt");
 		
 		for(int i = 0; i < 7; i++) {
 			writer.println(newHolidays.get(i));
