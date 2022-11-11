@@ -19,7 +19,6 @@ public class Movie_goer extends Person {
 	private int custID;
 	private String name;
 	private int age;
-	private Age ageVal;
 	private int mobile;
 	private String email;
 	private String review;
@@ -28,21 +27,6 @@ public class Movie_goer extends Person {
 	//private String password;
 	
 	Scanner sc = new Scanner(System.in);
-	
-	public enum Age{
-		CHILD(0, 12),
-		STUDENT(13, 18),
-		ADULT(19, 54),
-		SENIOR_CITIZEN(55, 100);
-		
-		private final int low;
-		private final int high;
-		
-		private Age(int low, int high) {
-			this.low = low;
-			this.high = high;
-		}
-	}
 	
 	public Movie_goer() {};
 	
@@ -53,7 +37,7 @@ public class Movie_goer extends Person {
 		this.email = cust_email;
 	}
 	
-	public Movie_goer(String cust_name, int cust_age, int cust_mobile, String cust_email, ArrayList<BookingInfo> bookings) {
+	public Movie_goer(String cust_name, int cust_mobile, String cust_email, int cust_age, ArrayList<BookingInfo> bookings) {
 		this(cust_name, cust_mobile, cust_email);
 		this.age = cust_age;
 		this.bookings = bookings;
@@ -71,21 +55,6 @@ public class Movie_goer extends Person {
 	public void setBooking (BookingInfo b) {
 		if (!bookings.contains(b))
 			bookings.add(b);
-	}
-
-	public int ValidateAge() {
-		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
-		// he / she will only validate his / her age upon entering the cinema.
-		if (ageVal == Age.CHILD) {
-			return 1;
-		}
-		else if (ageVal == Age.STUDENT) {
-			return 2;
-		}
-		else if (ageVal == Age.ADULT)
-			return 3;
-		
-		return 0;
 	}
 	
 	public int getCustomerID() {
