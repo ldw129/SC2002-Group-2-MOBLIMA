@@ -22,7 +22,7 @@ public class CineplexIO {
 	/**
 	 * file name to read all cineplex data
 	 */
-	public static String filename = "Database\\cineplex.txt";
+	public static String filename = "Database/cineplex.txt";
 
 	/**
 	 * default constructor
