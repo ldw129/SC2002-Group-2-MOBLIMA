@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import moblima.model.CinemaSeat;
 import moblima.model.Movie;
 import moblima.model.show;
 import moblima.model.master;
@@ -288,15 +289,20 @@ public class movieIO {
 			     }
 				double[] Seats = GetDoubleArray(alr2);
 				
-				int[][] seats_final = new int[9][9];
+				CinemaSeat[][] seats_final = new CinemaSeat[9][9];
 				
 				for (int x = 0;x<9;x++) {
 					for (int y = 0;y<9;y++) {
-						seats_final[x][y] = (int)Math.round(Seats[9*x+y]);
+						if ((int)Math.round(Seats[9*x+y]) == 1) {
+							seats_final[x][y].assign();
+						}
+						else {
+							seats_final[x][y].unAssign();
+						}
 					}
 				}
 				boolean is3D = Boolean.parseBoolean(star.nextToken().trim());
-				show s = new show(mov,dateTime,cineplexID,screenNum,is3D,seats_final);
+				show s = new show(mov,dateTime,cineplexID,screenNum,is3D, seats_final);
 				
 				alr.add(s);
 				
@@ -323,10 +329,17 @@ public class movieIO {
 				st.append(SEPARATOR);
 				st.append(String.valueOf(s.getScreenNum()).trim());
 				st.append(SEPARATOR);
-				int[][] temp2 = s.getSeats();
+				CinemaSeat[][] temp2 = s.getSeats();
 				for (int j =0;j<9;j++) {
 					for (int k =0;k<9;k++) {
-						st.append(String.valueOf(temp2[j][k]));
+						Boolean isAssigned = temp2[j][k].isAssigned();
+						if (isAssigned) {
+							st.append('1');
+						}
+						else {
+							st.append('0');
+						}
+						
 						if(j!=8 || k!=8)
 						st.append(",");
 					}
