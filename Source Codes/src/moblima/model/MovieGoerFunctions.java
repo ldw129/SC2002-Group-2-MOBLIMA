@@ -9,11 +9,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import moblima.model.BookingInfo;
-import moblima.model.Cineplex;
-import moblima.model.Movie;
-import moblima.model.master;
-import moblima.model.show;
 import moblima.controller.Movie_goer_IO;
 import moblima.controller.HolidayConfig;
 
