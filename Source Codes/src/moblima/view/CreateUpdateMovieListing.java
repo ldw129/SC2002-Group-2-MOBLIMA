@@ -1,11 +1,8 @@
 package moblima.view;
+
 import java.util.*;
-
-import javax.swing.ToolTipManager;
-
 import moblima.model.master;
 import moblima.model.Movie;
-
 import java.io.*;
 import moblima.model.*;
 

@@ -1,8 +1,6 @@
 package moblima.model;
 
-import java.time.*;
 import moblima.controller.GetPrice;
-import moblima.controller.HolidayConfig;
 
 public class MovieTicket {
 
