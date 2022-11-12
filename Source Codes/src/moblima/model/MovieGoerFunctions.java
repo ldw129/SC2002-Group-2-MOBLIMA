@@ -147,7 +147,7 @@ public class MovieGoerFunctions {
         master m = new master();
         m.readCineplexes();
         int cinemaChoice = 0;
-        Cineplex cineplexChoice;
+        int cineplexChoice = 0;
 
         System.out.println("--- Seat Availability ---");
 
@@ -155,19 +155,21 @@ public class MovieGoerFunctions {
         Cineplexes = m.getCineplexes();
 
         cineplexChoice = selectCineplex(Cineplexes, Cineplexes.size());
-
-        System.out.println("Select theatre - 1, 2 or 3:");
-        cinemaChoice = sc.nextInt();
-        while (cinemaChoice > 3) {
-            System.out.println("Invalid input!");
+        
+        try {
+        	System.out.println("Select theatre - 1, 2 or 3:");
+            cinemaChoice = sc.nextInt();
+        } catch (Exception e) {
+            System.err.println("Invalid input!");
             sc.nextLine();
         }
 
         System.out.println("--- All available movies at selected theatre ---");
-        ArrayList<show> movieList = cineplexChoice.getCinema().get(cinemaChoice - 1).getCinemaShows();
-
-        for (show show : movieList)
+        ArrayList<show> showList = m.getCineplexes().get(cineplexChoice-1).getCinema().get(cinemaChoice - 1).getCinemaShows();
+        System.out.println(showList);
+        for (show show : showList) {
             show.printSeats();
+        }
     }
 
     public Movie selectMovie(ArrayList<Movie> movies, int numOfMovies) {
@@ -204,7 +206,7 @@ public class MovieGoerFunctions {
         return movie;
     }
 
-    public Cineplex selectCineplex(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
+    public int selectCineplex(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
         int i;
         int cineplexChoice = 0;
         Cineplex cineplex;
@@ -227,7 +229,7 @@ public class MovieGoerFunctions {
         } while (cineplexChoice > numOfCineplexes);
         
         System.out.println(cineplex.showLocation());
-        return cineplex;
+        return cineplexChoice;
     }
 
     public int selectDate() {
@@ -332,7 +334,7 @@ public class MovieGoerFunctions {
         int selection;
         String movieBooked, showtime, firstSeat, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id;
         int numSeats, cust_mobile, cust_age, show_index;
-        boolean validAge;
+        boolean validAge, inputValidation;
         
         String[] holidayList = null;
         boolean publicHols = false;
@@ -345,19 +347,19 @@ public class MovieGoerFunctions {
         try {
         	System.out.println("Enter your customer ID to proceed: ");
         	cust_id = sc.nextInt();
+        	
+        	System.out.println("Enter your name: ");
+            cust_name = sc.next();
+            
+            System.out.println("Enter your mobile number: ");
+            cust_mobile = sc.nextInt();
+            
+            System.out.println("Enter your email address: ");
+            cust_email = sc.next();
         } catch (Exception e) {
             System.err.println("Invalid input!");
             sc.nextLine();
         }
-        
-        System.out.println("Enter your name: ");
-        cust_name = sc.next();
-        
-        System.out.println("Enter your mobile number: ");
-        cust_mobile = sc.nextInt();
-        
-        System.out.println("Enter your email address: ");
-        cust_email = sc.next();
         
         do {
         	ageCat = null;
@@ -424,7 +426,7 @@ public class MovieGoerFunctions {
         	
 			cinemaClass = Master.getCineplexes().get(show.getCineplexID()).getCinema().get(show.getScreenNum()).getCinemaClass();
 			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-			MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
+			// MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
 			System.out.println(" ");
 			System.out.printf("\nShow %d:\n", i+1);
 			System.out.println("Date & Time: \n" + show.getDateTime());
@@ -436,38 +438,64 @@ public class MovieGoerFunctions {
 			System.out.println("----------------------------------------------");
         }
         
-        System.out.println("Enter show index: ");
-        show_index = sc.nextInt() - 1;
-        
-        show = showsOfSelectedMovie.get(show_index);
-        show.printSeats();
-        
-        System.out.println("Enter the total number of seats: ");
-        numSeats = sc.nextInt();
-        
-        System.out.println("Enter the first seat: "); // seat ID formatting to be confirmed
-        firstSeat = sc.nextLine();
-        
-        System.out.println("Confirm booking? Y/N");
-        bookingConfirmation = sc.nextLine();
-        if (bookingConfirmation == "N") {
-        	System.out.println("Confirm cancellation? Y/N");
-        	cancel = sc.nextLine();
-        	if (cancel == "Y") {
-        		System.out.println("Booking cancelled!");
-        	}
-        }
-        else {
-        	System.out.println("Booking ID: " + transaction_id);
-        	System.out.println("Movie tickets successfully booked!");
+        try {
+        	System.out.println("Enter show index: ");
+            show_index = sc.nextInt() - 1;
+            
+            show = showsOfSelectedMovie.get(show_index);
+            show.printSeats();
+            
+            System.out.println("Enter the total number of seats: ");
+            numSeats = sc.nextInt();
+            
+            System.out.println("Enter the first seat (ie. A1: Row 1 Seat 1; B2: Row 2 Seat 2): "); // seat ID formatting to be confirmed
+            firstSeat = sc.nextLine();
+        } catch (Exception e) {
+            System.err.println("Invalid input!");
+            sc.nextLine();
         }
         
-        System.out.println("Select a timeslot: ");
-        timeChoice = selectTime(movieChoice, cineplexChoice, dateChoice);
-
-        booking.getTID();
-        booking.getSeatNum();
-        booking.getDateTime();
+        inputValidation = true;
+        
+        while (inputValidation) {
+    		System.out.println("Confirm booking? Y/N");
+            bookingConfirmation = sc.nextLine();
+            
+        	if (bookingConfirmation.equals("n" ) || bookingConfirmation.equals("N" )) {
+            	System.out.println("Confirm cancellation? Y/N");
+            	cancel = sc.nextLine();
+            	if (cancel.equals("y") || cancel.equals("Y")) {
+            		System.out.println("Booking cancelled!");
+            		break;
+            	}
+            	else
+            		System.out.println("Booking continued");
+        			continue;
+            }
+            else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
+            	BookingInfo b = new BookingInfo();
+            	transaction_id = b.getTID(show.getCineplexID());
+            	char ch = firstSeat.charAt(0);
+	    		int firstseatnum = Character.getNumericValue(firstSeat.charAt(1))-1;
+	        	int row = ch - 'a';
+	        	boolean flag1 = false;
+	        	for (int t =0;t<numSeats;t++) {
+	        		if (s.checkSeat(row, firstseatnum+t)){
+	        			flag1 = true;
+	        		}
+	        	}
+	        	if (!flag1) {
+	        		mg.assignFinalSeatsbyMovie(m, showindex, customerName, customerID, emailID, phoneNumber, bookingID, numseats, firstseat);
+	        	}
+	        	System.out.println("Booking ID: " + transaction_id);
+            	System.out.println("Movie tickets successfully booked!");
+            	inputValidation = false;
+            }
+            else {
+            	System.err.println("Invalid input!");
+        		continue;
+            }   	
+        }
         
         return;
     }
@@ -495,7 +523,7 @@ public class MovieGoerFunctions {
     	
     	for (i = 0; i < bookings.size(); i++) {
     		System.out.println("BOOKING " + (i+1) + ": ");
-			System.out.println("Transaction ID: " + bookings.get(i).getTID());
+			System.out.println("Transaction ID: " + bookings.get(i).getTID(cineplexID));
 			System.out.println("Customer ID: " + cust_id);
 			System.out.println("Customer Name: " + bookings.get(i).getCustName());
     		System.out.println("Customer Email ID: " + bookings.get(i).getEmailAddress());
