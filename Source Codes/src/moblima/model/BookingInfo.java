@@ -1,9 +1,12 @@
 package moblima.model;
 
+import java.util.Calendar;
+
 public class BookingInfo extends Movie_goer {
 
 	private String customerName;
 	private String transactionID;
+	private String cinemaCode;
 	private String emailAdd;
 	private String movie;
 	private int seatNum;
@@ -29,9 +32,34 @@ public class BookingInfo extends Movie_goer {
 	public void setCustName(String cust_name) {
 		this.customerName = cust_name;
 	}
+	
+	private String createTID(int cineplexID) {
+		/* --- Cineplex Listing --- // to be changed
+		1. Cathay Cineplexes Cineleisure Orchard
+		2. Golden Village Jurong Point
+		3. Shaw Theatres Nex
+		*/
+		
+		if (cineplexID+1 == 1)
+			cinemaCode = "CCO";
+		else if (cineplexID+1 == 2)
+			cinemaCode = "GVJ";
+		else {
+			cinemaCode = "STN";
+		}
+		
+		transactionID = cinemaCode + 
+				Calendar.getInstance().get(Calendar.YEAR) + 
+				Calendar.getInstance().get(Calendar.MONTH) + 
+				Calendar.getInstance().get(Calendar.DATE) + 
+				Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + 
+				Calendar.getInstance().get(Calendar.MINUTE);
+			
+		return transactionID;
+	}
 
-	public String getTID() {
-		return this.transactionID;
+	public String getTID(int cineplexID) {
+		return createTID(cineplexID);
 	}
 
 	public void setTID(String transaction_id) {
