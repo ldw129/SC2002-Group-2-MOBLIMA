@@ -23,6 +23,7 @@ public class TicketPriceIO {
      * Class - Platinum
      * Movie Goer Category - Child
      * Movie Goer Category - Senior Citizen
+     * Movie Goer Category - Student
      * Public Holiday Price
      * GST Percentage
      * 
@@ -39,6 +40,7 @@ public class TicketPriceIO {
          * Class - Platinum
          * Movie Goer Category - Child
          * Movie Goer Category - Senior Citizen
+         * Movie Goer Category - Student
          * Public Holiday Price
          * GST Percentage
          */
