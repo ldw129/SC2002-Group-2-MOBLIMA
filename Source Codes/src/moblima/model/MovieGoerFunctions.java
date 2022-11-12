@@ -343,7 +343,6 @@ public class MovieGoerFunctions {
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
-<<<<<<< Updated upstream
         try {
         	System.out.println("Enter your customer ID to proceed: ");
         	cust_id = sc.nextInt();
@@ -361,7 +360,6 @@ public class MovieGoerFunctions {
             sc.nextLine();
         }
         
-=======
     	System.out.println("Enter your customer ID to proceed: ");
     	cust_id = sc.nextInt();
         
@@ -378,7 +376,6 @@ public class MovieGoerFunctions {
         System.out.println("Enter your age: ");
         cust_age = sc.nextInt();
         
->>>>>>> Stashed changes
         do {
         	ageCat = null;
         	selection = 0;
