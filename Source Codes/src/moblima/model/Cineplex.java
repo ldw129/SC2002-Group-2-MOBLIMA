@@ -20,7 +20,7 @@ public class Cineplex {
 
 	public ArrayList<Cinema> getCinema() {
 		return cinema;
-	}
+	}dsaf
 	
 	public int getCineplexId() {
 		return cineplexID;
