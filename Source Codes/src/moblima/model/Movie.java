@@ -240,7 +240,7 @@ public class Movie {
 		Cinema tempCinema;
 		movieIO m = new movieIO();
 		try {
-		ArrayList arr = m.readShows(this,"Database/Shows/"+movieName+".txt");
+		ArrayList<show> arr = m.readShows(this,"Database/Shows/"+movieName+".txt");
 		Shows = arr;
 		
 		for(int i=0;i<Shows.size();i++) {
