@@ -1,9 +1,10 @@
 package moblima.view;
 
 import java.util.*;
+import java.io.*;
+
 import moblima.model.master;
 import moblima.model.Movie;
-import java.io.*;
 import moblima.model.*;
 
 public class CreateUpdateMovieListing {
