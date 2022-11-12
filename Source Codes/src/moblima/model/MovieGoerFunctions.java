@@ -115,7 +115,7 @@ public class MovieGoerFunctions {
 
     public void Review(Movie movie) {
         // Movie_goer can enter his / her review and rating for a particular movie.
-        int choice;
+        int choice = 0;
 
         System.out.println("Would you like to:\n"
                 + "1. Review this movie?\n"
@@ -330,7 +330,7 @@ public class MovieGoerFunctions {
         int cust_id = 0;
         int movie_ID = 0;
         int selection;
-        String movieBooked, temp, firstSeat, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id;
+        String movieBooked, showtime, firstSeat, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id;
         int numSeats, cust_mobile, cust_age, show_index;
         boolean validAge;
         
@@ -408,15 +408,15 @@ public class MovieGoerFunctions {
         
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
-        ArrayList<show> tempShows = m.getShows();
+        ArrayList<show> showsOfSelectedMovie = m.getShows();
         
-        for (int i = 0; i < tempShows.size(); i++) {
+        for (int i = 0; i < showsOfSelectedMovie.size(); i++) {
         	publicHols = false;
-        	show = tempShows.get(i);
-        	temp = show.getDateTime().split("")[0];
+        	show = showsOfSelectedMovie.get(i);
+        	showtime = show.getDateTime().split(" ")[0];
         	
         	for (int h = 0; h < holidayList.length; h++) {
-        		if (holidayList[h].equals(temp)) {
+        		if (holidayList[h].equals(showtime)) {
         			publicHols = true;
         			break;
         		}
@@ -424,21 +424,22 @@ public class MovieGoerFunctions {
         	
 			cinemaClass = Master.getCineplexes().get(show.getCineplexID()).getCinema().get(show.getScreenNum()).getCinemaClass();
 			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-			// MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
-			System.out.printf("\n\nShow %d:\n", i+1);
-			System.out.println("Date Time: " + show.getDateTime());
+			MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
+			System.out.println(" ");
+			System.out.printf("\nShow %d:\n", i+1);
+			System.out.println("Date & Time: \n" + show.getDateTime());
 			System.out.printf("Cineplex ID: %d\n", show.getCineplexID()+1);
 			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
 			System.out.printf("Cinema Class: %s\n", cinemaClass);
-			System.out.printf("3D: %s\n", show.get3D());
+			System.out.printf("3D Movie? %s\n", show.get3D());
 			// System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
-			System.out.println("----------------");
+			System.out.println("----------------------------------------------");
         }
         
         System.out.println("Enter show index: ");
         show_index = sc.nextInt() - 1;
         
-        show = tempShows.get(show_index);
+        show = showsOfSelectedMovie.get(show_index);
         show.printSeats();
         
         System.out.println("Enter the total number of seats: ");
