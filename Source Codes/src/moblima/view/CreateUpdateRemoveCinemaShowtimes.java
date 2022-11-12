@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.tools.FileObject;
+
 import moblima.model.AdminChangeStatus;
 import moblima.model.Cineplex;
 import moblima.model.master;
@@ -53,6 +55,7 @@ public class CreateUpdateRemoveCinemaShowtimes {
 
 			switch (selection) {
 				case 1:
+					//error
 					ArrayList<Movie> movies = new ArrayList<Movie>();
 					int i;
 					String movieName;
@@ -68,9 +71,19 @@ public class CreateUpdateRemoveCinemaShowtimes {
 
 					System.out.print("Select a Cineplex: ");
 					int choice_1 = sc.nextInt();
+					while(choice_1 > Cineplexes_1.size())
+					{
+						System.out.println("Invalid input, please try again! ");
+						choice_1 =  sc.nextInt();
+					}
 
 					System.out.print("Select a Screen (1 / 2 / 3): ");
 					int cinema_id = sc.nextInt();
+					while(cinema_id > 3)
+					{
+						System.out.println("Invalid input, please try again! ");
+						cinema_id = sc.nextInt();
+					}
 
 					System.out.print("Is the Movie 3D? (true/false): ");
 					boolean threed = sc.nextBoolean();
@@ -102,9 +115,10 @@ public class CreateUpdateRemoveCinemaShowtimes {
 					Movie m = movies.get(mov_num - 1);
 
 					if (m.getShowingStatus().equals("NOW SHOWING") || m.getShowingStatus().equals("PREVIEW")) {
+
 						s = m.createShowListing(s_1, choice_1 - 1, cinema_id - 1, threed);
 
-						Cineplexes_1.get(choice_1 - 1).getCinema().get(cinema_id - 1).addShow(s);
+						Cineplexes_1.get(choice_1 - 1).getCinema().get(cinema_id - 1).addShow(s); //error
 
 						Master.setCineplexes(Cineplexes_1);
 						File file = new File("Database/Shows/" + movies.get(mov_num - 1).getMovieName() + ".txt");
@@ -173,16 +187,27 @@ public class CreateUpdateRemoveCinemaShowtimes {
 							System.out.printf("\n");
 							double[] ratings = mov.getAllRatings();
 							for (int x = 0; x < ratings.length; x++)
-								System.out.printf("%f ", ratings[x]);
+								System.out.printf("%.1f ", ratings[x]);
 							System.out.printf("\n");
 
 							System.out.println(mov.getShowingStatus());
 							System.out.println(mov.getSynopsis());
 							String[] Cast = mov.getCast();
 							for (int x = 0; x < Cast.length; x++)
-								System.out.printf("%s ", Cast[x]);
+							{
+								if(Cast[x].equals("null"))
+								{
+									break;
+								}
+								else
+								{
+									System.out.printf("%s" + "|", Cast[x]);
+								}
+							}
+								
 							System.out.printf("\n");
-
+							
+							ArrayList<show> temp2 = mov2.getShows();
 							ArrayList<show> temp = mov.getShows();
 							String keyWord = "";
 
@@ -250,9 +275,17 @@ public class CreateUpdateRemoveCinemaShowtimes {
 
 									System.out.print("Select a Cineplex: ");
 									Scanner scanCineplex = new Scanner(System.in);
+
+								
 									System.out.println("Enter updated cineplex number: ");
 
 									int newCineplex = scanCineplex.nextInt();
+									
+									while(newCineplex > 3)
+									{
+										System.out.println("Invalid input, please try again! ");
+										newCineplex =  scanCineplex.nextInt();
+									}
 									newCineplex--;
 									ss.setCineplexID(newCineplex);
 									String strCurrentCineplex = Integer.toString(currentCineplex);
@@ -265,6 +298,12 @@ public class CreateUpdateRemoveCinemaShowtimes {
 									System.out.println("Enter updated cinema number: ");
 									System.out.print("Select a Screen (1 / 2 / 3): ");
 									int newCinema = scanCinema.nextInt();
+
+									while(newCinema > 3)
+									{
+										System.out.println("Invalid input, please try again! ");
+										newCinema = scanCinema.nextInt();
+									}
 									newCinema--;
 									ss.setCineplexID(newCinema);
 									String strCurrentCinema = Integer.toString(currentCinema);
@@ -339,7 +378,16 @@ public class CreateUpdateRemoveCinemaShowtimes {
 							System.out.println(mov.getSynopsis());
 							String[] Cast = mov.getCast();
 							for (int x = 0; x < Cast.length; x++)
-								System.out.printf("%s ", Cast[x]);
+							{
+								if(Cast[x].equals("null"))
+								{
+									break;
+								}
+								else
+								{
+									System.out.printf("%s" + "|", Cast[x]);
+								}
+							}
 							System.out.printf("\n");
 
 							ArrayList<show> temp = mov.getShows();
