@@ -38,12 +38,13 @@ public class ConfigureTicketPrices {
 			System.out.println("2. Seat Type - Standard");
 			System.out.println("3. Seat Type - Premium");
 			System.out.println("4. Seat Type - Platinum");
-			System.out.println("5. Child Reduction");
-			System.out.println("6. Senior Citizen Reduction");
-			System.out.println("7. Public Holiday Surcharge");
-			System.out.println("8. GST %");
-			System.out.println("9. IMPLEMENT ALL CHANGES");
-			System.out.println("10. Back");
+			System.out.println("5. Child Discount");
+			System.out.println("6. Senior Citizen Discount");
+			System.out.println("7. Student Discount");
+			System.out.println("8. Public Holiday Surcharge");
+			System.out.println("9. GST %");
+			System.out.println("10. IMPLEMENT ALL CHANGES");
+			System.out.println("11. Back");
 			System.out.println("");
 
 			System.out.print("Select an option: ");
@@ -93,26 +94,32 @@ public class ConfigureTicketPrices {
 					break;
 
 				case 7:
-					System.out.println("Current Surcharge: " + getQuotation.getPublicHolidayPrice());
-					System.out.print("Enter New Surcharge: ");
+					System.out.println("Current Reduction: " + getQuotation.getStudentPrice());
+					System.out.print("Enter New Reducion: ");
 					newPrice = input.nextDouble();
 					prices.set(6, newPrice);
-					break;
 
 				case 8:
-					System.out.println("Current Price: " + getQuotation.getGSTPrice());
-					System.out.print("Enter New Price: ");
+					System.out.println("Current Surcharge: " + getQuotation.getPublicHolidayPrice());
+					System.out.print("Enter New Surcharge: ");
 					newPrice = input.nextDouble();
 					prices.set(7, newPrice);
 					break;
 
 				case 9:
+					System.out.println("Current Price: " + getQuotation.getGSTPrice());
+					System.out.print("Enter New Price: ");
+					newPrice = input.nextDouble();
+					prices.set(8, newPrice);
+					break;
+
+				case 10:
 					TicketPriceIO.writePrices(prices);
 					System.out.println(AdminChangeStatus.SUCCESSFUL.returningStatus());
 					System.out.println("");
 					break;
 
-				case 10:
+				case 11:
 					back = true;
 					break;
 
