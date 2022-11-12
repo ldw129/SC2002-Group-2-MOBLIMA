@@ -62,7 +62,7 @@ public class CineplexIO {
 			return cineplexesList;
 		} catch (Exception e) {
 			System.err.println(e);
-			e.printStackTrace();sad
+			e.printStackTrace();
 			return null;
 		}
 	}
