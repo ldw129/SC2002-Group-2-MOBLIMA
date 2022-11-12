@@ -12,6 +12,7 @@ public class MovieApp {
         master m = new master();
         m.readMovies();
         ArrayList<Movie> movie_list = m.getMovies();
+        m.readCineplexes();
 
         int choice = 0;
         do {
