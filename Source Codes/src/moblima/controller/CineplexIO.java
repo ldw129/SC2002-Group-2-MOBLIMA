@@ -16,7 +16,7 @@ import moblima.model.Cineplex;
  * @version 1.0
  */
 
-public class CineplexIO {
+public class CineplexIO {dvsf
 
 	// private static String SEPERATOR = "|";
 	/**
