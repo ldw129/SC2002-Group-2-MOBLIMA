@@ -316,12 +316,11 @@ public class MovieGoerFunctions {
     public void BookTickets() throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
-        BookingInfo booking = new BookingInfo();
+        show show = null;
         HolidayConfig holIO = new HolidayConfig();
         master Master = new master();
         ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
         Movie m;
-        show show = null;
         Movie_goer_IO mg = new Movie_goer_IO();
         Movie_goer user = new Movie_goer();
         
