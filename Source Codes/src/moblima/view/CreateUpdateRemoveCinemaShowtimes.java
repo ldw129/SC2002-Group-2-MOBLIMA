@@ -10,8 +10,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.tools.FileObject;
-
 import moblima.model.AdminChangeStatus;
 import moblima.model.Cineplex;
 import moblima.model.master;
