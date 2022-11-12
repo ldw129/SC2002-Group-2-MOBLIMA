@@ -28,23 +28,15 @@ public class Movie_goer_IO{
      * Different parameters to be recorded with the booking
      */
     private int custID; 
-    
     private String bookingID;
-  
     private String movieBooked;
-
     private int numseats;
-    
     private String emailID;
-    
     private String dateTime;
-
     private String firstseat;
-    
 	private String customerName;
-    
+	private int age;
     private int phoneNumber;
-   
     private static int linecounter=0;
     
     public int [][] seats = new int[9][9];
@@ -88,12 +80,13 @@ public class Movie_goer_IO{
     			this.custID = Integer.parseInt(var[0]);
         		this.bookingID = var[1];
             	this.customerName = var[2];
-            	this.phoneNumber = Integer.parseInt(var[3]);
-            	this.movieBooked = var[4];
-            	this.emailID = var[5];
-            	this.dateTime = var[6];
-            	this.numseats = Integer.parseInt(var[7]);
-            	this.firstseat = var[8];
+            	this.age = Integer.parseInt(var[3]);
+            	this.phoneNumber = Integer.parseInt(var[4]);
+            	this.movieBooked = var[5];
+            	this.emailID = var[6];
+            	this.dateTime = var[7];
+            	this.numseats = Integer.parseInt(var[8]);
+            	this.firstseat = var[9];
             	
             	addMovieGoer();
             	}
