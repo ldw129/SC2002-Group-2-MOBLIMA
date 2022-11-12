@@ -96,6 +96,7 @@ public class MovieApp {
                             "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
                             "6. Quit\n");
                     System.out.print("Enter your choice: ");
+                    
                     try {
                         choice = sc.nextInt();
 
@@ -121,7 +122,7 @@ public class MovieApp {
                                 System.err.println("Invalid input!");
                         }
                     } catch (Exception e) {
-                        System.err.println("Invalid input!");
+                        System.err.println("Invalid inputss!");
                         sc.nextLine();
                     }
                 } while (choice != 6);
