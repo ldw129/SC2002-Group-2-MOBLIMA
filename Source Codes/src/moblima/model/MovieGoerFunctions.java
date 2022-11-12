@@ -343,24 +343,7 @@ public class MovieGoerFunctions {
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
-        try {
-        	System.out.println("Enter your customer ID to proceed: ");
-        	cust_id = sc.nextInt();
-        	
-        	System.out.println("Enter your name: ");
-            cust_name = sc.next();
-            
-            System.out.println("Enter your mobile number: ");
-            cust_mobile = sc.nextInt();
-            
-            System.out.println("Enter your email address: ");
-            cust_email = sc.next();
-        } catch (Exception e) {
-            System.err.println("Invalid input!");
-            sc.nextLine();
-        }
-        
-    	System.out.println("Enter your customer ID to proceed: ");
+        System.out.println("Enter your customer ID to proceed: ");
     	cust_id = sc.nextInt();
         
         System.out.println("Enter your name: ");
