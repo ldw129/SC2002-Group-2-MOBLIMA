@@ -50,7 +50,6 @@ public class HolidayConfig {
 	    	catch (IOException e) {
 				e.printStackTrace();
 			}
-	    	System.out.println(" ");
 	    	
 	    }
 	    
