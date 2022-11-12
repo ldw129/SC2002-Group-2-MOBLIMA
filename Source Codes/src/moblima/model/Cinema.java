@@ -20,6 +20,7 @@ public class Cinema {
 		this.cinema_name = name;
 		this.cinema_class = cinema_class;
 		this.cinemaID = ID;
+		showlist = new ArrayList<show>();
 	}
 
 	public void addShow(show s) {

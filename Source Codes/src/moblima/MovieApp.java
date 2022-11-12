@@ -14,6 +14,10 @@ public class MovieApp {
         ArrayList<Movie> movie_list = m.getMovies();
         m.readCineplexes();
 
+        for (Movie mov: movie_list) {
+            mov.readShowDetails(m);
+        }
+
         int choice = 0;
         do {
             System.out.println("-------------------");

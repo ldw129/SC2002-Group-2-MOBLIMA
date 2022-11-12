@@ -292,11 +292,9 @@ public class movieIO {
 				
 				for (int x = 0;x<9;x++) {
 					for (int y = 0;y<9;y++) {
+						seats_final[x][y] = new CinemaSeat();
 						if ((int)Math.round(Seats[9*x+y]) == 1) {
 							seats_final[x][y].assign();
-						}
-						else {
-							seats_final[x][y].unAssign();
 						}
 					}
 				}

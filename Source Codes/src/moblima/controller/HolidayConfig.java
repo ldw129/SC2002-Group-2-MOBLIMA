@@ -1,10 +1,6 @@
 package moblima.controller;
 
 import java.io.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-
-import moblima.model.*;
 
 /**
  * function used to read all the holiday dates and update them
