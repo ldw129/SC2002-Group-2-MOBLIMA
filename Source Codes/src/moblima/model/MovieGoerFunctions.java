@@ -315,31 +315,29 @@ public class MovieGoerFunctions {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
         BookingInfo booking = new BookingInfo();
-        int movieChoice;
-        int cineplexChoice;
-        int dateChoice;
-        int timeChoice;
-        
+        HolidayConfig holIO = new HolidayConfig();
         master Master = new master();
         ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
-        moviesAvailableForBooking = Master.getMovies();
         Movie m;
-        show show;
+        show show = null;
         Movie_goer_IO mg = new Movie_goer_IO();
         Movie_goer user = new Movie_goer();
         
         int cust_id = 0;
         int movie_ID = 0;
-        int selection;
-        String movieBooked, showtime, firstSeat, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id;
-        int numSeats, cust_mobile, cust_age, show_index;
-        boolean validAge, inputValidation;
-        
+        int cineplexChoice = 0;
+        int selection = 0;
+        int numSeats = 0;
+        int cust_mobile = 0;
+        int cust_age = 0;
+        int show_index = 0;
+        int firstSeatNum = 0;
+        int row = 0;
+        String movieBooked, showtime, firstSeat = null, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id, cinemaClass;
         String[] holidayList = null;
+        boolean validAge, inputValidation, flag1;
         boolean publicHols = false;
-        HolidayConfig holIO = new HolidayConfig();
-        holidayList = holIO.readHolidays();  
-        String cinemaClass;
+        char ch;
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
@@ -399,9 +397,11 @@ public class MovieGoerFunctions {
         	}
         } while (selection > 4);
         
+        moviesAvailableForBooking = Master.getMovies();
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
+        holidayList = holIO.readHolidays();
         
         for (int i = 0; i < showsOfSelectedMovie.size(); i++) {
         	publicHols = false;
@@ -464,20 +464,27 @@ public class MovieGoerFunctions {
         			continue;
             }
             else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-            	BookingInfo b = new BookingInfo();
-            	transaction_id = b.getTID(show.getCineplexID());
-            	char ch = firstSeat.charAt(0);
-	    		int firstseatnum = Character.getNumericValue(firstSeat.charAt(1))-1;
-	        	int row = ch - 'a';
-	        	boolean flag1 = false;
-	        	for (int t =0;t<numSeats;t++) {
-	        		if (s.checkSeat(row, firstseatnum+t)){
+            	transaction_id = booking.getTID(show.getCineplexID());
+            	ch = firstSeat.charAt(0);
+	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
+	        	row = ch - 'a';
+	        	flag1 = false;
+	        	
+	        	for (int i = 0; i < numSeats;i++) {
+	        		if (show.checkSeat(row, firstSeatNum + i)){
 	        			flag1 = true;
 	        		}
 	        	}
+	        	
 	        	if (!flag1) {
-	        		mg.assignFinalSeatsbyMovie(m, showindex, customerName, customerID, emailID, phoneNumber, bookingID, numseats, firstseat);
+	        		try {
+	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
+	        		} catch (Exception e) {
+	        			e.printStackTrace();
+	        		}
+	        		
 	        	}
+	        	
 	        	System.out.println("Booking ID: " + transaction_id);
             	System.out.println("Movie tickets successfully booked!");
             	inputValidation = false;
