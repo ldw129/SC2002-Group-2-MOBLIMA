@@ -44,8 +44,7 @@ public class ConfigureTicketPrices {
 			System.out.println("8. Public Holiday Surcharge");
 			System.out.println("9. GST %");
 			System.out.println("10. IMPLEMENT ALL CHANGES");
-			System.out.println("11. Back");
-			System.out.println("");
+			System.out.println("11. Back\n");
 
 			System.out.print("Select an option: ");
 			int choice = input.nextInt();
@@ -131,7 +130,6 @@ public class ConfigureTicketPrices {
 			}
 
 			if (back == true)
-				// input.close();
 				return;
 		}
 	}

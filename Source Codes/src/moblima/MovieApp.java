@@ -15,11 +15,11 @@ public class MovieApp {
 
         int choice = 0;
         do {
-            System.out.printf("---------------------\n" +
-                    "Welcome to MOBLIMA!\n" +
-                    "1: Cinema Staff\n" +
-                    "2: Movie-Goer\n" +
-                    "3: Quit\n");
+            System.out.println("-------------------");
+            System.out.println("Welcome to MOBLIMA!");
+            System.out.println("1: Cinema Staff");
+            System.out.println("2: Movie-Goer");
+            System.out.println("3: Quit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -42,13 +42,13 @@ public class MovieApp {
                 if (username.equals("admin") && password.equals("password")) {
                     choice = 0;
                     do {
-                        System.out.printf("---------------------\n" +
-                                "Welcome to the Admin Module!\n" +
-                                "1: Create/Update/Remove Movie Listing\n" +
-                                "2: Create/Update/Remove cinema showtimes\n" +
-                                "3: Configure Ticket Prices\n" +
-                                "4: Configure Holidays\n" +
-                                "5: Quit\n");
+                        System.out.println("----------------------------");
+                        System.out.println("Welcome to the Admin Module!");
+                        System.out.println("1: Create/Update/Remove Movie Listing");
+                        System.out.println("2: Create/Update/Remove cinema showtimes");
+                        System.out.println("3: Configure Ticket Prices");
+                        System.out.println("4: Configure Holidays");
+                        System.out.println("5: Quit");
                         System.out.print("Enter your choice: ");
 
                         try {
@@ -66,6 +66,7 @@ public class MovieApp {
                                 case 3:
                                     ConfigureTicketPrices.main(args);
                                 case 4:
+                                    ConfigureHoliday.main(args);
                                     break;
                                 case 5:
                                     break;
@@ -87,14 +88,14 @@ public class MovieApp {
                 MovieGoerFunctions mainFunctions = new MovieGoerFunctions();
 
                 do {
-                    System.out.printf("---------------------\n" +
-                            "Welcome to MovieGoer Module!\n" +
-                            "1. Search / List movies and view movie details\n" +
-                            "2. Check seat availability and selection of seat/s\n" +
-                            "3. Book and purchase tickets\n" +
-                            "4. View your booking history\n" +
-                            "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
-                            "6. Quit\n");
+                    System.out.println("----------------------------");
+                    System.out.println("Welcome to MovieGoer Module!");
+                    System.out.println("1. Search / List movies and view movie details");
+                    System.out.println("2. Check seat availability and selection of seat/s");
+                    System.out.println("3. Book and purchase tickets");
+                    System.out.println("4. View your booking history");
+                    System.out.println("5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings");
+                    System.out.println("6. Quit");
                     System.out.print("Enter your choice: ");
                     try {
                         choice = sc.nextInt();

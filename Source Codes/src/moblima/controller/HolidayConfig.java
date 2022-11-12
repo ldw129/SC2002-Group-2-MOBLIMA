@@ -17,7 +17,7 @@ public class HolidayConfig {
 		 * @throws FileNotFoundException
 		 */
 
-	    public String[] readHolidays() throws FileNotFoundException {
+	    public static String[] readHolidays() throws FileNotFoundException {
 	    	
 			FileReader fr = new FileReader("Database/Holidays.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -36,7 +36,7 @@ public class HolidayConfig {
 	     * to write a new holiday date into Holidays.txt
 	     * @throws FileNotFoundException
 	     */
-	    public void writeHoliday(String[] holidays) throws FileNotFoundException {
+	    public static void writeHoliday(String[] holidays) throws FileNotFoundException {
 	    	
 	    	try {
 				FileWriter fw = new FileWriter("Database/Holidays.txt", false);

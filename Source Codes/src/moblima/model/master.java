@@ -1,7 +1,5 @@
 package moblima.model;
 
-import java.io.*;
-import java.util.Scanner;
 import java.util.ArrayList;
 import moblima.controller.*;
 import java.io.IOException;
@@ -107,9 +105,8 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * save movies into the text file
 	 */
 	public void saveMovies() {
-		movieIO temp = new movieIO();
 		try {
-			temp.saveMovie(filename, movieList);
+			movieIO.saveMovie(filename, movieList);
 		} catch (IOException e) {
 
 		}
@@ -129,10 +126,8 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * Save all cineplexes into the file
 	 */
 	public void saveCineplexes() {
-
-		CineplexIO temp = new CineplexIO();
 		try {
-			temp.saveCineplex(cineplexList);
+			CineplexIO.saveCineplex(cineplexList);
 		} catch (IOException e) {
 
 		}
@@ -151,9 +146,8 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * read all holidays from the file
 	 */
 	public void readHolidays() {
-		HolidayConfig temp = new HolidayConfig();
 		try {
-			holiday_list = temp.readHolidays();
+			holiday_list = HolidayConfig.readHolidays();
 		} catch (Exception e) {
 		}
 	}
@@ -162,9 +156,8 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * save all holidays into the file
 	 */
 	public void saveHolidays() {
-		HolidayConfig temp = new HolidayConfig();
 		try {
-			temp.writeHoliday(holiday_list);
+			HolidayConfig.writeHoliday(holiday_list);
 		} catch (Exception e) {
 		}
 	}
