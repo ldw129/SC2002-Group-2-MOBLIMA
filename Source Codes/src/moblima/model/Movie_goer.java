@@ -94,7 +94,7 @@ public class Movie_goer extends Person {
 	}
 
 	public void setEmailAddress(String email) {
-		this.email = email;asd
+		this.email = email;
 	}
 
 }
