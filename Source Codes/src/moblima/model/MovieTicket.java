@@ -1,21 +1,21 @@
 package moblima.model;
 
 public class MovieTicket {
-    private String typeofmovie;
-    private String cinemaclass;
+    private String movieType;
+    private String cinemaClass;
     private int age;
     private int date;
     private double price;
 
-    public MovieTicket(String typeofmovie, String cinemaclass, int age, int date) {
-        this.typeofmovie = typeofmovie;
-        this.cinemaclass = cinemaclass;
+    public MovieTicket(String movieType, String cinemaClass, int age, int date) {
+        this.movieType = movieType;
+        this.cinemaClass = cinemaClass;
         this.age = age;
         this.date = date;
-        this.price = calculatePrice(typeofmovie, cinemaclass, age, date);
+        this.price = calculatePrice(movieType, cinemaClass, age, date);
     }
 
-    private double calculatePrice(String typeofmovie, String cinemaclass, int age, int date) {
+    private double calculatePrice(String movieType, String cinemaClass, int age, int date) {
         return 0;
     }
 
