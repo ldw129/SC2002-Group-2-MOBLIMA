@@ -312,54 +312,55 @@ public class MovieGoerFunctions {
         return;
     }
 
-    public void BookTickets() throws FileNotFoundException {
+    public void BookTickets() throws IOException, Exception {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
         BookingInfo booking = new BookingInfo();
-        int movieChoice;
-        int cineplexChoice;
-        int dateChoice;
-        int timeChoice;
-        
         master Master = new master();
-        ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
-        moviesAvailableForBooking = Master.getMovies();
-        Movie m;
-        show show;
         Movie_goer_IO mg = new Movie_goer_IO();
         Movie_goer user = new Movie_goer();
+        HolidayConfig holIO = new HolidayConfig();
+        
+        ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
+        
+        Movie m = null;
+        show show = null;
         
         int cust_id = 0;
+        int cust_mobile = 0;
         int movie_ID = 0;
-        int selection;
-        String movieBooked, showtime, firstSeat, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id;
-        int numSeats, cust_mobile, cust_age, show_index;
-        boolean validAge, inputValidation;
-        
+        int selection = 0;
+        int numSeats = 0;
+        int cust_age = 0;
+        int show_index = 0;
+        int cineplexChoice = 0;
+        int firstSeatNum = 0;
+        int row = 0;
+        String movieBooked, showtime, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id, cinemaClass;
+        boolean validAge, inputValidation, flag1;
+        char ch;
         String[] holidayList = null;
+        String firstSeat = null;
         boolean publicHols = false;
-        HolidayConfig holIO = new HolidayConfig();
-        holidayList = holIO.readHolidays();  
-        String cinemaClass;
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
         try {
         	System.out.println("Enter your customer ID to proceed: ");
         	cust_id = sc.nextInt();
-        	
-        	System.out.println("Enter your name: ");
-            cust_name = sc.next();
-            
-            System.out.println("Enter your mobile number: ");
-            cust_mobile = sc.nextInt();
-            
-            System.out.println("Enter your email address: ");
-            cust_email = sc.next();
         } catch (Exception e) {
             System.err.println("Invalid input!");
             sc.nextLine();
         }
+        
+        System.out.println("Enter your name: ");
+        cust_name = sc.next();
+        
+        System.out.println("Enter your mobile number: ");
+        cust_mobile = sc.nextInt();
+        
+        System.out.println("Enter your email address: ");
+        cust_email = sc.next();
         
         do {
         	ageCat = null;
@@ -408,9 +409,11 @@ public class MovieGoerFunctions {
         } while (selection > 4);
         System.out.println("Invalid input!");
         
+        moviesAvailableForBooking = Master.getMovies();
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
+        holidayList = holIO.readHolidays();
         
         for (int i = 0; i < showsOfSelectedMovie.size(); i++) {
         	publicHols = false;
@@ -473,19 +476,18 @@ public class MovieGoerFunctions {
         			continue;
             }
             else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-            	BookingInfo b = new BookingInfo();
-            	transaction_id = b.getTID(show.getCineplexID());
-            	char ch = firstSeat.charAt(0);
-	    		int firstseatnum = Character.getNumericValue(firstSeat.charAt(1))-1;
-	        	int row = ch - 'a';
-	        	boolean flag1 = false;
+            	transaction_id = booking.getTID(show.getCineplexID());
+            	ch = firstSeat.charAt(0);
+            	firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
+	        	row = ch - 'a';
+	        	flag1 = false;
 	        	for (int t =0;t<numSeats;t++) {
-	        		if (s.checkSeat(row, firstseatnum+t)){
+	        		if (show.checkSeat(row, firstSeatNum+t)){
 	        			flag1 = true;
 	        		}
 	        	}
 	        	if (!flag1) {
-	        		mg.assignFinalSeatsbyMovie(m, showindex, customerName, customerID, emailID, phoneNumber, bookingID, numseats, firstseat);
+	        		mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
 	        	}
 	        	System.out.println("Booking ID: " + transaction_id);
             	System.out.println("Movie tickets successfully booked!");
