@@ -122,23 +122,24 @@ public class MovieGoerFunctions {
                 + "3. Skip for now.\n");
 
         choice = sc.nextInt();
-        do {
-            switch (choice) {
-                case 1:
-                    System.out.println("Write your review for this movie.");
-                    sc.nextLine();
-                    String review = sc.nextLine();
-                    movie.writeReview(review);
-                    System.out.println("New review added to the movie!");
-                    break;
-                case 2:
-                    System.out.println("Rate this movie, from 0 to 5.");
-                    double rating = sc.nextDouble();
-                    movie.giveRating(rating);
-                    System.out.println("New rating added to the movie!");
-                    break;
-            }
-        } while (choice != 3);
+        switch (choice) {
+            case 1:
+                System.out.println("Write your review for this movie.");
+                sc.nextLine();
+                String review = sc.nextLine();
+                movie.writeReview(review);
+                System.out.println("New review added to the movie!");
+                break;
+            case 2:
+                System.out.println("Rate this movie, from 0 to 5.");
+                double rating = sc.nextDouble();
+                movie.giveRating(rating);
+                System.out.println("New rating added to the movie!");
+                break;
+            case 3:
+            	break;
+        }
+        
         return;
     }
 
@@ -354,10 +355,7 @@ public class MovieGoerFunctions {
         
         System.out.println("Enter your email address: ");
         cust_email = sc.next();
-        
-        System.out.println("Enter your age: ");
-        cust_age = sc.nextInt();
-        
+             
         do {
         	ageCat = null;
         	selection = 0;
@@ -380,14 +378,20 @@ public class MovieGoerFunctions {
         				ageCat = "Senior Citizen";
         				break;
         			case 2:
+        				System.out.println("Enter your age: ");
+        		        cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Adult";
         				break;
         			case 3:
+        				System.out.println("Enter your age: ");
+        		        cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Student";
         				break;
         			case 4:
+        				System.out.println("Enter your age: ");
+        		        cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Child";
         				break;
