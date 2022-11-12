@@ -58,7 +58,7 @@ public class BookingInfo extends Movie_goer {
 		return transactionID;
 	}
 
-	public String getTID(int cineplexID) {
+	public String getTID() {
 		return createTID(cineplexID);
 	}
 
