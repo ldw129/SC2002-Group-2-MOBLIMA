@@ -1,18 +1,8 @@
 package moblima.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.text.ParseException; 
 import java.util.Scanner;
 
-import moblima.model.BookingInfo;
-import moblima.model.Cineplex;
-import moblima.model.Movie;
-import moblima.model.master;
-import moblima.model.show;
 
 public class Movie_goer extends Person {
 
