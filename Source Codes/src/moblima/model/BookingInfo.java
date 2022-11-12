@@ -25,6 +25,16 @@ public class BookingInfo extends Movie_goer {
 		this.firstSeat = firstSeat;
 	}
 	
+	public BookingInfo(int cineplexID) {
+		if (cineplexID+1 == 1)
+			cinemaCode = "CCO";
+		else if (cineplexID+1 == 2)
+			cinemaCode = "GVJ";
+		else {
+			cinemaCode = "STN";
+		}
+	}
+	
 	public String getCustName() {
 		return this.customerName;
 	}
@@ -33,21 +43,12 @@ public class BookingInfo extends Movie_goer {
 		this.customerName = cust_name;
 	}
 	
-	private String createTID(int cineplexID) {
+	private String createTID() {
 		/* --- Cineplex Listing --- // to be changed
 		1. Cathay Cineplexes Cineleisure Orchard
 		2. Golden Village Jurong Point
 		3. Shaw Theatres Nex
 		*/
-		
-		if (cineplexID+1 == 1)
-			cinemaCode = "CCO";
-		else if (cineplexID+1 == 2)
-			cinemaCode = "GVJ";
-		else {
-			cinemaCode = "STN";
-		}
-		
 		transactionID = cinemaCode + 
 				Calendar.getInstance().get(Calendar.YEAR) + 
 				Calendar.getInstance().get(Calendar.MONTH) + 
@@ -58,8 +59,8 @@ public class BookingInfo extends Movie_goer {
 		return transactionID;
 	}
 
-	public String getTID(int cineplexID) {
-		return createTID(cineplexID);
+	public String getTID() {
+		return createTID();
 	}
 
 	public void setTID(String transaction_id) {

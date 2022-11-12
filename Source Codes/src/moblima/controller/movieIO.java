@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 import moblima.model.CinemaSeat;
 import moblima.model.Movie;
 import moblima.model.show;
-import moblima.model.master;
 
 /**
  * Master class for Movies. Used to handle all get and set operations for movies
