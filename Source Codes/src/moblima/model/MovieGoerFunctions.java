@@ -126,6 +126,7 @@ public class MovieGoerFunctions {
             switch (choice) {
                 case 1:
                     System.out.println("Write your review for this movie.");
+                    sc.nextLine();
                     String review = sc.nextLine();
                     movie.writeReview(review);
                     System.out.println("New review added to the movie!");
@@ -335,7 +336,7 @@ public class MovieGoerFunctions {
         int row = 0;
         String movieBooked, showtime, firstSeat = null, cust_name, cust_email, ageCat, bookingConfirmation, cancel, transaction_id, cinemaClass;
         String[] holidayList = null;
-        boolean validAge, inputValidation, flag1;
+        boolean validAge, inputValidation, seatAssigned;
         boolean publicHols = false;
         char ch;
 
@@ -440,7 +441,7 @@ public class MovieGoerFunctions {
             numSeats = sc.nextInt();
             
             System.out.println("Enter the first seat (ie. A1: Row 1 Seat 1; B2: Row 2 Seat 2): "); // seat ID formatting to be confirmed
-            firstSeat = sc.nextLine();
+            firstSeat = sc.next();
         } catch (Exception e) {
             System.err.println("Invalid input!");
             sc.nextLine();
@@ -450,11 +451,11 @@ public class MovieGoerFunctions {
         
         while (inputValidation) {
     		System.out.println("Confirm booking? Y/N");
-            bookingConfirmation = sc.nextLine();
+            bookingConfirmation = sc.next();
             
         	if (bookingConfirmation.equals("n" ) || bookingConfirmation.equals("N" )) {
             	System.out.println("Confirm cancellation? Y/N");
-            	cancel = sc.nextLine();
+            	cancel = sc.next();
             	if (cancel.equals("y") || cancel.equals("Y")) {
             		System.out.println("Booking cancelled!");
             		break;
@@ -464,19 +465,19 @@ public class MovieGoerFunctions {
         			continue;
             }
             else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-            	transaction_id = booking.getTID(show.getCineplexID());
+            	BookingInfo b = new BookingInfo(show.getCineplexID());
+            	transaction_id = b.getTID();
             	ch = firstSeat.charAt(0);
 	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
 	        	row = ch - 'a';
-	        	flag1 = false;
+	        	seatAssigned = false;
 	        	
 	        	for (int i = 0; i < numSeats;i++) {
-	        		if (show.checkSeat(row, firstSeatNum + i)){
-	        			flag1 = true;
-	        		}
+	        		if (show.checkSeat(row, firstSeatNum + i)) // seat has already been assigned
+	        			seatAssigned = true;
 	        	}
 	        	
-	        	if (!flag1) {
+	        	if (!seatAssigned) { // seatAssigned = false
 	        		try {
 	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
 	        		} catch (Exception e) {
@@ -521,7 +522,7 @@ public class MovieGoerFunctions {
     	
     	for (i = 0; i < bookings.size(); i++) {
     		System.out.println("BOOKING " + (i+1) + ": ");
-			System.out.println("Transaction ID: " + bookings.get(i).getTID(cineplexID));
+			System.out.println("Transaction ID: " + bookings.get(i).getTID());
 			System.out.println("Customer ID: " + cust_id);
 			System.out.println("Customer Name: " + bookings.get(i).getCustName());
     		System.out.println("Customer Email ID: " + bookings.get(i).getEmailAddress());
