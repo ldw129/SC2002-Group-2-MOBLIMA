@@ -9,7 +9,7 @@ public class Cinema {
 	private int cinemaID;
 	private ArrayList<show> showlist;
 	// seating information
-	private CinemaSeat[][] seats = new CinemaSeat[9][9]; //
+	private CinemaSeat[][] seats = new CinemaSeat[9][9];
 
 	// constructors
 	public Cinema() {
