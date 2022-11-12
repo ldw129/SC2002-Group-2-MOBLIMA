@@ -1,6 +1,7 @@
 package moblima;
 
 import java.util.Scanner;
+import java.io.IOException;
 import java.util.ArrayList;
 import moblima.controller.*;
 import moblima.model.*;
@@ -96,6 +97,19 @@ public class MovieApp {
                             "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
                             "6. Quit\n");
                     System.out.print("Enter your choice: ");
+                    /*choice = sc.nextInt();
+                    
+                    switch(choice) {
+                    	case 3:
+                    		try {
+                    			mainFunctions.BookTickets(); // under construction
+                    		} catch (Exception e) {
+                    			System.out.println(e);
+                    			e.printStackTrace();
+                    		}
+	                        
+	                        break;
+                    }*/
                     
                     try {
                         choice = sc.nextInt();
@@ -122,9 +136,10 @@ public class MovieApp {
                                 System.err.println("Invalid input!");
                         }
                     } catch (Exception e) {
-                        System.err.println("Invalid inputss!");
+                        System.err.println("Invalid input!");
+                        e.printStackTrace();
                         sc.nextLine();
-                    }
+                    } 
                 } while (choice != 6);
                 System.out.println("Returning to main screen...");
             }
