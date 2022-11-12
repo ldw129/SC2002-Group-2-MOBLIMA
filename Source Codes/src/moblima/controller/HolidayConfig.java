@@ -16,7 +16,7 @@ public class HolidayConfig {
 		 * @return holiday dates
 		 * @throws FileNotFoundException
 		 */
-
+	
 	    public String[] readHolidays() throws FileNotFoundException {
 	    	
 			FileReader fr = new FileReader("Database/Holidays.txt");
