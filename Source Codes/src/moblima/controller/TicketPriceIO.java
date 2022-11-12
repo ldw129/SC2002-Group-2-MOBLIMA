@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class TicketPriceIO {
 
     /**
-     * read prices line by line from data/prices.txt
+     * read prices line by line from Database/prices.txt
      * File Format
      * 3DPrice
      * Class - Standard

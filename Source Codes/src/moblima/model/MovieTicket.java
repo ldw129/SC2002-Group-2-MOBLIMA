@@ -5,28 +5,29 @@ import moblima.controller.GetPrice;
 import moblima.controller.HolidayConfig;
 
 public class MovieTicket {
+
     /**
-     * 
+     * 3D movie
      */
     private boolean is3D;
 
     /**
-     * Class of cinema
+     * class of cinema
      */
     private String cinemaClass;
 
     /**
-     * Age of movie-goer
+     * age of movie-goer
      */
     private int age;
 
     /**
-     * Date of movie
+     * date of movie
      */
     private String date;
 
     /**
-     * Price of movie ticket
+     * price of movie ticket
      */
     private double price;
     GetPrice categoryPrice = new GetPrice();
@@ -47,8 +48,8 @@ public class MovieTicket {
     }
 
     /**
-     * 
-     * @return Price of Movie Ticket
+     * Calculates price of movie ticket
+     * @return price of movie ticket
      */
     private double calculatePrice() {
         master m = new master();
@@ -58,6 +59,7 @@ public class MovieTicket {
         String[] holiday_list;
         holiday_list = m.getHolidays();
 
+        // base price of ticket
         switch(cinemaClass) {
             case "Standard":
                 price = categoryPrice.getStandardPrice();
@@ -70,12 +72,14 @@ public class MovieTicket {
                 break;
         }
 
+        // add 3D surcharge if any
         price += is3D ? categoryPrice.get3DPrice() : 0;
 
+        // add holiday surchage if any
         for(String i: holiday_list) {
             if (i.equals(date)) price += categoryPrice.getPublicHolidayPrice();
         }
-
+        // add discount if any (MIGHT NEED TO EDIT)
         if(age >= 0 && age < 13 ) {
             price -= categoryPrice.getChildPrice();
         }
@@ -89,6 +93,10 @@ public class MovieTicket {
         return price;
     }
 
+    /**
+     * Get price of movie ticket
+     * @return price of movie ticket
+     */
     public double getPrice() {
         return price;
     }

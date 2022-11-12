@@ -31,7 +31,7 @@ public class show {
 	/**
 	 * array of all seats
 	 */
-	private int[][] seats = new int[9][9];
+	private CinemaSeat[][] seats = new CinemaSeat[9][9];
 	
 	/**
 	 * boolean value to specify whether the movie is 3D or not
@@ -51,7 +51,7 @@ public class show {
 		dateTime = dt;
 		for(int i=0;i<9;i++) {
 			for(int j=0;j<9;j++) {
-				seats[i][j] = 0;
+				seats[i][j] = new CinemaSeat();
 			}
 		}
 		this.cineplexID = cineplexID;
@@ -68,7 +68,7 @@ public class show {
 	 * @param is3D			boolean value - true if the movie is 3D
 	 * @param seats			array of seats
 	 */
-	public show(Movie mov, String dt, int cineplexID, int screenNum, boolean is3D, int[][] seats) {
+	public show(Movie mov, String dt, int cineplexID, int screenNum, boolean is3D, CinemaSeat[][] seats) {
 		this.mov = mov;
 		dateTime = dt;
 		
@@ -97,7 +97,7 @@ public class show {
 				if (j == 0) {
 					System.out.printf("%c   ",(char)i+65);
 				}
-				if (seats[i][j]==1) {
+				if (seats[i][j].isAssigned()) {
 					System.out.printf("X ");
 				}
 				else {
@@ -118,8 +118,8 @@ public class show {
 	 * @param s2 y co-ordinate of the seat
 	 */
 	public void assignSeat(int s1,int s2) {
-		if (seats[s1][s2] == 0) {
-			seats[s1][s2] = 1;
+		if (!seats[s1][s2].isAssigned()) {
+			seats[s1][s2].assign();;
 			mov.incTsales();
 		}
 		else
@@ -127,10 +127,7 @@ public class show {
 	}
 	
 	public boolean checkSeat(int s1,int s2) {
-		if (seats[s1][s2] == 0) {
-			return false;
-		}
-		else return true;
+		return seats[s1][s2].isAssigned();
 	}
 	
 	/**
@@ -176,7 +173,7 @@ public class show {
 	 * get the seat array
 	 * @return the seat array
 	 */
-	public int[][] getSeats(){
+	public CinemaSeat[][] getSeats(){
 		return seats;
 	}
 	

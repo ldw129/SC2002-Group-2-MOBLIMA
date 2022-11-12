@@ -222,7 +222,7 @@ public class Movie {
 	public void saveShowDetails() {
 		movieIO m = new movieIO();
 		try {
-		m.saveShows("data/Shows/"+movieName+".txt", Shows);
+		m.saveShows("Database/Shows/"+movieName+".txt", Shows);
 		}catch(IOException e) {
 			System.out.println("IOException > " + e.getMessage());
 		}
@@ -240,7 +240,7 @@ public class Movie {
 		Cinema tempCinema;
 		movieIO m = new movieIO();
 		try {
-		ArrayList arr = m.readShows(this,"data/Shows/"+movieName+".txt");
+		ArrayList arr = m.readShows(this,"Database/Shows/"+movieName+".txt");
 		Shows = arr;
 		
 		for(int i=0;i<Shows.size();i++) {

@@ -144,7 +144,7 @@ public class CreateUpdateMovieListing {
                     
                 //master.addMovieListing(newMovie);
                 master.addMovieListing(newMovie);
-                //String filepath = "data/movies.txt";
+                //String filepath = "Database/movies.txt";
                 File showFile = new File("Database/Shows/"+movieTitle+".txt"); 
                 showFile.createNewFile();
                 File file = new File("Database/movies.txt");
@@ -227,7 +227,7 @@ public class CreateUpdateMovieListing {
 
                 }
                 
-                //String filePath = "data/movies.txt";
+                //String filePath = "Database/movies.txt";
                 FileWriter writer = new FileWriter(uFile);
                 writer.append(fileContents);
                 writer.flush();
@@ -253,7 +253,7 @@ public class CreateUpdateMovieListing {
                 //int sho_num_2 = sc.nextInt();
 
                 File inputFile = new File(filepath);
-                File tempFile = new File("data/myTempFile.txt");
+                File tempFile = new File("Database/myTempFile.txt");
 
                 BufferedReader reader = new BufferedReader(new FileReader(inputFile));
                 BufferedWriter writer2 = new BufferedWriter(new FileWriter(tempFile));
@@ -276,7 +276,7 @@ public class CreateUpdateMovieListing {
                     writer2.write((currentLine + System.getProperty("line.separator")));
                 }
 
-                File file3 = new File("data/Shows/"+movies.get(mov_num_1-1).getMovieName()+".txt");
+                File file3 = new File("Database/Shows/"+movies.get(mov_num_1-1).getMovieName()+".txt");
                 file3.delete();
                 Master.deleteMovie(mov_num_1-1);
 
