@@ -1,6 +1,8 @@
 package moblima.model;
 
 import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.IntStream;
 import java.time.format.DateTimeFormatter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,22 +23,19 @@ public class MovieGoerFunctions {
 	Movie_goer_IO mg = new Movie_goer_IO();
 	
 	public enum AgeCat{
-		CHILD(0, 12),
-		STUDENT(13, 18),
-		ADULT(19, 54),
-		SENIOR_CITIZEN(55, 100);
+		CHILD(() -> IntStream.range(0,  12)),
+		STUDENT(() -> IntStream.range(13, 18)),
+		ADULT(() -> IntStream.range(9, 54)),
+		SENIOR_CITIZEN(() -> IntStream.range(55, 100));
+				
+		private Supplier<IntStream> range = null;
 		
-		private final int low;
-		private final int high;
-		private final static Set<Integer> ages = new HashSet<Integer>(AgeCat.values().length);
-		
-		private AgeCat(int low, int high) {
-			this.low = low;
-			this.high = high;
+		private AgeCat(Supplier<IntStream> range) {
+			this.range = range;
 		}
-		
-		public static boolean contains (int ageVal) {
-			return ages.contains(ageVal);
+
+		public IntStream getRange() {
+			return range.get();
 		}
 	}
 
@@ -344,6 +343,7 @@ public class MovieGoerFunctions {
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
+<<<<<<< Updated upstream
         try {
         	System.out.println("Enter your customer ID to proceed: ");
         	cust_id = sc.nextInt();
@@ -361,6 +361,24 @@ public class MovieGoerFunctions {
             sc.nextLine();
         }
         
+=======
+    	System.out.println("Enter your customer ID to proceed: ");
+    	cust_id = sc.nextInt();
+        
+        System.out.println("Enter your name: ");
+        sc.nextLine();
+        cust_name = sc.nextLine();
+             
+        System.out.println("Enter your mobile number: ");
+        cust_mobile = sc.nextInt();
+        
+        System.out.println("Enter your email address: ");
+        cust_email = sc.next();
+        
+        System.out.println("Enter your age: ");
+        cust_age = sc.nextInt();
+        
+>>>>>>> Stashed changes
         do {
         	ageCat = null;
         	selection = 0;
@@ -372,7 +390,7 @@ public class MovieGoerFunctions {
             		+ "Note: \n"
             		+ "- Senior Citizen: Aged 55 and above  \n"
             		+ "- Student: Between 13 and 18 years old \n"
-            		+ "- Child: Below 12 years old");
+            		+ "- Child: Below 12 years old");       	
         	
         	try {
         		// to be referenced with enum Age in Movie_goer.java
@@ -383,20 +401,14 @@ public class MovieGoerFunctions {
         				ageCat = "Senior Citizen";
         				break;
         			case 2:
-        				System.out.println("Enter your age for validation of your eligibility for an ADULT ticket: ");
-        				cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Adult";
         				break;
         			case 3:
-        				System.out.println("Enter your age for validation of your eligibility for a STUDENT ticket: ");
-        				cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Student";
         				break;
         			case 4:
-        				System.out.println("Enter your age for validation of your eligibility for a CHILD ticket: ");
-        				cust_age = sc.nextInt();
         				validateAge(cust_age);
         				ageCat = "Child";
         				break;
@@ -406,7 +418,6 @@ public class MovieGoerFunctions {
                 sc.nextLine();
         	}
         } while (selection > 4);
-        System.out.println("Invalid input!");
         
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
@@ -537,9 +548,21 @@ public class MovieGoerFunctions {
     public void validateAge(int ageVal) {
 		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
 		// he / she will only validate his / her age upon entering the cinema.
-		boolean validAge;
+		boolean validAge = false;
     	
-    	validAge = AgeCat.contains(ageVal);
+    	if (ageVal < 13) {
+    		validAge = AgeCat.CHILD.getRange().anyMatch(i -> i == ageVal); 
+    		System.out.println(validAge);
+    	}
+    	else if (ageVal < 19 & ageVal > 12) {
+    		validAge = AgeCat.STUDENT.getRange().anyMatch(i -> i == ageVal); 
+    		System.out.println(validAge);
+    	}
+    	else if (ageVal < 54 & ageVal > 18) {
+    		validAge = AgeCat.ADULT.getRange().anyMatch(i -> i == ageVal); 
+    		System.out.println(validAge);
+    	}
+    	
     	if (validAge == true)
 			System.out.println("You are eligible to purchase tickets of this age category!");
 		else
