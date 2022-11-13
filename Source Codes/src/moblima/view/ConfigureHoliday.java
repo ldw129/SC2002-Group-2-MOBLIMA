@@ -35,6 +35,7 @@ public class ConfigureHoliday {
                     for (String holiday : holiday_list) {
                         System.out.printf(holiday + ", ");
                     }
+                    System.out.println("");
                     break;
                 case 2:
                     System.out.print("Please enter month of holiday (integer): ");
@@ -73,7 +74,7 @@ public class ConfigureHoliday {
                     break;
                 case 3:
                     for (int i = 0; i < holiday_list.length; i++) {
-                        System.out.printf("%d. %s", i + 1, holiday_list[i]);
+                        System.out.printf("%d. %s", i + 1, holiday_list[i] + '\n');
                     }
                     System.out.print("Select holiday to remove: ");
                     int remove_index = input.nextInt() - 1;
