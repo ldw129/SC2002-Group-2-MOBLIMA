@@ -157,7 +157,7 @@ public class CreateUpdateRemoveCinemaShowtimes {
 					do {
 						System.out.print("\n"
 								+ "Please make a selection:\n"
-								+ " 1) Select  to update show\n"
+								+ " 1) Select to update show\n"
 								+ " 2) Back\n");
 						selection = sc.nextInt();
 
