@@ -49,8 +49,8 @@ public class Movie_goer_IO{
      * @throws Exception
      */
     public void countPreviousBookings() throws IOException {
-    	FileReader fw = new FileReader("Database/Customers.txt");
-		BufferedReader br = new BufferedReader(fw);
+    	FileReader fr = new FileReader("Database/Customers.txt");
+		BufferedReader br = new BufferedReader(fr);
 		
 		String s;
 		while((s=br.readLine())!=null) {
@@ -68,8 +68,8 @@ public class Movie_goer_IO{
     	
     		countPreviousBookings();
     		
-    		FileReader fw = new FileReader("Database/Customers.txt");
-    		BufferedReader br = new BufferedReader(fw);
+    		FileReader fr = new FileReader("Database/Customers.txt");
+    		BufferedReader br = new BufferedReader(fr);
     		
     		String s;
     		int i =1;
