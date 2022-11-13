@@ -119,7 +119,7 @@ public class show {
 	 */
 	public void assignSeat(int s1,int s2) {
 		if (!seats[s1][s2].isAssigned()) {
-			seats[s1][s2].assign();sdf
+			seats[s1][s2].assign();
 			mov.incTsales();
 		}
 		else
