@@ -265,7 +265,8 @@ public class Movie_goer_IO{
 	    		s.assignSeat(row-1, j+firstseatnum-2);
 	    	}   
     	String time = s.getDateTime(); 	
-    	writeNewBooking(custID, bookingID, custName, phoneNumber, custAge, movieBooked, emailID, time, numseats, firstseat); 	
+    	writeNewBooking(custID, bookingID, custName, phoneNumber, custAge, movieBooked, emailID, time, numseats, firstseat);
+		mo.saveShowDetails(); 	
     	} finally{customers.clear();}
     	    	//write new booking after assigning seats
     }
