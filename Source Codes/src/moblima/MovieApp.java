@@ -100,6 +100,7 @@ public class MovieApp {
 	                                    break;
 	                                case 3:
 	                                    ConfigureTicketPrices.main(args);
+                                        break;
 	                                case 4:
 	                                	ConfigureHoliday.main(args);
 	                                    break;
