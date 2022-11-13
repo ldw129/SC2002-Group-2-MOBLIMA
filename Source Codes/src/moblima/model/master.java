@@ -23,7 +23,7 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * Array of all Cineplexes
 	 */
 	private ArrayList<Cineplex> cineplexList;
-
+s
 	/**
 	 * Array of all holidays
 	 */
