@@ -63,7 +63,6 @@ public class MemberFunctions extends MovieGoerFunctions{
             	publicHols = false;
             	show = showsOfSelectedMovie.get(i);
             	showtime = show.getDateTime().split(" ")[0];
-            	System.out.println(showtime);
             	
             	for (int h = 0; h < holidayList.length; h++) {
             		if (holidayList[h].equals(showtime)) {
@@ -72,7 +71,6 @@ public class MemberFunctions extends MovieGoerFunctions{
             		}
             	}
             	
-            	System.out.println("test");
             	Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
             	ArrayList<Cinema> cinemaList = cineplexID.getCinema();
             	Cinema cinema = cinemaList.get(show.getScreenNum());

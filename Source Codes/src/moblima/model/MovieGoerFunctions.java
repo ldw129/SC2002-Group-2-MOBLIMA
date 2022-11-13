@@ -432,7 +432,6 @@ public class MovieGoerFunctions {
             	publicHols = false;
             	show = showsOfSelectedMovie.get(i);
             	showtime = show.getDateTime().split(" ")[0];
-            	System.out.println(showtime);
             	
             	for (int h = 0; h < holidayList.length; h++) {
             		if (holidayList[h].equals(showtime)) {
