@@ -449,7 +449,7 @@ public class MovieGoerFunctions {
             	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-    			// MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, );
+    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, show.getDateTime());
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
     			System.out.println("Date & Time: \n" + show.getDateTime());

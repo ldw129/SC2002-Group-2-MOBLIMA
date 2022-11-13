@@ -18,7 +18,7 @@ public class GetPrice {
 	public double get3DPrice() {
 		return prices.get(0);
 	}
-
+ww
 	/**
 	 * @return Standard ticket base price
 	 */
