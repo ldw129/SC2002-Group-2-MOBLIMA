@@ -9,6 +9,9 @@ import moblima.controller.Movie_goer_IO;
 //import moblima_test.model.Movie;
 
 public class MemberFunctions extends MovieGoerFunctions{
+    /**
+    * Replaces function in MovieGoerFunctions for logged-in members
+    */
 
     public void BookTickets(String login, ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
@@ -143,6 +146,10 @@ public class MemberFunctions extends MovieGoerFunctions{
         return;
     }
     
+    /**
+    * Replaces function in MovieGoerFunctions for logged-in members
+    */
+
     public void viewBookingHistory(String login) throws IOException {
 		// Movie_goer can browse through his / her past movie bookings with ease.
     	String[] var = login.split("[|]");
