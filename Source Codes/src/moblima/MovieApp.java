@@ -94,7 +94,7 @@ public class MovieApp {
 	
                             
 	                        try {
-	                            choice = sc.nextInt();
+	                            admin_choice = sc.nextInt();
 	                            switch (admin_choice) {
 	                                case 1:
 	                                    CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(m);
@@ -118,12 +118,12 @@ public class MovieApp {
 	                            System.err.println("Invalid input!");
 	                            sc.nextLine();
 	                        }
-	                    } while (admin_choice < 5);
+	                    } while (admin_choice != 5);
 	                    System.out.println("Returning to main screen...");
                         break;
                     // Member user interface
                     case 2:
-                    	choice = 0;
+                    	int member_choice = 0;
                         MemberFunctions memberFunctions = new MemberFunctions();
 
                         do {
@@ -137,9 +137,9 @@ public class MovieApp {
                             System.out.println("6. Quit");  
                             System.out.print("Enter your choice: ");
                             try {
-                                choice = sc.nextInt();
+                                member_choice = sc.nextInt();
 
-                                switch (choice) {
+                                switch (member_choice) {
                                     case 1:
                                     	memberFunctions.ViewMovies(movie_list, movie_list.size());
                                         break;
@@ -164,10 +164,10 @@ public class MovieApp {
                                 System.err.println("Invalid input!");
                                 sc.nextLine();
                             }
-                        } while (choice != 6);
+                        } while (member_choice != 6);
                         System.out.println("Returning to main screen...");
+                        break;
                     }
-                    break;
                 }
                 // Invalid login
                 else {
