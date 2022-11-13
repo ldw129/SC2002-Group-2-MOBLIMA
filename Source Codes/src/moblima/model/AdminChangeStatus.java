@@ -1,5 +1,7 @@
 package moblima.model;
-
+/**
+ * Class represents Changing of status for admin
+ */
 public enum AdminChangeStatus {
 	
 	/**
