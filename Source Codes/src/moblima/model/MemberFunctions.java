@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 import moblima.controller.HolidayConfig;
 import moblima.controller.Movie_goer_IO;
-//import moblima_test.model.Movie;
+import moblima.model.Movie;
 
 public class MemberFunctions extends MovieGoerFunctions{
+	
     /**
     * Replaces function in MovieGoerFunctions for logged-in members
     */
-
     public void BookTickets(String login, ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
