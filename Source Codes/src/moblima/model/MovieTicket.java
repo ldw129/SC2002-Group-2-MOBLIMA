@@ -37,6 +37,7 @@ public class MovieTicket {
 
     /**
      * Constructor
+     * 
      * @param is3D
      * @param cinemaClass
      * @param age
@@ -46,24 +47,25 @@ public class MovieTicket {
         this.is3D = is3D;
         this.cinemaClass = cinemaClass;
         this.age = age;
-        this.date = date;
+        this.date = date.substring(0, 4);
         this.price = calculatePrice();
     }
 
     /**
      * Calculates price of movie ticket
+     * 
      * @return price of movie ticket
      */
     private double calculatePrice() {
         master m = new master();
         m.readHolidays();
-        
+
         double price = 0;
         String[] holiday_list;
         holiday_list = m.getHolidays();
 
         // base price of ticket
-        switch(cinemaClass) {
+        switch (cinemaClass) {
             case "Standard":
                 price = categoryPrice.getStandardPrice();
                 break;
@@ -79,17 +81,16 @@ public class MovieTicket {
         price += is3D ? categoryPrice.get3DPrice() : 0;
 
         // add holiday surchage if any
-        for(String i: holiday_list) {
-            if (i.equals(date)) price += categoryPrice.getPublicHolidayPrice();
+        for (String i : holiday_list) {
+            if (i.equals(date))
+                price += categoryPrice.getPublicHolidayPrice();
         }
         // add discount if any (MIGHT NEED TO EDIT)
-        if(age >= 0 && age < 13 ) {
+        if (age >= 0 && age < 13) {
             price -= categoryPrice.getChildPrice();
-        }
-        else if (age >= 19 && age < 55) {
+        } else if (age >= 19 && age < 55) {
             price -= categoryPrice.getStudentPrice();
-        }
-        else if (age >= 55 && age < 101) {
+        } else if (age >= 55 && age < 101) {
             price -= categoryPrice.getSeniorCitizenPrice();
         }
 
@@ -98,6 +99,7 @@ public class MovieTicket {
 
     /**
      * Get price of movie ticket
+     * 
      * @return price of movie ticket
      */
     public double getPrice() {
