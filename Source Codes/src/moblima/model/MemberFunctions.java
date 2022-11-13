@@ -51,13 +51,7 @@ public class MemberFunctions extends MovieGoerFunctions{
         char ch;
 
         System.out.println("--- Ticket Booking & Purchase ---");
-        
-        m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());
-        Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
-
-        ArrayList<show> showsOfSelectedMovie = m.getShows();
-        holidayList = holIO.readHolidays();
-        
+            
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());  
         Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
 
