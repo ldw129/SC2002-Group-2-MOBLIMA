@@ -146,8 +146,9 @@ public class master { // HOLIDAY IS COMMENTED OUT FOR TESTING
 	 * read all holidays from the file
 	 */
 	public void readHolidays() {
+		HolidayConfig temp = new HolidayConfig();
 		try {
-			holiday_list = HolidayConfig.readHolidays();
+			holiday_list = temp.readHolidays();
 		} catch (Exception e) {
 		}
 	}
