@@ -175,15 +175,7 @@ public class MemberFunctions extends MovieGoerFunctions{
 		int i;
 		ArrayList<BookingInfo> bookings = new ArrayList<>();
 		Movie_goer customer = new Movie_goer();
-    	
-		try {
-        	System.out.println("Enter your customer ID to proceed: ");
-        	cust_id = sc.nextInt();
-        } catch (Exception e) {
-            System.err.println("Invalid input!");
-            sc.nextLine();
-        }
-    	
+		
     	customer = mg.getMovieGoer(cust_id);
     	bookings = customer.getBooking();
     	
