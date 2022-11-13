@@ -3,21 +3,33 @@ package moblima.model;
 import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
-import java.time.format.DateTimeFormatter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
 import moblima.model.Movie;
 import moblima.controller.HolidayConfig;
 
+/**
+ * Used to manage all the functionalities of movie goers, both guests and members.
+ * @version 1.0
+ * 
+ */
+
 public class MovieGoerFunctions {
-	
 	Scanner sc = new Scanner(System.in);
+	
+	/**
+	 * Object instance of Movie_goer_IO for ease of calling the functions in Movie_goer_IO
+	 */
 	Movie_goer_IO mg = new Movie_goer_IO();
 	
+	/**
+	 * Enum class to store the different age categories (child, student, adult, senior citizen), for ease of validation
+	 * for movie goers aged 54 and below.
+	 * @author LDW
+	 *
+	 */
 	public enum AgeCat{
 		CHILD(() -> IntStream.range(0,  12)),
 		STUDENT(() -> IntStream.range(13, 18)),
@@ -36,23 +48,25 @@ public class MovieGoerFunctions {
 	}
 
     public MovieGoerFunctions() {}
-
+    
+    /**
+     * Movie goers can see the full list of available movies and their corresponding details at a glance, as well as
+     * review and/or rate a particular movie of their interest.
+     * @param movies
+     * @param numOfMovies
+     */
     public void ViewMovies(ArrayList<Movie> movies, int numOfMovies) {
-        // Movie_goer can have a glance at a full list of all movies currently showing.
-        // For example:
-        // 1. Black Adam
-        // 2. Come Back Home
-        // 3. Black Panther - Wakanda Forever
-        // Movie = ['Black Adam', 'Come Back Home', 'Black Panther - Wakanda Forever']
-        // numOfMovies = 3
         Movie movie;
 
         movie = selectMovie(movies, numOfMovies);
         ListMovieDetails(movie);
         Review(movie);
-
     }
-
+    
+    /**
+     * Movie goers can see the full details (ie. movie name, cast, showtimes, showing status, reviews, ratings) of a selected movie.
+     * @param movie
+     */
     public void ListMovieDetails(Movie movie) {
         int c, j, s;
         show show;
@@ -107,7 +121,11 @@ public class MovieGoerFunctions {
             System.out.println("\n-------------------------");
         }
     }
-
+    
+    /**
+     * Movie_goers can leave a review and/or rating for a particular movie of their interest.
+     * @param movie
+     */
     public void Review(Movie movie) {
         // Movie_goer can enter his / her review and rating for a particular movie.
         int choice = 0;
@@ -138,7 +156,11 @@ public class MovieGoerFunctions {
         
         return;
     }
-
+    
+    /**
+     * Movie goers can check the availability of seats in a cinema theatre at a particular cineplex for a chosen movie.
+     * @param movies
+     */
     public void CheckSeats(ArrayList<Movie> movies) {
         // Movie_goer can check for empty seats in a cineplex before booking.
         master m = new master();
@@ -171,7 +193,13 @@ public class MovieGoerFunctions {
             show.printSeats();
         }
     }
-
+    
+    /**
+     * Movie goers can choose a movie they wish to watch at the cinema.
+     * @param movies
+     * @param numOfMovies
+     * @return
+     */
     public Movie selectMovie(ArrayList<Movie> movies, int numOfMovies) {
         // List out all available movies that are Now Showing or for Preview. ->
         // Movie.getStatus()
@@ -206,6 +234,12 @@ public class MovieGoerFunctions {
         return movie;
     }
 
+	/**
+	 * Movie goers can choose a cineplex they wish to watch a movie at.
+	 * @param Cineplexes
+	 * @param numOfCineplexes
+	 * @return
+	 */
     public int selectCineplex(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
         int i;
         int cineplexChoice = 0;
@@ -232,46 +266,11 @@ public class MovieGoerFunctions {
         return cineplexChoice;
     }
 
-    public int selectDate() {
-        // List out the next 5 dates (in advance), from the day the user logs into the
-        // app.
-        int dateChoice;
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate currDate = LocalDate.now();
-        String date = currDate.format(dateFormatter);
-        LocalDate parsedCurrDate = LocalDate.parse(date, dateFormatter);
-
-        for (int i = 0; i <= 5; i++) {
-            String dateAfterCurrDate = LocalDate.parse(date).plusDays(i).toString();
-            System.out.printf(i + 1 + ". " + dateAfterCurrDate + "\n");
-        }
-
-        dateChoice = sc.nextInt();
-        return dateChoice;
-    }
-
-    public int selectTime(int movieChoice, int cineplexChoice, int dateChoice) {
-        // List out all the available time slots of when the user's desired (chosen)
-        // movie will be screened on a chosen date.
-        // Cinema.getShowtime();
-        int timeChoice;
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime currTime = LocalTime.now();
-        String time = currTime.format(timeFormatter);
-        LocalTime parsedCurrTime = LocalTime.parse(time, timeFormatter);
-
-        // get movie showtimes on the chosen day (use switch case statement, based on
-        // dateChoice)
-        // list out movie showtimes that are available for booking, if they are beyond
-        // parsedCurrTime, otherwise do not show
-        timeChoice = sc.nextInt();
-        return timeChoice;
-    }
-    
+    /**
+     * Movie goers can view the top 5 movies ranked / sorted based on ticket sales or overall reviewers' ratings.
+     * @param movieList
+     */
     public void PopularMovies(ArrayList<Movie> movieList) {
-        // Movie_goer can view the top 5 movies ranked / sorted based on ticket sales or
-        // overall reviewrs' ratings.
-        // popularMovie[] ?
         int i;
         int selection = 0;
 
@@ -312,6 +311,11 @@ public class MovieGoerFunctions {
         return;
     }
 
+    /**
+     * Movie goers can book movie tickets for a chosen movie they wish to watch at the cinema.
+     * @param moviesAvailableForBooking
+     * @throws FileNotFoundException
+     */
     public void BookTickets(ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
@@ -499,6 +503,11 @@ public class MovieGoerFunctions {
         return;
     }
     
+    /**
+     * Movie goers can see their past movie bookings at a glance, but they need to validate their customerID
+     * in order to access their booking history.
+     * @throws IOException
+     */
     public void viewBookingHistory() throws IOException {
 		// Movie_goer can browse through his / her past movie bookings with ease.
 		int cust_id = 0;
@@ -533,6 +542,12 @@ public class MovieGoerFunctions {
     	}
 	}
     
+    /**
+     * The app will prompt movie goers to enter their age for age validation purposes, if they are purchasing child, student
+     * and/or adult tickets. For senior citizens, age validation will be conducted physically at the cineplex.
+     * @param ageVal
+     * @param ageCat
+     */
     public void validateAge(int ageVal, int ageCat) {
 		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
 		// he / she will only validate his / her age upon entering the cinema.
