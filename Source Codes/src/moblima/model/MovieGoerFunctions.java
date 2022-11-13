@@ -183,7 +183,7 @@ public class MovieGoerFunctions {
 
         System.out.println("--- All available movies at selected theatre ---");
         ArrayList<show> showList = m.getCineplexes().get(cineplexChoice-1).getCinema().get(cinemaChoice - 1).getCinemaShows();
-        System.out.println(showList);
+        
         for (show show : showList) {
             show.printSeats();
         }
