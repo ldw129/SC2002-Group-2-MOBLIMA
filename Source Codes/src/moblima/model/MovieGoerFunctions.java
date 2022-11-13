@@ -145,7 +145,7 @@ public class MovieGoerFunctions {
         master m = new master();
         m.readCineplexes();
         int cinemaChoice = 0;
-        int cineplexChoice = 0;
+        int cineplexChoice = 0;aD
         
         for (Movie movie : movies) {
         	System.out.println("Hi");
