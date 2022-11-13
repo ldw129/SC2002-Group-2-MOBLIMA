@@ -79,20 +79,22 @@ public class MovieTicket {
         }
 
         // add 3D surcharge if any
-        price += is3D ? categoryPrice.get3DPrice() : 0;
+        if (is3D) {
+            price = price + categoryPrice.get3DPrice();
+        }
 
         // add holiday surchage if any
         for (String i : holiday_list) {
             if (i.equals(date))
-                price += categoryPrice.getPublicHolidayPrice();
+                price = price + categoryPrice.getPublicHolidayPrice();
         }
-        // add discount if any (MIGHT NEED TO EDIT)
+        // add discount if any
         if (age >= 0 && age < 13) {
-            price -= categoryPrice.getChildPrice();
-        } else if (age >= 19 && age < 55) {
-            price -= categoryPrice.getStudentPrice();
+            price = price - categoryPrice.getChildPrice();
+        } else if (age >= 13 && age < 19) {
+            price = price - categoryPrice.getStudentPrice();
         } else if (age >= 55 && age < 101) {
-            price -= categoryPrice.getSeniorCitizenPrice();
+            price = price - categoryPrice.getSeniorCitizenPrice();
         }
 
         return price;

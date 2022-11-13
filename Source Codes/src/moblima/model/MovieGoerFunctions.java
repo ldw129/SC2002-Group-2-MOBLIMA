@@ -31,7 +31,7 @@ public class MovieGoerFunctions {
 	public enum AgeCat{
 		CHILD(() -> IntStream.range(0,  12)),
 		STUDENT(() -> IntStream.range(13, 18)),
-		ADULT(() -> IntStream.range(9, 54)),
+		ADULT(() -> IntStream.range(19, 54)),
 		SENIOR_CITIZEN(() -> IntStream.range(55, 100));
 				
 		private Supplier<IntStream> range = null;
