@@ -448,7 +448,6 @@ public class MovieGoerFunctions {
             	ArrayList<Cinema> cinemaList = cineplexID.getCinema();
             	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
-    			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
     			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, show.getDateTime());
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
@@ -457,7 +456,7 @@ public class MovieGoerFunctions {
     			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
     			System.out.printf("Cinema Class: %s\n", cinemaClass);
     			System.out.printf("3D Movie? %s\n", show.get3D());
-    			// System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
+    			System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
     			System.out.println("----------------------------------------------");
             }
             
@@ -526,7 +525,6 @@ public class MovieGoerFunctions {
     	        		} catch (Exception e) {
     	        			e.printStackTrace();
     	        		}
-    	        		
     	        	}
     	        	
     	        	System.out.println("Booking ID: " + transaction_id);
