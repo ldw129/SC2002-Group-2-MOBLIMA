@@ -60,7 +60,7 @@ public class Movie_goer extends Person {
 		this.email = cust_email;
 	}
 	
-	/**s
+	/**
 	 * add in booking info
 	 * @param cust_name
 	 * @param cust_mobile
