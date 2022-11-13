@@ -87,7 +87,7 @@ public class CineplexIO {
 			st.append(c.showLocation().trim());
 			st.append(SEPARATOR);
 			st.append(c.getCineplexID());
-			st.append(SEPARATOR);
+			st.append(SEPARATOR);s
 			temp1 = c.getCinema();
 			for (int j = 0; j < temp1.size(); j++) {
 				cm = temp1.get(j);
