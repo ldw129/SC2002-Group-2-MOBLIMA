@@ -113,6 +113,7 @@ public class MovieApp {
 	                        }
 	                    } while (choice < 5);
 	                    System.out.println("Returning to main screen...");
+                        break;
                     case 2:
                     	choice = 0;
                         MemberFunctions mainFunctions = new MemberFunctions();
@@ -158,6 +159,7 @@ public class MovieApp {
                         } while (choice != 6);
                         System.out.println("Returning to main screen...");
                     }
+                    break;
                 }
                 else {
                     System.out.println("Wrong username or password entered! Returning to main screen...");
