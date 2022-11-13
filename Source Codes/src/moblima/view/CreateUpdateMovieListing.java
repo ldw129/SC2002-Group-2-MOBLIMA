@@ -1,10 +1,12 @@
 package moblima.view;
-
 import java.util.*;
-import java.io.*;
+
+import javax.swing.ToolTipManager;
 
 import moblima.model.master;
 import moblima.model.Movie;
+
+import java.io.*;
 import moblima.model.*;
 
 public class CreateUpdateMovieListing {
@@ -54,35 +56,49 @@ public class CreateUpdateMovieListing {
                 System.out.println("Enter Movie Synopsis: ");
                 movieSynopsis = sc.nextLine();
 
-                System.out.println("Enter Movie Status: \n"
-                + 	"1. COMING SOON\n"
-                + 	"2. PREVIEW\n"
-                +   "3. NOW SHOWING");
+                int statusSel = 0;
 
-                System.out.println("");
-
-                int statusSel = sc.nextInt();
-                
-                switch (statusSel)
+                do
                 {
-                    case 1:
-                        showStatus = "COMING SOON";
-                        break;
+                    System.out.println("Enter Movie Status: \n"
+                    + 	"1. COMING SOON\n"
+                    + 	"2. PREVIEW\n"
+                    +   "3. NOW SHOWING");
+    
+                    System.out.println("");
 
-                    case 2:
-                        showStatus = "PREVIEW";
-                        break;
-
-                    case 3:
-                        showStatus = "NOW SHOWING";
-                        break;
+                    try
+                    {
+                        statusSel = sc.nextInt();
+    
+                        switch (statusSel)
+                        {
+                            case 1:
+                                showStatus = "COMING SOON";
+                                break;
+        
+                            case 2:
+                                showStatus = "PREVIEW";
+                                break;
+        
+                            case 3:
+                                showStatus = "NOW SHOWING";
+                                break;
+                            
+                            default:
+                                System.out.println("Invalid input, please try again!");
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        System.err.println("Invalid input, please try again!");
+                        sc.nextInt();
+                        throw e;
+                    }
+    
                     
-                    default:
-                        System.out.println("Invalid input, please try again!");
-                        break;
-
-                }
-
+                } while(statusSel>3);
+                
 
 
                 boolean incorrectInput = true;
@@ -142,7 +158,7 @@ public class CreateUpdateMovieListing {
                     
                 //master.addMovieListing(newMovie);
                 master.addMovieListing(newMovie);
-                //String filepath = "Database/movies.txt";
+                //String filepath = "data/movies.txt";
                 File showFile = new File("Database/Shows/"+movieTitle+".txt"); 
                 showFile.createNewFile();
                 File file = new File("Database/movies.txt");
@@ -225,7 +241,6 @@ public class CreateUpdateMovieListing {
 
                 }
                 
-                //String filePath = "Database/movies.txt";
                 FileWriter writer = new FileWriter(uFile);
                 writer.append(fileContents);
                 writer.flush();
