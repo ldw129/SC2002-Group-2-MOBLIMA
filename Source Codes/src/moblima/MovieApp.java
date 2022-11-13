@@ -150,7 +150,7 @@ public class MovieApp {
                                     case 4:
                                     	memberFunctions.viewBookingHistory(login);
                                         break;
-                                    case 5:
+                                    case 5:s
                                     	memberFunctions.PopularMovies(movie_list);
                                         break;
                                     case 6:
