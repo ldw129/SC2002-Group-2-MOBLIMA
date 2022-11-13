@@ -1,5 +1,7 @@
 package moblima.model;
-
+/**
+ * Class represent cinema seat
+ */
 public class CinemaSeat {
 
 	/**
