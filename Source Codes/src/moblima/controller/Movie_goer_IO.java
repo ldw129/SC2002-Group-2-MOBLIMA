@@ -17,7 +17,7 @@ public class Movie_goer_IO{
 	/**
 	 * text file for the input and output
 	 */
-    private File customerFile = new File("Database/Customers.txt");wsd
+    private File customerFile = new File("Database/Customers.txt");
     
     /**
      * ArrayList of the MovieGoers
