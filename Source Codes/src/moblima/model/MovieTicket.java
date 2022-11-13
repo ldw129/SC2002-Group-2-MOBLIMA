@@ -97,6 +97,9 @@ public class MovieTicket {
             price = price - categoryPrice.getSeniorCitizenPrice();
         }
 
+        // GST
+        price = price + price * categoryPrice.getGSTPrice() / 100;
+
         return price;
     }
 
