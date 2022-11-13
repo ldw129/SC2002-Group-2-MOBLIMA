@@ -118,7 +118,7 @@ public class MemberFunctions extends MovieGoerFunctions{
         			continue;
             }
             else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-            	BookingInfo b = new BookingInfo(show.getCineplexID());
+            	BookingInfo b = new BookingInfo();
             	transaction_id = b.getTID();
             	ch = firstSeat.charAt(0);
 	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
@@ -132,7 +132,7 @@ public class MemberFunctions extends MovieGoerFunctions{
 	        	
 	        	if (!seatAssigned) { // seatAssigned = false
 	        		try {
-	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
+	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, cust_age, transaction_id, numSeats, firstSeat);
 	        		} catch (Exception e) {
 	        			e.printStackTrace();
 	        		}
