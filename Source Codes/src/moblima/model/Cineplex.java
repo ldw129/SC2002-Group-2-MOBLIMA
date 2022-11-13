@@ -47,7 +47,7 @@ public class Cineplex {
 	 * get cineplexID
 	 * @return cineplexID
 	 */
-	public int getCineplexID() {
+	public int getCineplexI() {
 		return cineplexID;
 	}
 }
