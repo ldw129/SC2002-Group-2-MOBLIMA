@@ -423,7 +423,8 @@ public class MovieGoerFunctions {
         	}
         } while (selection > 4);
         
-        m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
+        m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());  
+        Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
         System.out.println(showsOfSelectedMovie);
@@ -444,13 +445,12 @@ public class MovieGoerFunctions {
             	}
             	
             	System.out.println("test");
-            	Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
             	Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
             	ArrayList<Cinema> cinemaList = cineplexID.getCinema();
             	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, );
+    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, date);
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
     			System.out.println("Date & Time: \n" + show.getDateTime());
@@ -493,12 +493,13 @@ public class MovieGoerFunctions {
                 		System.out.println("Booking cancelled!");
                 		break;
                 	}
-                	else
+                	else {
                 		System.out.println("Booking continued");
             			continue;
+                	}
                 }
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-                	
+                	System.out.println("Test");
                 	BookingInfo b = new BookingInfo(show.getCineplexID());
                 	transaction_id = b.getTID();
                 	ch = firstSeat.charAt(0);
