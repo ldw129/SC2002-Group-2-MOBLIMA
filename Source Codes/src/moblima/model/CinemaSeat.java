@@ -25,7 +25,7 @@ public class CinemaSeat {
 	}
 
 	/**
-	 * Assigns seat, assigned = truesds
+	 * Assigns seat, assigned = true
 	 */
 	public void assign() {
 		this.assigned = true;
