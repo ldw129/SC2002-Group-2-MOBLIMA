@@ -450,7 +450,7 @@ public class MovieGoerFunctions {
             	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, date);
+    			// MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, date);
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
     			System.out.println("Date & Time: \n" + show.getDateTime());
@@ -458,7 +458,7 @@ public class MovieGoerFunctions {
     			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
     			System.out.printf("Cinema Class: %s\n", cinemaClass);
     			System.out.printf("3D Movie? %s\n", show.get3D());
-    			System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
+    			// System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
     			System.out.println("----------------------------------------------");
             }
             
@@ -501,19 +501,27 @@ public class MovieGoerFunctions {
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
                 	System.out.println("Test");
                 	BookingInfo b = new BookingInfo(show.getCineplexID());
+                	System.out.println(b);
                 	transaction_id = b.getTID();
+                	System.out.println(transaction_id);
                 	ch = firstSeat.charAt(0);
+                	System.out.println(ch);
     	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
+    	    		System.out.println(firstSeatNum);
     	        	row = ch - 'a';
+    	        	System.out.println(row);
     	        	seatAssigned = false;
-    	        	
+    	        	System.out.println(numSeats);
     	        	for (int i = 0; i < numSeats;i++) {
+    	        		System.out.println(show.checkSeat(row, firstSeatNum+i));
     	        		if (show.checkSeat(row, firstSeatNum + i)) // seat has already been assigned
     	        			seatAssigned = true;
     	        	}
     	        	
+    	        	System.out.println(seatAssigned);
     	        	if (!seatAssigned) { // seatAssigned = false
     	        		try {
+    	        			System.out.println("Test");
     	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
     	        		} catch (Exception e) {
     	        			e.printStackTrace();
