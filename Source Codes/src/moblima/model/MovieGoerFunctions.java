@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
-import moblima.model.MovieGoerFunctions.AgeCat;
 import moblima.model.Movie;
 import moblima.controller.HolidayConfig;
 
@@ -147,10 +146,8 @@ public class MovieGoerFunctions {
         int cinemaChoice = 0;
         int cineplexChoice = 0;
         
-        for (Movie movie : movies) {
-        	System.out.println("Hi");
+        for (Movie movie : movies)
         	movie.readShowDetails(m);
-        }
 
         System.out.println("--- Seat Availability ---");
 

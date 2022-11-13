@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 import moblima.controller.HolidayConfig;
 import moblima.controller.Movie_goer_IO;
+import moblima_test.model.Movie;
 
 public class MemberFunctions extends MovieGoerFunctions{
 
-    public void BookTickets(String login) throws FileNotFoundException {
+    public void BookTickets(String login, ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
         show show = null;
         HolidayConfig holIO = new HolidayConfig();
         master Master = new master();
-        ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
         Movie m;
         Movie_goer_IO mg = new Movie_goer_IO();
         Movie_goer user = new Movie_goer();
@@ -43,7 +43,6 @@ public class MemberFunctions extends MovieGoerFunctions{
 
         System.out.println("--- Ticket Booking & Purchase ---");
         
-        moviesAvailableForBooking = Master.getMovies();
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
