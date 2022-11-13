@@ -46,7 +46,10 @@ public class Movie {
 	 * array of the cast starring in a movie
 	 */
 	private String[] Cast;
-	// string for cast
+	
+	/**
+	 * string to represent one cast
+	 */
 	private String movieCast;
 	
 	/**

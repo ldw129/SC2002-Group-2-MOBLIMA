@@ -1,10 +1,11 @@
 package moblima.model;
 
 import java.util.Calendar;
-/**
- * Contains the booking info for each booking
- */
 
+
+/**
+ * Class to contain the booking info for each booking
+ */
 public class BookingInfo extends Movie_goer {
 
 	/**
@@ -75,7 +76,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * return customer name
-	 * @return
+	 * @return customerName
 	 */
 	public String getCustName() {
 		return this.customerName;
@@ -89,7 +90,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * creates a transaction ID to record
-	 * @return
+	 * @return transactionID
 	 */
 	private String createTID() {
 		/* --- Cineplex Listing --- // to be changed
@@ -108,7 +109,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * return CreatedID
-	 * @return
+	 * @return transactionID
 	 */
 	public String getTID() {
 		return createTID();
@@ -122,6 +123,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * return the customer's email address
+	 * @return email
 	 */
 	public String getEmailAddress() {
 		return this.emailAdd;
@@ -134,7 +136,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * return the movie that was booked
-	 * @return
+	 * @return movie
 	 */
 	public String getMovieBooked() {
 		return this.movie;
@@ -148,7 +150,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * get the seatNum
-	 * @return
+	 * @return seatNum
 	 */
 	public int getSeatNum() {
 		return this.seatNum;
@@ -176,7 +178,7 @@ public class BookingInfo extends Movie_goer {
 	}
 	/**
 	 * return date and time of the movie
-	 * @return
+	 * @return dateTime
 	 */
 	public String getDateTime() {
 		return this.dateTime;
