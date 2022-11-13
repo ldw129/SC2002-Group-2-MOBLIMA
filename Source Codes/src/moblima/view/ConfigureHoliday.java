@@ -90,6 +90,7 @@ public class ConfigureHoliday {
                     }
 
                     holiday_list = newholiday_list2;
+                    System.out.println("Holiday removed successfully");
                 case 4:
                     break;
                 default:
