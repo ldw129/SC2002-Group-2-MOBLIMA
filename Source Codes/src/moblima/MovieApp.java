@@ -81,6 +81,7 @@ public class MovieApp {
                     switch(usertype) {
                     // Cinema staff user interface
                     case 1:
+                        int admin_choice = 0;
 	                    do {
 	                    	System.out.println("----------------------------");
 	                        System.out.println("Welcome to the Admin Module!");
@@ -91,9 +92,10 @@ public class MovieApp {
 	                        System.out.println("5: Quit");
 	                        System.out.print("Enter your choice: ");
 	
+                            
 	                        try {
 	                            choice = sc.nextInt();
-	                            switch (choice) {
+	                            switch (admin_choice) {
 	                                case 1:
 	                                    CreateUpdateMovieListing movieListing_menu = new CreateUpdateMovieListing(m);
 	                                    movieListing_menu.main(args);
@@ -116,7 +118,7 @@ public class MovieApp {
 	                            System.err.println("Invalid input!");
 	                            sc.nextLine();
 	                        }
-	                    } while (choice < 5);
+	                    } while (admin_choice < 5);
 	                    System.out.println("Returning to main screen...");
                         break;
                     // Member user interface
@@ -132,7 +134,7 @@ public class MovieApp {
                             System.out.println("3. Book and purchase tickets");
                             System.out.println("4. View your booking history");
                             System.out.println("5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings");
-                            System.out.println("6. Quit");
+                            System.out.println("6. Quit");  
                             System.out.print("Enter your choice: ");
                             try {
                                 choice = sc.nextInt();
