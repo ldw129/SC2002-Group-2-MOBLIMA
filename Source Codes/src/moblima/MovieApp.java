@@ -20,6 +20,8 @@ public class MovieApp {
         m.readMovies();
         ArrayList<Movie> movie_list = m.getMovies();
         m.readCineplexes();
+        ArrayList<Cineplex> cineplex_list = m.getCineplexes();
+        
         for (Movie mov: movie_list) {
             mov.readShowDetails(m);
         }
@@ -132,7 +134,7 @@ public class MovieApp {
                                         mainFunctions.ViewMovies(movie_list, movie_list.size());
                                         break;
                                     case 2:
-                                        mainFunctions.CheckSeats(movie_list);
+                                        mainFunctions.CheckSeats(movie_list, cineplex_list);
                                         break;
                                     case 3:
                                         mainFunctions.BookTickets(login, movie_list); // under construction
@@ -184,10 +186,10 @@ public class MovieApp {
                                 mainFunctions.ViewMovies(movie_list, movie_list.size());
                                 break;
                             case 2:
-                                mainFunctions.CheckSeats(movie_list);
+                                mainFunctions.CheckSeats(movie_list, cineplex_list);
                                 break;
                             case 3:
-                                mainFunctions.BookTickets(movie_list); // under construction
+                                mainFunctions.BookTickets(movie_list, cineplex_list); // under construction
                                 break;
                             case 4:
                             	mainFunctions.viewBookingHistory(); // under construction
