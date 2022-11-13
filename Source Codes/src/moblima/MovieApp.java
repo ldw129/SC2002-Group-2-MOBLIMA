@@ -59,7 +59,7 @@ public class MovieApp {
                 sc.nextLine();
             }
 
-            // Admin
+            // Member login
             if (choice == 1) {
                 sc.nextLine();
                 System.out.println("Please enter username and password.");
