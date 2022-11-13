@@ -20,7 +20,7 @@ public class Movie {
 	/**
 	 * name of the director of movie
 	 */
-	private String directorName;
+	private String directorName;s
 	
 	/**
 	 * array of all reviews 
