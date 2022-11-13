@@ -59,6 +59,7 @@ public class Movie_goer extends Person {
 		this.mobile = cust_mobile;
 		this.email = cust_email;
 	}
+	
 	/**
 	 * add in booking info
 	 * @param cust_name
@@ -107,7 +108,7 @@ public class Movie_goer extends Person {
 		this.custID = cust_id;
 	}
 	/**
-	 * retrun customer age
+	 * return customer age
 	 * @return age
 	 */
 	public int getAge() {
