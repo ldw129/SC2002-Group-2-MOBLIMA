@@ -57,7 +57,6 @@ public class BookingInfo extends Movie_goer {
 		this.emailAdd = email_id;
 		this.movie = movieBooked;
 		this.seatNum = numOfSeats;
-		// Assume the user books neighbouring seats, to the left or right of firstSeat.
 		this.firstSeat = firstSeat;
 	}
 	
