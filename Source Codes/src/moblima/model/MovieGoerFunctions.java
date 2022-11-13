@@ -497,22 +497,14 @@ public class MovieGoerFunctions {
                 	}
                 }
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-                	System.out.println("Test");
                 	BookingInfo b = new BookingInfo(show.getCineplexID());
-                	System.out.println(b);
                 	transaction_id = b.getTID();
-                	System.out.println(transaction_id);
                 	ch = firstSeat.charAt(0);
-                	System.out.println(ch);
     	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
-    	    		System.out.println(firstSeatNum);
     	        	row = ch - 'A';
-    	        	System.out.println(row);
     	        	seatAssigned = false;
-    	        	System.out.println(numSeats);
     	        	
     	        	for (int i = 0; i < numSeats;i++) {
-    	        		System.out.println(show.checkSeat(row, firstSeatNum+i));
     	        		if (show.checkSeat(row, firstSeatNum + i)) // seat has already been assigned
     	        			seatAssigned = true;
     	        	}
@@ -520,7 +512,17 @@ public class MovieGoerFunctions {
     	        	System.out.println(seatAssigned);
     	        	if (!seatAssigned) { // seatAssigned = false
     	        		try {
-    	        			System.out.println("Test");
+    	        			System.out.println(m);
+    	        			System.out.println(show_index);
+    	        			System.out.println(cust_name);
+    	        			System.out.println(cust_id);
+    	        			System.out.println(cust_email);
+    	        			System.out.println(cust_mobile);
+    	        			System.out.println(cust_age);
+    	        			System.out.println(cust_age);
+    	        			System.out.println(numSeats);
+    	        			System.out.println(firstSeat);
+    	        			
     	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, cust_age, transaction_id, numSeats, firstSeat);
     	        		} catch (Exception e) {
     	        			e.printStackTrace();
