@@ -73,7 +73,7 @@ public class MovieTicket {
             case "Premium":
                 price = categoryPrice.getPremiumPrice();
                 break;
-            case "Plainum":
+            case "Platinum":
                 price = categoryPrice.getPlatinumPrice();
                 break;
         }
