@@ -80,7 +80,7 @@ public class CineplexIO {
 		Cinema cm;
 		StringBuilder st;
 		final String SEPARATOR = ";";
-s
+
 		for (int i = 0; i < al.size(); i++) {
 			c = (Cineplex) al.get(i);
 			st = new StringBuilder();
