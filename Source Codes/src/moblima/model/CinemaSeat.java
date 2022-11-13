@@ -14,7 +14,7 @@ public class CinemaSeat {
 	 */
 	public CinemaSeat() {
 		assigned = false;
-	}s
+	}
 
 	/**
 	 * check if seat is assigned
