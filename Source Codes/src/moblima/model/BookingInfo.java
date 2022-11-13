@@ -40,6 +40,10 @@ public class BookingInfo extends Movie_goer {
 	 * pointer to the seats booked
 	 */
 	private String firstSeat;
+	/**
+	 * ID of cineplex chosen
+	 */
+	private int cineplexID;
 	
 	public BookingInfo() {}
 	/**
@@ -61,10 +65,26 @@ public class BookingInfo extends Movie_goer {
 	}
 	
 	/**
-	 * gives the cinemaCode
+	 * separate constructor for BookingInfo
+	 * @param cust_name
+	 * @param transaction_id
+	 * @param email_id
+	 * @param movieBooked
+	 * @param numOfSeats
+	 * @param firstSeat
 	 * @param cineplexID
 	 */
-	public BookingInfo(int cineplexID) {
+	
+	public BookingInfo(String cust_name, String transaction_id, String email_id, String movieBooked, int numOfSeats, String firstSeat, int cineplexID) {
+		this(cust_name, transaction_id, email_id, movieBooked, numOfSeats, firstSeat);
+		this.cineplexID = cineplexID;
+	}
+	
+	/**
+	 * return cinemaCode
+	 * @return cinemaCode
+	 */
+	public String createCinemaCode() {
 		if (cineplexID+1 == 1)
 			cinemaCode = "CCO";
 		else if (cineplexID+1 == 2)
@@ -72,6 +92,8 @@ public class BookingInfo extends Movie_goer {
 		else {
 			cinemaCode = "STN";
 		}
+		
+		return cinemaCode;
 	}
 	/**
 	 * return customer name
@@ -91,12 +113,13 @@ public class BookingInfo extends Movie_goer {
 	 * creates a transaction ID to record
 	 * @return transactionID
 	 */
-	private String createTID() {
+	public String createTID() {
 		/* --- Cineplex Listing --- // to be changed
 		1. Cathay Cineplexes Cineleisure Orchard
 		2. Golden Village Jurong Point
 		3. Shaw Theatres Nex
 		*/
+		cinemaCode = createCinemaCode();
 		transactionID = cinemaCode + 
 				Calendar.getInstance().get(Calendar.YEAR) + 
 				Calendar.getInstance().get(Calendar.MONTH) + 
