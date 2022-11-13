@@ -495,8 +495,7 @@ public class MovieGoerFunctions {
                 	}
                 }
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-                	System.out.println(show.getCineplexID()+1);
-                	BookingInfo b = new BookingInfo(show.getCineplexID()+1);
+                	BookingInfo b = new BookingInfo();
                 	transaction_id = b.getTID();
                 	ch = firstSeat.charAt(0);
     	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
@@ -568,7 +567,6 @@ public class MovieGoerFunctions {
     	System.out.println("--- Your Past Bookings ---");
     	
     	for (i = 0; i < bookings.size(); i++) {
-    		System.out.println(bookings.get(i));
     		System.out.println("---------------------------------------");
     		System.out.println("BOOKING " + (i+1) + ": ");
 			System.out.println("Transaction ID: " + bookings.get(i).getTID());
