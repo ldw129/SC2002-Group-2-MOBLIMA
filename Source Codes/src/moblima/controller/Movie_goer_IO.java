@@ -108,7 +108,7 @@ public class Movie_goer_IO{
      * @throws IOException
      * @throws Exception
      */
-    public void writeNewBooking(int custID, String bookingID, String customerName, int phoneNumber, String movieBooked, String emailID, String time, int numseats, String firstseat) throws IOException, Exception {
+    public void writeNewBooking(int custID, String bookingID, String customerName, int phoneNumber, int custAge, String movieBooked, String emailID, String time, int numseats, String firstseat) throws IOException, Exception {
 		countPreviousBookings();    
 		customerFile = getCustomerFile();
     	String temp;
@@ -123,6 +123,7 @@ public class Movie_goer_IO{
 			bw.write(Integer.toString(custID) + "|");
 			bw.write(bookingID + "|");
 			bw.write(customerName + "|");
+			bw.write(custAge + "|");
 			bw.write(Integer.toString(phoneNumber) + "|");
 			bw.write(movieBooked + "|");
 			bw.write(emailID + "|");
@@ -261,7 +262,7 @@ public class Movie_goer_IO{
     		s.assignSeat(row-1, j+firstseatnum-2);
     	}   
     	String time = s.getDateTime(); 	
-    	writeNewBooking(custID, bookingID, custName, phoneNumber, movieBooked, emailID, time, numseats, firstseat); 	
+    	writeNewBooking(custID, bookingID, custName, phoneNumber, custAge, movieBooked, emailID, time, numseats, firstseat); 	
     	}finally{customers.clear();}
     	    	//write new booking after assigning seats
     }
