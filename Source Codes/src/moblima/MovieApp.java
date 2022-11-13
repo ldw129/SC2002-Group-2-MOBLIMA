@@ -13,7 +13,7 @@ import moblima.view.*;
  */
 public class MovieApp {
 	public static final String accountFile = "Database/accounts.txt";
-
+sdf
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         master m = new master();
