@@ -427,8 +427,6 @@ public class MovieGoerFunctions {
         Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
-        System.out.println(showsOfSelectedMovie);
-        System.out.println(showsOfSelectedMovie.size());
         holidayList = holIO.readHolidays();
         
         if (showsOfSelectedMovie.size() > 0) {
@@ -436,6 +434,7 @@ public class MovieGoerFunctions {
             	publicHols = false;
             	show = showsOfSelectedMovie.get(i);
             	showtime = show.getDateTime().split(" ")[0];
+            	System.out.println(showtime);
             	
             	for (int h = 0; h < holidayList.length; h++) {
             		if (holidayList[h].equals(showtime)) {
@@ -450,7 +449,7 @@ public class MovieGoerFunctions {
             	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-    			// MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, date);
+    			// MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, );
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
     			System.out.println("Date & Time: \n" + show.getDateTime());
