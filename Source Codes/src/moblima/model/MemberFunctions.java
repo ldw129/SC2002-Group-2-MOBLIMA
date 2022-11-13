@@ -165,8 +165,6 @@ public class MemberFunctions extends MovieGoerFunctions{
             }
         }
         
-        return;
-    }
     
     /**
     * Replaces function in MovieGoerFunctions for logged-in members
@@ -199,6 +197,4 @@ public class MemberFunctions extends MovieGoerFunctions{
 			System.out.println(" ");
     	}
 	}
-    
-
 }
