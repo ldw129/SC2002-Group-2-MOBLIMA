@@ -15,7 +15,6 @@ import moblima.controller.HolidayConfig;
  * @version 1.0
  * 
  */
-
 public class MovieGoerFunctions {
 	Scanner sc = new Scanner(System.in);
 	
