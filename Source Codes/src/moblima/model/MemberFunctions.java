@@ -53,59 +53,69 @@ public class MemberFunctions extends MovieGoerFunctions{
         System.out.println("--- Ticket Booking & Purchase ---");
         
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());
-	Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
+        Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
         holidayList = holIO.readHolidays();
         
-        for (int i = 0; i < showsOfSelectedMovie.size(); i++) {
-        	publicHols = false;
-        	show = showsOfSelectedMovie.get(i);
-        	showtime = show.getDateTime().split(" ")[0];
-        	
-        	for (int h = 0; h < holidayList.length; h++) {
-        		if (holidayList[h].equals(showtime)) {
-        			publicHols = true;
-        			break;
-        		}
-        	}
-        	
-			Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
-            		ArrayList<Cinema> cinemaList = cineplexID.getCinema();
-            		Cinema cinema = cinemaList.get(show.getScreenNum());
+        m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());  
+        Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
+
+        ArrayList<show> showsOfSelectedMovie = m.getShows();
+        holidayList = holIO.readHolidays();
+        
+        if (showsOfSelectedMovie.size() > 0) {
+        	for (int i = 0; i < showsOfSelectedMovie.size(); i++) {
+            	publicHols = false;
+            	show = showsOfSelectedMovie.get(i);
+            	showtime = show.getDateTime().split(" ")[0];
+            	System.out.println(showtime);
+            	
+            	for (int h = 0; h < holidayList.length; h++) {
+            		if (holidayList[h].equals(showtime)) {
+            			publicHols = true;
+            			break;
+            		}
+            	}
+            	
+            	System.out.println("test");
+            	Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
+            	ArrayList<Cinema> cinemaList = cineplexID.getCinema();
+            	Cinema cinema = cinemaList.get(show.getScreenNum());
     			cinemaClass = cinema.getCinemaClass();
-			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, show.getDateTime());
-			System.out.println(" ");
-			System.out.printf("\nShow %d:\n", i+1);
-			System.out.println("Date & Time: \n" + show.getDateTime());
-			System.out.printf("Cineplex ID: %d\n", show.getCineplexID()+1);
-			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
-			System.out.printf("Cinema Class: %s\n", cinemaClass);
-			System.out.printf("3D Movie? %s\n", show.get3D());
-			// System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
-			System.out.println("----------------------------------------------");
-        }
-        
-        try {
-        	System.out.println("Enter show index: ");
-            show_index = sc.nextInt() - 1;
+    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, show.getDateTime());
+    			System.out.println(" ");
+    			System.out.printf("\nShow %d:\n", i+1);
+    			System.out.println("Date & Time: \n" + show.getDateTime());
+    			System.out.printf("Cineplex ID: %d\n", show.getCineplexID()+1);
+    			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
+    			System.out.printf("Cinema Class: %s\n", cinemaClass);
+    			System.out.printf("3D Movie? %s\n", show.get3D());
+    			System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
+    			System.out.println("----------------------------------------------");
+            }
             
-            show = showsOfSelectedMovie.get(show_index);
-            show.printSeats();
+            try {
+            	System.out.println("Enter show index: ");
+                show_index = sc.nextInt() - 1;
+                
+                show = showsOfSelectedMovie.get(show_index);
+                show.printSeats();
+                
+                System.out.println("Enter the total number of seats: ");
+                numSeats = sc.nextInt();
+                
+                System.out.println("Enter the first seat (ie. A1: Row 1 Seat 1; B2: Row 2 Seat 2): "); // seat ID formatting to be confirmed
+                firstSeat = sc.next();
+            } catch (Exception e) {
+                System.err.println("Invalid input!");
+                sc.nextLine();
+            }
             
-            System.out.println("Enter the total number of seats: ");
-            numSeats = sc.nextInt();
+            inputValidation = true;
             
-            System.out.println("Enter the first seat (ie. A1: Row 1 Seat 1; B2: Row 2 Seat 2): "); // seat ID formatting to be confirmed
-            firstSeat = sc.next();
-        } catch (Exception e) {
-            System.err.println("Invalid input!");
-            sc.nextLine();
-        }
-        
-        inputValidation = true;
-        
-        while (inputValidation) {
+            
+            while (inputValidation) {
         		System.out.println("Confirm booking? Y/N");
                 bookingConfirmation = sc.next();
                 
@@ -136,18 +146,7 @@ public class MemberFunctions extends MovieGoerFunctions{
     	        	
     	        	System.out.println(seatAssigned);
     	        	if (!seatAssigned) { // seatAssigned = false
-    	        		try {
-    	        			System.out.println(m);
-    	        			System.out.println(show_index);
-    	        			System.out.println(cust_name);
-    	        			System.out.println(cust_id);
-    	        			System.out.println(cust_email);
-    	        			System.out.println(cust_mobile);
-    	        			System.out.println(cust_age);
-    	        			System.out.println(transaction_id);
-    	        			System.out.println(numSeats);
-    	        			System.out.println(firstSeat);
-    	        			
+    	        		try {    	        			
     	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, cust_age, transaction_id, numSeats, firstSeat);
     	        		} catch (Exception e) {
     	        			e.printStackTrace();
@@ -164,6 +163,11 @@ public class MemberFunctions extends MovieGoerFunctions{
                 }   	
             }
         }
+        else
+        	System.out.println("No shows available for this movie! Choose another movie instead.");
+        	
+        return;
+    }
         
     
     /**
