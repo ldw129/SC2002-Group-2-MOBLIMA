@@ -1,17 +1,34 @@
 package moblima.model;
 
 import java.util.ArrayList;
-
+/**
+ * represents the cinema
+ */
 public class Cinema {
-
+	/**
+	 * this is the cinema_name
+	 */
 	private String cinema_name;
+	/**
+	 * this is the cinema class
+	 */
 	private String cinema_class;
+	/**
+	 * this is cinema ID
+	 */
 	private int cinemaID;
+	/**
+	 * this is the list of shows
+	 */
 	private ArrayList<show> showlist;
-	// seating information
+	/**
+	 * array of seats
+	 */
 	private CinemaSeat[][] seats = new CinemaSeat[9][9];
 
-	// constructors
+	/**
+	 * cinema constructor
+	 */
 	public Cinema() {
 
 	}
@@ -22,35 +39,59 @@ public class Cinema {
 		this.cinemaID = ID;
 		showlist = new ArrayList<show>();
 	}
-
+	/**
+	 * add shows to showlist
+	 * @param s
+	 */
 	public void addShow(show s) {
 		showlist.add(s);
 	}
-
+	/**
+	 * get the shows from showlist
+	 * @return
+	 */
 	public ArrayList<show> getCinemaShows() {
 		return showlist;
 	}
-
+	/**
+	 * return cinema name
+	 * @return
+	 */
 	public String getCinemaName() {
 		return cinema_name;
 	}
-
+	/**
+	 * set cinema nae
+	 * @param cinema_name
+	 */
 	public void setCinemaName(String cinema_name) {
 		this.cinema_name = cinema_name;
 	}
-
+	/**
+	 * get cinemaID
+	 * @return
+	 */
 	public int getCinemaID() {
 		return cinemaID;
 	}
-
+	/**
+	 * set cinemaID
+	 * @param cinemaID
+	 */
 	public void setCinemaID(int cinemaID) {
 		this.cinemaID = cinemaID;
 	}
-
+	/**
+	 * get cinema_class
+	 * @return
+	 */
 	public String getCinemaClass() {
 		return cinema_class;
 	}
-
+	/**
+	 * set cinema_class
+	 * @param cinema_class
+	 */
 	public void setCinemaClass(String cinema_class) {
 		this.cinema_class = cinema_class;
 	}

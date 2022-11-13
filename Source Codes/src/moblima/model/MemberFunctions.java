@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import moblima.controller.HolidayConfig;
 import moblima.controller.Movie_goer_IO;
-import moblima_test.model.Movie;
+//import moblima_test.model.Movie;
 
 public class MemberFunctions extends MovieGoerFunctions{
 
