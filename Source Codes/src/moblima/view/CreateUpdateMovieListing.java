@@ -1,14 +1,16 @@
 package moblima.view;
 import java.util.*;
 
-import javax.swing.ToolTipManager;
-
 import moblima.model.master;
 import moblima.model.Movie;
 
 import java.io.*;
-import moblima.model.*;
 
+/**
+ * UI to Create, Update and Remove movie listing
+ * 
+ * @version 1.0
+ */
 public class CreateUpdateMovieListing {
 
     private static master Master;
@@ -180,9 +182,6 @@ public class CreateUpdateMovieListing {
                             
                 movies = Master.getMovies();
                 
-                Movie mov;
-                show s;
-                
                 for(i=0; i< movies.size();i++)
                     System.out.printf("%d) "+movies.get(i).getMovieName()+"\n",i+1);
                 
@@ -256,8 +255,6 @@ public class CreateUpdateMovieListing {
 
             case 3:
                 movies = Master.getMovies();
-                Movie mov_1;
-                show s_1;
                 for(i=0; i< movies.size();i++)
                     System.out.printf("%d) "+movies.get(i).getMovieName()+"\n",i+1);
                 

@@ -3,35 +3,17 @@ package moblima;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
-import moblima.controller.*;
 import moblima.model.*;
 import moblima.view.*;
 
+/**
+ * UI for the Main Application
+ * 
+ * @version 1.0
+ */
 public class MovieApp {
 	public static final String accountFile = "Database/accounts.txt";
-	
-/*	private static int authenticator(String username, String password, String login, boolean valid) {
-		int usertype = -1;
-		
-		try {
-			FileReader frStream = new FileReader(accountFile);
-			BufferedReader brStream = new BufferedReader(frStream);
-			login = brStream.readLine();
-		
-			while(login != null) {
-				String[] var = login.split("[|]");
-				if(username.equals(var[1]) && password.equals(var[2])) {
-					valid = true;
-					usertype = Integer.parseInt(var[3]);
-					break;
-				}
-				login = brStream.readLine();
-			}
-			brStream.close();
-		} catch(IOException e) {}
-		return usertype;
-	}
-*/	
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         master m = new master();

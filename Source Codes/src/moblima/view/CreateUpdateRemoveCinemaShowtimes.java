@@ -10,8 +10,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.tools.FileObject;
-
 import moblima.model.AdminChangeStatus;
 import moblima.model.Cineplex;
 import moblima.model.master;
@@ -38,7 +36,6 @@ public class CreateUpdateRemoveCinemaShowtimes {
 	}
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		System.out.println("");
 		Scanner sc = new Scanner(System.in);
 		int selection;

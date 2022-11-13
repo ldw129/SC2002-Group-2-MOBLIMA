@@ -126,6 +126,12 @@ public class show {
 			System.out.println("Error");
 	}
 	
+	/**
+	 * check if seat is assigned
+	 * @param s1
+	 * @param s2
+	 * @return
+	 */
 	public boolean checkSeat(int s1,int s2) {
 		return seats[s1][s2].isAssigned();
 	}
@@ -138,19 +144,27 @@ public class show {
 		return dateTime;
 	}
 
+	/**
+	 * set dateTime
+	 * @param dt
+	 */
 	public void setDateTime(String dt)
 	{
 		dateTime = dt;
 	}
 	
 	/**
-	 * get the Cinemaplex ID
-	 * @return Cinemaplex ID
+	 * get the Cineplex ID
+	 * @return Cineplex ID
 	 */
 	public int getCineplexID() {
 		return cineplexID;
 	}
 
+	/**
+	 * set Cineplex ID
+	 * @param id
+	 */
 	public void setCineplexID(int id)
 	{
 		cineplexID = id;
@@ -164,6 +178,10 @@ public class show {
 		return screenNum;
 	}
 
+	/**
+	 * set screenNum
+	 * @param screenNumber
+	 */
 	public void setScreenNum(int screenNumber)
 	{
 		screenNum = screenNumber;

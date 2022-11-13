@@ -8,14 +8,11 @@ import moblima.model.master;
 
 /**
  * UI to configure holidays
- * @version 1
+ * 
+ * @version 1.0
  */
 public class ConfigureHoliday {
-    /**
-     * Configure holidays
-     * 
-     * @param args default argument
-     */
+
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         master m = new master();

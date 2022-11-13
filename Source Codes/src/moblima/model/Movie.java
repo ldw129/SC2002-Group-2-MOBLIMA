@@ -257,10 +257,18 @@ public class Movie {
 		}
 	}
 	
+	/**
+	 * get showlist for this Movie
+	 * @return Shows
+	 */
 	public ArrayList<show> getShows(){
 		return Shows;
 	}
 	
+	/**
+	 * set showingstatus for this Movie
+	 * @param st
+	 */
 	public void setShowingStatus(String st) {
 		showingStatus = st;
 	}
@@ -334,6 +342,10 @@ public class Movie {
 		return tSales;
 	}
 
+	/**
+	 * get all empty seats
+	 * @return empty seats
+	 */
 	public String getEmptySeats()
 	{
 		int seats = 80;

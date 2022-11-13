@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
-import moblima.model.Movie;
 import moblima.controller.HolidayConfig;
 
 public class MovieGoerFunctions {

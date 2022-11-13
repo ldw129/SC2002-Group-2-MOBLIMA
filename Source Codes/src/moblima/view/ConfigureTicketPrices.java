@@ -14,11 +14,6 @@ import moblima.model.AdminChangeStatus;
  */
 public class ConfigureTicketPrices {
 
-	/**
-	 * Configure all ticket prices
-	 * 
-	 * @param args default argument
-	 */
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		// TicketPrice TP = new TicketPrice();
