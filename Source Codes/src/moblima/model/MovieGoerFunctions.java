@@ -10,7 +10,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
-import moblima_test.model.MovieGoerFunctions.AgeCat;
+import moblima.model.MovieGoerFunctions.AgeCat;
+import moblima_test.model.Movie;
 import moblima.controller.HolidayConfig;
 
 public class MovieGoerFunctions {
@@ -139,12 +140,17 @@ public class MovieGoerFunctions {
         return;
     }
 
-    public void CheckSeat() {
+    public void CheckSeats(ArrayList<Movie> movies) {
         // Movie_goer can check for empty seats in a cineplex before booking.
         master m = new master();
         m.readCineplexes();
         int cinemaChoice = 0;
         int cineplexChoice = 0;
+        
+        for (Movie movie : movies) {
+        	System.out.println("Hi");
+        	movie.readShowDetails(m);
+        }
 
         System.out.println("--- Seat Availability ---");
 
@@ -309,13 +315,12 @@ public class MovieGoerFunctions {
         return;
     }
 
-    public void BookTickets() throws FileNotFoundException {
+    public void BookTickets(ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
         show show = null;
         HolidayConfig holIO = new HolidayConfig();
         master Master = new master();
-        ArrayList<Movie> moviesAvailableForBooking = new ArrayList<Movie>();
         Movie m;
         Movie_goer_IO mg = new Movie_goer_IO();
         Movie_goer user = new Movie_goer();
@@ -397,7 +402,6 @@ public class MovieGoerFunctions {
         	}
         } while (selection > 4);
         
-        moviesAvailableForBooking = Master.getMovies();
         m = selectMovie(moviesAvailableForBooking, moviesAvailableForBooking.size());        
 
         ArrayList<show> showsOfSelectedMovie = m.getShows();
