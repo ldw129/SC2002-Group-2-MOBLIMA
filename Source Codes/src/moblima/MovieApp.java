@@ -178,6 +178,7 @@ public class MovieApp {
                             "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
                             "6. Quit\n");
                     System.out.print("Enter your choice: ");
+                    choice = sc.nextInt();
                     try {
                         choice = sc.nextInt();
 
