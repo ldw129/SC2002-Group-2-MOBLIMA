@@ -11,7 +11,7 @@ import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
 import moblima.model.MovieGoerFunctions.AgeCat;
-import moblima_test.model.Movie;
+import moblima.model.Movie;
 import moblima.controller.HolidayConfig;
 
 public class MovieGoerFunctions {
