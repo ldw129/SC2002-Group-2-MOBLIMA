@@ -19,7 +19,7 @@ public class MovieTicket {
      */
     private String cinemaClass;
 
-    /**
+    /**s
      * Age of movie-goer
      */
     private int age;
