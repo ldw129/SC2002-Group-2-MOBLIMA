@@ -444,15 +444,13 @@ public class MovieGoerFunctions {
             	}
             	
             	System.out.println("test");
-            	Cineplex cineplex;
-            	Cinema cinema;
-            	cineplex = selectCineplex(cineplexList, cineplexList.size());
+            	Cineplex cineplex = selectCineplex(cineplexList, cineplexList.size());
             	Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
-            	System.out.println(cineplexID);
-            	
-    			cinemaClass = cineplexID.getCinema().get(show.getScreenNum()).getCinemaClass();
+            	ArrayList<Cinema> cinemaList = cineplexID.getCinema();
+            	Cinema cinema = cinemaList.get(show.getScreenNum());
+    			cinemaClass = cinema.getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
-    			// MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
+    			MovieTicket price = new MovieTicket(show.get3D(), cinemaClass, cust_age, );
     			System.out.println(" ");
     			System.out.printf("\nShow %d:\n", i+1);
     			System.out.println("Date & Time: \n" + show.getDateTime());
@@ -460,7 +458,7 @@ public class MovieGoerFunctions {
     			System.out.printf("Cinema ID: %d\n", show.getScreenNum()+1);
     			System.out.printf("Cinema Class: %s\n", cinemaClass);
     			System.out.printf("3D Movie? %s\n", show.get3D());
-    			// System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
+    			System.out.printf("Ticket Price: S$%s (Inclusive of GST)\n", price.getPrice());
     			System.out.println("----------------------------------------------");
             }
             
@@ -483,6 +481,7 @@ public class MovieGoerFunctions {
             
             inputValidation = true;
             
+            
             while (inputValidation) {
         		System.out.println("Confirm booking? Y/N");
                 bookingConfirmation = sc.next();
@@ -499,6 +498,7 @@ public class MovieGoerFunctions {
             			continue;
                 }
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
+                	
                 	BookingInfo b = new BookingInfo(show.getCineplexID());
                 	transaction_id = b.getTID();
                 	ch = firstSeat.charAt(0);
@@ -530,8 +530,6 @@ public class MovieGoerFunctions {
                 }   	
             }
         }
-        
-        
         
         return;
     }
