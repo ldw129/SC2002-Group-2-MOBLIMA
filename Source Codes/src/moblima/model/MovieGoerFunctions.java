@@ -309,7 +309,7 @@ public class MovieGoerFunctions {
                         Collections.sort(movieList, Movie.topratings);
                         System.out.println(
                         "Top 5 rated movies based on overall reviewers' ratings, with first movie having highest rating: ");
-                        for (i = movieList.size() - 1; i >= 0; i--)
+                        for (i = 4; i >= 0; i--)
                             System.out.println(
                                     movieList.get(i).getMovieName() + ": " + movieList.get(i).getTotalRating());
                         break;
@@ -317,7 +317,7 @@ public class MovieGoerFunctions {
                         Collections.sort(movieList, Movie.topticketsales);
                         System.out.println(
                         "Top 5 rated movies based on overall ticket sales, with first movie having highest ticket sales: ");
-                        for (i = movieList.size() - 1; i >= 0; i--)
+                        for (i = 4; i >= 0; i--)
                             System.out.println(movieList.get(i).getMovieName() + ": " + movieList.get(i).getTsales());
                         break;
                 }
@@ -432,7 +432,6 @@ public class MovieGoerFunctions {
             	publicHols = false;
             	show = showsOfSelectedMovie.get(i);
             	showtime = show.getDateTime().split(" ")[0];
-            	System.out.println(showtime);
             	
             	for (int h = 0; h < holidayList.length; h++) {
             		if (holidayList[h].equals(showtime)) {
