@@ -568,6 +568,7 @@ public class MovieGoerFunctions {
     	System.out.println("--- Your Past Bookings ---");
     	
     	for (i = 0; i < bookings.size(); i++) {
+    		System.out.println("---------------------------------------");
     		System.out.println("BOOKING " + (i+1) + ": ");
 			System.out.println("Transaction ID: " + bookings.get(i).getTID());
 			System.out.println("Customer ID: " + cust_id);
@@ -577,6 +578,7 @@ public class MovieGoerFunctions {
 			System.out.println("Date & Time: " + bookings.get(i).getDateTime());
 			System.out.println("Total number of seats booked: " + bookings.get(i).getSeatNum());
 			System.out.println("First seat booked: " + bookings.get(i).getFirstSeat());
+			System.out.println(" ");
     	}
 	}
     
