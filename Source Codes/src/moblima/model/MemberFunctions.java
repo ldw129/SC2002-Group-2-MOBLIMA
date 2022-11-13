@@ -138,7 +138,6 @@ public class MemberFunctions extends MovieGoerFunctions{
     	        			seatAssigned = true;
     	        	}
     	        	
-    	        	System.out.println(seatAssigned);
     	        	if (!seatAssigned) { // seatAssigned = false
     	        		try {    	        			
     	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, cust_age, transaction_id, numSeats, firstSeat);

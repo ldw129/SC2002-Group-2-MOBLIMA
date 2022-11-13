@@ -5,3 +5,5 @@
 10|CCO20221013161|Dong Wan|21|81464126|Crazy Rich Asians|limdongwan201528@gmail.com|13/11/11 9:30|2|A2|
 5|CCO202210131614|Dong Wan|34|23487123|The Godfather|ksdfbs@dfd.com|08/11/19 17:00|1|A2|
 6|CCO202210131615|John|25|23847237|Iron Man|sakcfs@sdfvd.com|26/11/19 18:40|2|B3|
+1|CCO202210132128|kai|17|12345|Titanic|asdf|20/20/20 20:30|1|A1|
+1|CCO202210132129|kai|17|12345|Titanic|asdf|22/20/20 20:30|1|B1|
