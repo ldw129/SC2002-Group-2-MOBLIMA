@@ -81,7 +81,7 @@ public class CineplexIO {
 		StringBuilder st;
 		final String SEPARATOR = ";";
 
-		for (int i = 0; i < al.size(); is++) {
+		for (int i = 0; i < al.size(); i++) {
 			c = (Cineplex) al.get(i);
 			st = new StringBuilder();
 			st.append(c.showLocation().trim());
