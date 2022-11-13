@@ -6,6 +6,10 @@ import java.util.Scanner;
 import moblima.controller.HolidayConfig;
 import moblima.model.master;
 
+/**
+ * UI to configure holidays
+ * @version 1
+ */
 public class ConfigureHoliday {
     /**
      * Configure holidays

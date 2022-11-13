@@ -3,7 +3,8 @@ package moblima.controller;
 import java.io.*;
 
 /**
- * function used to read all the holiday dates and update them
+ * Function used to read all the holiday dates and update them
+ * 
  * @version 1.0
  */
 public class HolidayConfig {

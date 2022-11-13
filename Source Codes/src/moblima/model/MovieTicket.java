@@ -2,6 +2,11 @@ package moblima.model;
 
 import moblima.controller.GetPrice;
 
+/**
+ * Class for MovieTicket and its corresponding attributes
+ * 
+ * @version 1.0
+ */
 public class MovieTicket {
 
     /**
@@ -10,22 +15,22 @@ public class MovieTicket {
     private boolean is3D;
 
     /**
-     * class of cinema
+     * Class of cinema
      */
     private String cinemaClass;
 
     /**
-     * age of movie-goer
+     * Age of movie-goer
      */
     private int age;
 
     /**
-     * date of movie
+     * Date of movie
      */
     private String date;
 
     /**
-     * price of movie ticket
+     * Price of movie ticket
      */
     private double price;
     GetPrice categoryPrice = new GetPrice();

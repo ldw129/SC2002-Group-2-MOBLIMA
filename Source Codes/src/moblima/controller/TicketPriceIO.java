@@ -64,6 +64,10 @@ public class TicketPriceIO {
         return prices;
     }
 
+    /**
+     * Write prices from newPrices into Database/prices.txt
+     * @param newPrices
+     */
     public static void writePrices(ArrayList<Double> newPrices) {
 
         try {
