@@ -37,6 +37,7 @@ public class MovieApp {
         master m = new master();
         m.readMovies();
         ArrayList<Movie> movie_list = m.getMovies();
+        System.out.println(movie_list);
         m.readCineplexes();
         for (Movie mov: movie_list) {
             mov.readShowDetails(m);
