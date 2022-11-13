@@ -213,7 +213,7 @@ public class Movie_goer_IO{
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-   public void assignFinalSeatsbyMovie(Movie mo, int index, String custName, int custID, String emailID, int phoneNumber, String bookingID, int numseats, String firstseat) throws IOException, Exception {
+   public void assignFinalSeatsbyMovie(Movie mo, int index, String custName, int custID, String emailID, int phoneNumber, int custAge, String bookingID, int numseats, String firstseat) throws IOException, Exception {
     	try{
     		readBookingsFile();
     		

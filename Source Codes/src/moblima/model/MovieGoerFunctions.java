@@ -522,7 +522,7 @@ public class MovieGoerFunctions {
     	        	if (!seatAssigned) { // seatAssigned = false
     	        		try {
     	        			System.out.println("Test");
-    	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, transaction_id, numSeats, firstSeat);
+    	        			mg.assignFinalSeatsbyMovie(m, show_index, cust_name, cust_id, cust_email, cust_mobile, cust_age, transaction_id, numSeats, firstSeat);
     	        		} catch (Exception e) {
     	        			e.printStackTrace();
     	        		}
