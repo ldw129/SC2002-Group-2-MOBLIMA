@@ -3,6 +3,7 @@ package moblima;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
+
 import moblima.model.*;
 import moblima.view.*;
 
@@ -13,8 +14,10 @@ import moblima.view.*;
  */
 public class MovieApp {
 	public static final String accountFile = "Database/accounts.txt";
+	
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
         master m = new master();
         m.readMovies();
         ArrayList<Movie> movie_list = m.getMovies();
@@ -41,7 +44,7 @@ public class MovieApp {
                 sc.nextLine();
             }
 
-            // Member login
+            // Cinema staff + Member login
             if (choice == 1) {
                 sc.nextLine();
                 System.out.println("Please enter username and password.");
@@ -69,11 +72,14 @@ public class MovieApp {
         				login = brStream.readLine();
         			}
         			brStream.close();
-        		} catch(IOException e) {}
+        		} catch(IOException e) {
+        			e.printStackTrace();
+        		}
 
-                // placeholder
+                // Valid login
                 if (valid){
                     switch(usertype) {
+                    // Cinema staff user interface
                     case 1:
 	                    do {
 	                    	System.out.println("----------------------------");
@@ -113,9 +119,10 @@ public class MovieApp {
 	                    } while (choice < 5);
 	                    System.out.println("Returning to main screen...");
                         break;
+                    // Member user interface
                     case 2:
                     	choice = 0;
-                        MemberFunctions mainFunctions = new MemberFunctions();
+                        MemberFunctions memberFunctions = new MemberFunctions();
 
                         do {
                         	System.out.println("----------------------------");
@@ -132,19 +139,19 @@ public class MovieApp {
 
                                 switch (choice) {
                                     case 1:
-                                        mainFunctions.ViewMovies(movie_list, movie_list.size());
+                                    	memberFunctions.ViewMovies(movie_list, movie_list.size());
                                         break;
                                     case 2:
-                                        mainFunctions.CheckSeats(movie_list, cineplex_list);
+                                    	memberFunctions.CheckSeats(movie_list, cineplex_list);
                                         break;
                                     case 3:
-                                        mainFunctions.BookTickets(login, movie_list); // under construction
+                                    	memberFunctions.BookTickets(login, movie_list, cineplex_list); // under construction
                                         break;
                                     case 4:
-                                    	mainFunctions.viewBookingHistory(login); // under construction
+                                    	memberFunctions.viewBookingHistory(login); // under construction
                                         break;
                                     case 5:
-                                        mainFunctions.PopularMovies(movie_list);
+                                    	memberFunctions.PopularMovies(movie_list);
                                         break;
                                     case 6:
                                         break;
@@ -160,30 +167,31 @@ public class MovieApp {
                     }
                     break;
                 }
+                // Invalid login
                 else {
                     System.out.println("Wrong username or password entered! Returning to main screen...");
                 }
             }
 
-            // MovieGoer
+            // Movie goer (guest)
             else if (choice == 2) {
-                choice = 0;
+                int menuChoice = 0;
                 MovieGoerFunctions mainFunctions = new MovieGoerFunctions();
 
                 do {
-                    System.out.printf("---------------------\n" +
-                            "Welcome to MovieGoer Module!\n" +
-                            "1. Search / List movies and view movie details\n" +
-                            "2. Check seat availability and selection of seat/s\n" +
-                            "3. Book and purchase tickets\n" +
-                            "4. View your booking history\n" +
-                            "5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings\n" +
-                            "6. Quit\n");
+                	System.out.println("----------------------------");
+                    System.out.println("Welcome to MovieGoer Module!");
+                    System.out.println("1. Search / List movies and view movie details");
+                    System.out.println("2. Check seat availability and selection of seat/s");
+                    System.out.println("3. Book and purchase tickets");
+                    System.out.println("4. View your booking history");
+                    System.out.println("5. List the top 5 movies ranked by ticket sales OR by overall reviewers’ ratings");
+                    System.out.println("6. Quit");
                     System.out.print("Enter your choice: ");
                     try {
-                        choice = sc.nextInt();
+                    	menuChoice = sc.nextInt();
 
-                        switch (choice) {
+                        switch (menuChoice) {
                             case 1:
                                 mainFunctions.ViewMovies(movie_list, movie_list.size());
                                 break;
@@ -208,7 +216,7 @@ public class MovieApp {
                         System.err.println("Invalid input!");
                         sc.nextLine();
                     }
-                } while (choice != 6);
+                } while (menuChoice != 6);
                 System.out.println("Returning to main screen...");
             }
 
@@ -216,4 +224,5 @@ public class MovieApp {
         System.out.println("Thank you for using MOBLIMA!");
         System.exit(0);
     }
+    
 }
