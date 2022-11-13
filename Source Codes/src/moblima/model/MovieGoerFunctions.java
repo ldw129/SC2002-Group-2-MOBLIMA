@@ -563,7 +563,6 @@ public class MovieGoerFunctions {
         }
     	
     	customer = mg.getMovieGoer(cust_id);
-    	
     	bookings = customer.getBooking();
     	
     	System.out.println("--- Your Past Bookings ---");
