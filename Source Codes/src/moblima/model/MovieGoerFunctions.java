@@ -537,7 +537,9 @@ public class MovieGoerFunctions {
                 }   	
             }
         }
-        
+        else
+        	System.out.println("No shows available for this movie! Choose another movie instead.");
+        	
         return;
     }
     
