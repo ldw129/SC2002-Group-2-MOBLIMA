@@ -151,10 +151,10 @@ public class MovieApp {
                                         mainFunctions.ViewMovies(movie_list, movie_list.size());
                                         break;
                                     case 2:
-                                        mainFunctions.CheckSeat();
+                                        mainFunctions.CheckSeats(movie_list);
                                         break;
                                     case 3:
-                                        mainFunctions.BookTickets(login); // under construction
+                                        mainFunctions.BookTickets(login, movie_list); // under construction
                                         break;
                                     case 4:
                                     	mainFunctions.viewBookingHistory(login); // under construction
@@ -203,10 +203,10 @@ public class MovieApp {
                                 mainFunctions.ViewMovies(movie_list, movie_list.size());
                                 break;
                             case 2:
-                                mainFunctions.CheckSeat();
+                                mainFunctions.CheckSeats(movie_list);
                                 break;
                             case 3:
-                                mainFunctions.BookTickets(); // under construction
+                                mainFunctions.BookTickets(movie_list); // under construction
                                 break;
                             case 4:
                             	mainFunctions.viewBookingHistory(); // under construction
