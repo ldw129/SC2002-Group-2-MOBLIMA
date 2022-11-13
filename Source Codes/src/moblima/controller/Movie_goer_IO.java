@@ -65,17 +65,16 @@ public class Movie_goer_IO{
      * @throws Exception
      */
     public void readBookingsFile() throws IOException {
-    	
-    		countPreviousBookings();
-    		
-    		FileReader fr = new FileReader("Database/Customers.txt");
-    		BufferedReader br = new BufferedReader(fr);
-    		
-    		String s;
-    		int i =1;
-    		while(i<=linecounter) {
-    			s=br.readLine();
-    			if(s!=null) {
+		countPreviousBookings();
+		
+		FileReader fr = new FileReader("Database/Customers.txt");
+		BufferedReader br = new BufferedReader(fr);
+		
+		String s;
+		int i =1;
+		while(i<=linecounter) {
+			s=br.readLine();
+			if(s!=null) {
     			String[] var = s.split("[|]");
     			this.custID = Integer.parseInt(var[0]);
         		this.bookingID = var[1];
@@ -89,13 +88,10 @@ public class Movie_goer_IO{
             	this.firstseat = var[9];
             	
             	addMovieGoer();
-            	}
-    			i+=1;
-            	}
-            	
-            	
-    			
-    		}	
+        	}
+			i+=1;
+    	}
+	}	
     
     
     /**
@@ -113,8 +109,8 @@ public class Movie_goer_IO{
      * @throws Exception
      */
     public void writeNewBooking(int custID, String bookingID, String customerName, int phoneNumber, String movieBooked, String emailID, String time, int numseats, String firstseat) throws IOException, Exception {
-	countPreviousBookings();    
-	customerFile = getCustomerFile();
+		countPreviousBookings();    
+		customerFile = getCustomerFile();
     	String temp;
     	try {
 			Scanner sc = new Scanner(System.in);
