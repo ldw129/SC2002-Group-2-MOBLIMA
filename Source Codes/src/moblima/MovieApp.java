@@ -19,7 +19,7 @@ public class MovieApp {
         master m = new master();
         m.readMovies();
         ArrayList<Movie> movie_list = m.getMovies();
-        m.readCineplexes();wsd
+        m.readCineplexes();
         ArrayList<Cineplex> cineplex_list = m.getCineplexes();
         
         for (Movie mov: movie_list) {
