@@ -2,6 +2,7 @@ package moblima;
 
 import moblima.model.Movie;
 import moblima.model.master;
+import moblima.view.ConfigureHoliday;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,5 +19,13 @@ public class test {
         for (Movie mov: movie_list) {
             mov.readShowDetails(m);
         }
+
+        try {
+            ConfigureHoliday.main(args);
+        }
+        catch (Exception e){
+
+        };
+        
     }
 }
