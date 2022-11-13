@@ -191,6 +191,7 @@ public class Movie_goer_IO{
     	b1.setTID(bookingID);
     	b1.setFirstSeat(firstseat);
     	b1.setMovieBooked(movieBooked);
+    	b1.setCustName(customerName);
     	b1.setSeatNum(numseats);
     	b1.setDateTime(dateTime);
     	b1.setEmailAddress(emailID);
@@ -219,33 +220,35 @@ public class Movie_goer_IO{
     		this.bookingID = bookingID;
     		
     		BookingInfo b = new BookingInfo();
+			ArrayList<BookingInfo> bookings = new ArrayList<>();
+			Movie_goer m = new Movie_goer();
     		
     		int length = customers.size();
-    		int flag=1;
-    		int i;
-    		for(i=0; i<length; i++) {
+    		int flag = 1;
+    		int i, numOfBookings;
+    		
+    		for(i = 0; i < length; i++) {
     			int c = customers.get(i).getCustomerID();
-    			if(c==custID) {flag = 0; break;}
+    			
+    			if(c == custID) {
+    				flag = 0; 
+    				break;
+    			}
     		}
     		
-    		if(flag==1){
-    			Movie_goer m = new Movie_goer();
+    		if(flag == 1) {
     			m.setName(custName);
     			m.setCustomerID(custID);
     			
-    			
     			b = createBooking();
             	m.setBooking(b);
-    			}
+    		}
     		else {
-    			Movie_goer m = new Movie_goer();
     			m = customers.get(i);
     			addBooking(i);
-    			ArrayList<BookingInfo> bookings = new ArrayList<>();
     			bookings = m.getBooking();
-    			int numofbookings = bookings.size();
-    			
-    			m.setBooking(bookings.get(numofbookings-1));
+    			numOfBookings = bookings.size();
+    			m.setBooking(bookings.get(numOfBookings-1));
     		}
     	
     	ArrayList<show> shows = new ArrayList<>();
@@ -258,12 +261,12 @@ public class Movie_goer_IO{
     	
     	show s = shows.get(index);
     
-    	    	for(int j=1; j<=numseats; j++) {
-    		s.assignSeat(row-1, j+firstseatnum-2);
-    	}   
+	    	for(int j=1; j<=numseats; j++) {
+	    		s.assignSeat(row-1, j+firstseatnum-2);
+	    	}   
     	String time = s.getDateTime(); 	
     	writeNewBooking(custID, bookingID, custName, phoneNumber, custAge, movieBooked, emailID, time, numseats, firstseat); 	
-    	}finally{customers.clear();}
+    	} finally{customers.clear();}
     	    	//write new booking after assigning seats
     }
 
@@ -283,16 +286,19 @@ public class Movie_goer_IO{
 	 * @throws Exception
 	 */
 	public Movie_goer getMovieGoer(int custID) throws IOException {
-		try{
-		readBookingsFile();
-		int length = customers.size();
-		int i;
-		for(i=0; i<length; i++) {
-			int c = customers.get(i).getCustomerID();
-			if(c==custID) break;
+		try {
+			readBookingsFile();
+			int length = customers.size();
+			int i;
+			
+			for(i=0; i<length; i++) {
+				int c = customers.get(i).getCustomerID();
+				if(c==custID) break;
+			}
+			return customers.get(i);
+		} finally {
+			customers.clear();
 		}
-		
-		return customers.get(i);}finally {customers.clear();}
 		
 		
 	}
