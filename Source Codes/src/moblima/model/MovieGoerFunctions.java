@@ -507,10 +507,11 @@ public class MovieGoerFunctions {
                 	System.out.println(ch);
     	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
     	    		System.out.println(firstSeatNum);
-    	        	row = ch - 'a';
+    	        	row = ch - 'A';
     	        	System.out.println(row);
     	        	seatAssigned = false;
     	        	System.out.println(numSeats);
+    	        	
     	        	for (int i = 0; i < numSeats;i++) {
     	        		System.out.println(show.checkSeat(row, firstSeatNum+i));
     	        		if (show.checkSeat(row, firstSeatNum + i)) // seat has already been assigned
