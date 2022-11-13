@@ -159,7 +159,7 @@ public class MovieGoerFunctions {
      * Movie goers can check the availability of seats in a cinema theatre at a particular cineplex for a chosen movie.
      * @param movies
      */
-    public void CheckSeats(ArrayList<Movie> movies) {
+    public void CheckSeats(ArrayList<Movie> movies, ArrayList<Cineplex> Cineplexes) {
         // Movie_goer can check for empty seats in a cineplex before booking.
         master m = new master();
         m.readCineplexes();
@@ -171,10 +171,7 @@ public class MovieGoerFunctions {
 
         System.out.println("--- Seat Availability ---");
 
-        ArrayList<Cineplex> Cineplexes = new ArrayList<Cineplex>();
-        Cineplexes = m.getCineplexes();
-
-        cineplexChoice = selectCineplex(Cineplexes, Cineplexes.size());
+        cineplexChoice = selectCineplexChoice(Cineplexes, Cineplexes.size());
         
         try {
         	System.out.println("Select theatre - 1, 2 or 3:");
@@ -237,7 +234,33 @@ public class MovieGoerFunctions {
 	 * @param numOfCineplexes
 	 * @return
 	 */
-    public int selectCineplex(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
+    public Cineplex selectCineplex(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
+        int i;
+        int cineplexChoice = 0;
+        Cineplex cineplex;
+
+        do {
+            System.out.println("Select Cineplex: ");
+            System.out.println("--- Cineplex Listing ---");
+            for (i = 0; i < numOfCineplexes; i++)
+                System.out.printf(i + 1 + ". " + Cineplexes.get(i).showLocation() + "\n");
+
+            try {
+                cineplexChoice = sc.nextInt();
+            } catch (Exception e) {
+                System.err.println("Invalid input!");
+                sc.nextLine();
+            }
+
+            cineplex = Cineplexes.get(cineplexChoice - 1);
+
+        } while (cineplexChoice > numOfCineplexes);
+        
+        System.out.println(cineplex.showLocation());
+        return cineplex;
+    }
+    
+    public int selectCineplexChoice(ArrayList<Cineplex> Cineplexes, int numOfCineplexes) {
         int i;
         int cineplexChoice = 0;
         Cineplex cineplex;
@@ -313,7 +336,7 @@ public class MovieGoerFunctions {
      * @param moviesAvailableForBooking
      * @throws FileNotFoundException
      */
-    public void BookTickets(ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
+    public void BookTickets(ArrayList<Movie> moviesAvailableForBooking, ArrayList<Cineplex> cineplexList) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
         show show = null;
@@ -420,7 +443,14 @@ public class MovieGoerFunctions {
             		}
             	}
             	
-    			cinemaClass = Master.getCineplexes().get(show.getCineplexID()).getCinema().get(show.getScreenNum()).getCinemaClass();
+            	System.out.println("test");
+            	Cineplex cineplex;
+            	Cinema cinema;
+            	cineplex = selectCineplex(cineplexList, cineplexList.size());
+            	Cineplex cineplexID = cineplexList.get(cineplex.getCineplexID());
+            	System.out.println(cineplexID);
+            	
+    			cinemaClass = cineplexID.getCinema().get(show.getScreenNum()).getCinemaClass();
     			// MovieTicket price = new MovieTicket(show.get3D(), movieDetails, ageCat, publicHols);
     			// MovieTicket price = new MovieTicket(String typeofmovie, String cinemaclass, int age, int date);
     			System.out.println(" ");
