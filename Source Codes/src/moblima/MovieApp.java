@@ -13,7 +13,6 @@ import moblima.view.*;
  */
 public class MovieApp {
 	public static final String accountFile = "Database/accounts.txt";
-sdf
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         master m = new master();
@@ -159,6 +158,7 @@ sdf
                         } while (choice != 6);
                         System.out.println("Returning to main screen...");
                     }
+                    break;
                 }
                 else {
                     System.out.println("Wrong username or password entered! Returning to main screen...");
