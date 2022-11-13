@@ -495,7 +495,8 @@ public class MovieGoerFunctions {
                 	}
                 }
                 else if (bookingConfirmation.equals("y" ) || bookingConfirmation.equals("Y" )) {
-                	BookingInfo b = new BookingInfo(show.getCineplexID());
+                	System.out.println(show.getCineplexID()+1);
+                	BookingInfo b = new BookingInfo(show.getCineplexID()+1);
                 	transaction_id = b.getTID();
                 	ch = firstSeat.charAt(0);
     	    		firstSeatNum = Character.getNumericValue(firstSeat.charAt(1))-1;
@@ -517,7 +518,7 @@ public class MovieGoerFunctions {
     	        			System.out.println(cust_email);
     	        			System.out.println(cust_mobile);
     	        			System.out.println(cust_age);
-    	        			System.out.println(cust_age);
+    	        			System.out.println(transaction_id);
     	        			System.out.println(numSeats);
     	        			System.out.println(firstSeat);
     	        			
