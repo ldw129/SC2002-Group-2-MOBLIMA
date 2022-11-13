@@ -43,10 +43,13 @@ public class Movie_goer extends Person {
 	
 	Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Default Constructor
+	 */
 	public Movie_goer() {};
 	
 	/**
-	 * constructor for movie goer
+	 * Constructor for movie goer
 	 * @param cust_name
 	 * @param cust_mobile
 	 * @param cust_email
@@ -76,7 +79,7 @@ public class Movie_goer extends Person {
 	}*/
 	/**
 	 * return the bookings
-	 * @return
+	 * @return bookings
 	 */
 	public ArrayList<BookingInfo> getBooking() {
 		return this.bookings;
@@ -91,7 +94,7 @@ public class Movie_goer extends Person {
 	}
 	/**
 	 * return customer id
-	 * @return
+	 * @return custID
 	 */
 	public int getCustomerID() {
 		return this.custID;
@@ -105,7 +108,7 @@ public class Movie_goer extends Person {
 	}
 	/**
 	 * retrun customer age
-	 * @return
+	 * @return age
 	 */
 	public int getAge() {
 		return this.age;
@@ -119,7 +122,7 @@ public class Movie_goer extends Person {
 	}
 	/**
 	 * retrun customer name
-	 * @return
+	 * @return name
 	 */
 	public String getName() {
 		return this.name;
@@ -133,7 +136,7 @@ public class Movie_goer extends Person {
 	}
 	/**
 	 * get mobile number
-	 * @return
+	 * @return mobile
 	 */
 	public int getMobile() {
 		return this.mobile;
@@ -147,7 +150,7 @@ public class Movie_goer extends Person {
 	}
 	/**
 	 * get email address
-	 * @return
+	 * @return email
 	 */
 	public String getEmailAddress() {
 		return this.email;

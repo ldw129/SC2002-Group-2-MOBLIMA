@@ -1,8 +1,9 @@
 package moblima.model;
 
 import java.util.ArrayList;
+
 /**
- * represents the cinema
+ * Class to represents the cinema and its attributes
  */
 public class Cinema {
 	/**
@@ -27,12 +28,18 @@ public class Cinema {
 	private CinemaSeat[][] seats = new CinemaSeat[9][9];
 
 	/**
-	 * cinema constructor
+	 * Default cinema constructor
 	 */
 	public Cinema() {
 
 	}
 
+	/**
+	 * Cinema constructor
+	 * @param name
+	 * @param cinema_class
+	 * @param ID
+	 */
 	public Cinema(String name, String cinema_class, int ID) {
 		this.cinema_name = name;
 		this.cinema_class = cinema_class;
@@ -48,20 +55,20 @@ public class Cinema {
 	}
 	/**
 	 * get the shows from showlist
-	 * @return
+	 * @return showlist
 	 */
 	public ArrayList<show> getCinemaShows() {
 		return showlist;
 	}
 	/**
 	 * return cinema name
-	 * @return
+	 * @return cinema_name
 	 */
 	public String getCinemaName() {
 		return cinema_name;
 	}
 	/**
-	 * set cinema nae
+	 * set cinema name
 	 * @param cinema_name
 	 */
 	public void setCinemaName(String cinema_name) {
@@ -69,7 +76,7 @@ public class Cinema {
 	}
 	/**
 	 * get cinemaID
-	 * @return
+	 * @return cinemaID
 	 */
 	public int getCinemaID() {
 		return cinemaID;
@@ -83,7 +90,7 @@ public class Cinema {
 	}
 	/**
 	 * get cinema_class
-	 * @return
+	 * @return cinema_class
 	 */
 	public String getCinemaClass() {
 		return cinema_class;

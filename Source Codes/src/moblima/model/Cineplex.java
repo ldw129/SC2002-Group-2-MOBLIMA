@@ -1,8 +1,9 @@
 package moblima.model;
 
 import java.util.ArrayList;
+
 /**
- * represents the cineplex
+ * Class to represent the cineplex and its attributes
  */
 public class Cineplex {
 	/**
@@ -30,21 +31,21 @@ public class Cineplex {
 	}
 	/**
 	 * return location
-	 * @return
+	 * @return location
 	 */
 	public String showLocation() {
 		return location;
 	}
 	/**
 	 * get the cinemas in cineplex
-	 * @return
+	 * @return cinema
 	 */
 	public ArrayList<Cinema> getCinema() {
 		return cinema;
 	}
 	/**
 	 * get cineplexID
-	 * @return
+	 * @return cineplexID
 	 */
 	public int getCineplexId() {
 		return cineplexID;

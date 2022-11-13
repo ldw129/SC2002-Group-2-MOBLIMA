@@ -8,11 +8,17 @@ import moblima.controller.HolidayConfig;
 import moblima.controller.Movie_goer_IO;
 import moblima.model.Movie;
 
+/**
+ * Inherited class from MovieGoerFunctions to cater to logged-in members
+ */
 public class MemberFunctions extends MovieGoerFunctions{
 	
-    /**
-    * Replaces function in MovieGoerFunctions for logged-in members
-    */
+	/**
+	 * Replaces BookTickets function in MovieGoerFunctions for logged-in members
+	 * @param login
+	 * @param moviesAvailableForBooking
+	 * @throws FileNotFoundException
+	 */
     public void BookTickets(String login, ArrayList<Movie> moviesAvailableForBooking) throws FileNotFoundException {
         // Movie_goer can book and purchase movie ticket(s) for a particular chosen
         // movie.
