@@ -212,16 +212,19 @@ public class MovieGoerFunctions {
             System.out.println("--- Movie Listing ---");
             for (i = 0; i < numOfMovies; i++)
                 System.out.printf(i + 1 + ". " + movies.get(i).getMovieName() + "\n");
+            
+            movie_index = sc.nextInt();
 
-            try {
+            /*try {
                 movie_index = sc.nextInt();
 
             } catch (Exception e) {
                 System.err.println("Invalid input!");
                 sc.nextLine();
-            }
+            }*/
 
             if (movie_index > 0 && movie_index <= numOfMovies) {
+            	System.out.println("test");
                 movie = movies.get(movie_index - 1);
                 break;
             }
