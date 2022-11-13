@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import moblima.controller.Movie_goer_IO;
+import moblima_test.model.MovieGoerFunctions.AgeCat;
 import moblima.controller.HolidayConfig;
 
 public class MovieGoerFunctions {
@@ -374,19 +375,19 @@ public class MovieGoerFunctions {
         			case 2:
         				System.out.println("Enter your age: ");
         		        cust_age = sc.nextInt();
-        				validateAge(cust_age);
+        				validateAge(cust_age, selection);
         				ageCat = "Adult";
         				break;
         			case 3:
         				System.out.println("Enter your age: ");
         		        cust_age = sc.nextInt();
-        				validateAge(cust_age);
+        				validateAge(cust_age, selection);
         				ageCat = "Student";
         				break;
         			case 4:
         				System.out.println("Enter your age: ");
         		        cust_age = sc.nextInt();
-        				validateAge(cust_age);
+        				validateAge(cust_age, selection);
         				ageCat = "Child";
         				break;
         		}
@@ -531,23 +532,17 @@ public class MovieGoerFunctions {
     	}
 	}
     
-    public void validateAge(int ageVal) {
+    public void validateAge(int ageVal, int ageCat) {
 		// Movie_goer needs to validate their age when purchasing tickets online, except if he / she is a senior citizen then
 		// he / she will only validate his / her age upon entering the cinema.
 		boolean validAge = false;
     	
-    	if (ageVal < 13) {
-    		validAge = AgeCat.CHILD.getRange().anyMatch(i -> i == ageVal); 
-    		System.out.println(validAge);
-    	}
-    	else if (ageVal < 19 & ageVal > 12) {
-    		validAge = AgeCat.STUDENT.getRange().anyMatch(i -> i == ageVal); 
-    		System.out.println(validAge);
-    	}
-    	else if (ageVal < 54 & ageVal > 18) {
-    		validAge = AgeCat.ADULT.getRange().anyMatch(i -> i == ageVal); 
-    		System.out.println(validAge);
-    	}
+		if (ageVal < 54 & ageVal > 18 & ageCat == 2)
+    		validAge = AgeCat.ADULT.getRange().anyMatch(i -> i == ageVal);
+    	else if (ageVal < 19 & ageVal > 12 & ageCat == 3)
+    		validAge = AgeCat.STUDENT.getRange().anyMatch(i -> i == ageVal);
+    	else if (ageVal < 13 & ageCat == 4)
+    		validAge = AgeCat.CHILD.getRange().anyMatch(i -> i == ageVal);
     	
     	if (validAge == true)
 			System.out.println("You are eligible to purchase tickets of this age category!");
