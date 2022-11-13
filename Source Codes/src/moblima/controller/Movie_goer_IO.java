@@ -256,7 +256,7 @@ public class Movie_goer_IO{
     	shows = mo.getShows();
     	
     	char ch = firstseat.charAt(0);
-		int row = ch - 'a' + 1;
+		int row = ch - 'A' + 1;
 		int firstseatnum = Character.getNumericValue(firstseat.charAt(1));
     	
     	show s = shows.get(index);
