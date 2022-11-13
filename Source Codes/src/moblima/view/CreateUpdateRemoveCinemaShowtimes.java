@@ -55,7 +55,6 @@ public class CreateUpdateRemoveCinemaShowtimes {
 
 			switch (selection) {
 				case 1:
-					//error
 					ArrayList<Movie> movies = new ArrayList<Movie>();
 					int i;
 					String movieName;
@@ -87,10 +86,15 @@ public class CreateUpdateRemoveCinemaShowtimes {
 
 					System.out.print("Is the Movie 3D? (true/false): ");
 					boolean threed = sc.nextBoolean();
-
+					
 					System.out.print("Enter the Date Time (e.g. 13/12/11 12:30):  ");
 					sc.nextLine();
 					String s_1 = sc.nextLine();
+					while(s_1.length() != 14)
+					{
+						System.out.println("Invalid input, please try again! ");
+						s_1 = sc.nextLine();
+					}
 
 					System.out.println("");
 
@@ -258,8 +262,13 @@ public class CreateUpdateRemoveCinemaShowtimes {
 							switch (updateSelection) {
 								case 1:
 									Scanner scanDT = new Scanner(System.in);
-									System.out.println("Enter updated show date and time: ");
+									System.out.println("Enter updated show date and time: (e.g. 13/12/11 12:30");
 									String newDT = scanDT.nextLine();
+									while(newDT.length() != 14)
+									{
+										System.out.println("Invalid input, please try again! ");
+										newDT = scanDT.nextLine();
+									}
 									ss.setDateTime(newDT);
 									fileContents = fileContents.replaceAll(currentDT, newDT);
 									break;
