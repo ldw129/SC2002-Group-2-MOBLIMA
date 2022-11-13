@@ -337,8 +337,6 @@ public class MovieGoerFunctions {
      * @throws FileNotFoundException
      */
     public void BookTickets(ArrayList<Movie> moviesAvailableForBooking, ArrayList<Cineplex> cineplexList) throws FileNotFoundException {
-        // Movie_goer can book and purchase movie ticket(s) for a particular chosen
-        // movie.
         show show = null;
         HolidayConfig holIO = new HolidayConfig();
         master Master = new master();
