@@ -48,6 +48,7 @@ public class MovieTicket {
         this.cinemaClass = cinemaClass;
         this.age = age;
         this.date = date.substring(0, 4);
+        System.out.printf("Passed in: %s\nConverted to:", date, this.date); //REMOVE WHEN DONE
         this.price = calculatePrice();
     }
 
