@@ -72,6 +72,7 @@ public class ConfigureHoliday {
                     }
                     newholiday_list[holiday_list.length] = holiday;
                     holiday_list = newholiday_list;
+                    System.out.println("Holiday added sucessfully");
                     break;
                 case 3:
                     for (int i = 0; i < holiday_list.length; i++) {
