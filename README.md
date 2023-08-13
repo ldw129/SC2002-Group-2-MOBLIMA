@@ -22,7 +22,7 @@ Before running the Java application, you will need to have the following install
 ### Start Application
 <div align="justify">
     
-To launch the Java application, simply run **MovieApp.java** in "Source Codes > src/moblima".
+To launch the Java application, simply run **MovieApp.java** <a href="/Source Codes/src/moblima">here</a>.
 
 ## File Structure
 ```
@@ -45,10 +45,6 @@ To launch the Java application, simply run **MovieApp.java** in "Source Codes > 
 └── UMLDiagram.jpg              # Final UML diagram submission
 ```
 
-## Tech Used  
-  <p>
-    
-  </p>
 
 ## Final Report   
 <a href="/SS7-grp2.pdf">(Link)</a>
