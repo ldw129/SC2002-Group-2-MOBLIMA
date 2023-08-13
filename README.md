@@ -45,15 +45,8 @@ To launch the Java application, simply run **MovieApp.java** <a href="/Source Co
 └── UMLDiagram.jpg              # Final UML diagram submission
 ```
 
-
 ## Final Report   
-<a href="/SS7-grp2.pdf">(Link)</a>
+You may view our final report <a href="/SS7-grp2.pdf">here</a>.
 
 ## UML Diagram   
-<a href="/UMLDiagrams">(Link)</a>
-
-
-## Contributors
-- __Lim Boon Hian__ - Data Exploration, Data Cleaning, Data Visualization
-- __Lim Dong Wan__ - Linear Regression, Data Splitting
-- __Marvell Ung Wew__ - Poisson Regression, Grid Search Cross Validation 
+You may view our UML diagram <a href="/UMLDiagrams">here</a>.
