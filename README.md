@@ -24,6 +24,7 @@ Before running the Java application, you will need to have the following install
     
 To launch the Java application, simply run **MovieApp.java** <a href="/Source Codes/src/moblima">here</a>.
 <p></p>
+
 For access to admin / member accounts, refer to **accounts.txt** <a href="/Database">here</a> for the account credentials.
 
 ## File Structure
