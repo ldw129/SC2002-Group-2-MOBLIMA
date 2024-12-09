@@ -3,7 +3,7 @@
 ## About
 <div align="justify">
     
-This is a Group Project for the course **SC2002 (Object-Oriented Design & Programming)**. 
+This is a Group Project for the course **SC2002 Object-Oriented Design & Programming** conducted by Nanyang Technological University's College of Computing and Data Science. 
 <p></p>
     
 Introducing **MOBLIMA**, a Movie Booking and Listing Management **console-based** application meant for movie-goers to make online booking and purchase of movie tickets, as well as for cinema staff to perform sales reporting and listing movies.
